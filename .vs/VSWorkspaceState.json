@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Auth",
+    "\\src\\EventSetup",
+    "\\src\\fonts",
+    "\\src\\MatchDataImport",
+    "\\src\\MatchStrategy",
+    "\\src\\Picklist",
+    "\\src\\TeamParser",
+    "\\src\\Utils"
+  ],
+  "SelectedNode": "\\src\\Picklist\\Picklist.tsx",
+  "PreviewInSolutionExplorer": false
+}
