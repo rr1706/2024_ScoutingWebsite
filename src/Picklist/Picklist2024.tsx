@@ -10,28 +10,31 @@ import { dynamicSort } from "../Utils/HelperFunctions";
 import RRModal from "../Utils/RRModal";
 import { PicklistOrderDTO } from "./Picklist.model";
 import ExportButton from "../Utils/ExportButton";
-import { matchDataDTO_2024, TeamAveragesDTO_2024 } from "../Utils/Utils.models";
+import { TeamAveragesDTO_2024 } from "../Utils/Utils.models";
 import TeamRowPicklist2024 from "./TeamRowPicklist2024";
 import TeamDetails from "../Utils/TeamDetails";
+import { useBeforeunload } from 'react-beforeunload';
+import ConfirmationDialog from "../Utils/ConfirmationDialog";
 
 
 export default function Picklist2024() {    
     const editMode = 'Edit';
     const allianceSelectionMode = 'AllianceSelection'
 
-
     const [teamAverages, setTeamAverages] = useState<TeamAveragesDTO_2024[]>([]);
     const [order, setOrder] = useState<PicklistOrderDTO[]>([]);
     const [mode, setMode] = useState<string>(editMode);
     const [teamNumber, setTeamNumber] = useState<number>();
-
     const [showModal, setShowModal] = useState<boolean>(false);
-
+    const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
     const [draggedElement, setDraggedElement] = useState<TeamAveragesDTO_2024 | undefined>(undefined);
+    const [sortDescending, setSortDescending] = useState<boolean>(true);
 
     const { danger, success } = useAlert();
 
     const { eventCode } = useContext(eventContext);
+
+    useBeforeunload((event) => event.preventDefault());
 
     useEffect(() => {
         loadData();
@@ -68,7 +71,12 @@ export default function Picklist2024() {
         setTeamAverages(averages);
     }
 
-
+    function sortColumn(columnName: string) {
+        let newAverages = [...teamAverages]
+        newAverages.sort(dynamicSort(columnName, sortDescending));
+        setSortDescending(!sortDescending);
+        setTeamAverages(newAverages);
+    }
 
     function handleDragStart(item: TeamAveragesDTO_2024) {
         setDraggedElement(item);
@@ -95,7 +103,8 @@ export default function Picklist2024() {
         setTeamAverages(newArray);
     }
 
-   async function saveOrder() {
+    async function saveOrder() {
+        setShowConfirmation(false);
         let newOrder: PicklistOrderDTO[] = [];
         teamAverages.forEach((team) => {
             let newTeam: PicklistOrderDTO = {
@@ -108,7 +117,7 @@ export default function Picklist2024() {
         });
         await axios.post(`${urlPicklist}/save`, newOrder).then(() => {
             loadData();
-            success("Successfully saved rankings")
+            success("Successfully saved picklist")
         })
    }
 
@@ -128,7 +137,7 @@ export default function Picklist2024() {
                                         : <Button className="btn btn-primary btn-block mt-3 " onClick={() => setMode(editMode)} > Change to Edit Mode</Button>}
                 </Col>
                 <Col className="text-center align-middle">
-                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => saveOrder()} > Save Picklist</Button>
+                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => setShowConfirmation(true)} > Save Picklist</Button>
                 </Col>
                 <Col className="text-center align-middle">
                     <ExportButton className="btn btn-primary btn-block mt-3 " data={teamAverages} workbookName={"Picklist" }  > Export Picklist</ExportButton>
@@ -140,13 +149,13 @@ export default function Picklist2024() {
                         {mode === 'AllianceSelection' ? <td></td> : <></> }
                         <td></td>
                         <td className="text-center align-middle" ><b>Team</b></td>
-                        <td className="text-center align-middle" ><b>Auto Total</b></td>
-                        <td className="text-center align-middle" ><b>Tele Amp</b></td>
-                        <td className="text-center align-middle" ><b>Tele Speaker</b></td>
-                        <td className="text-center align-middle" ><b>Total Tele</b></td>
-                        <td className="text-center align-middle" ><b>Total</b></td>
-                        <td className="text-center align-middle" ><b>Trap</b></td>
-                        <td className="text-center align-middle" ><b>Climb</b></td>
+                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
+                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleAmpAvg")} > <b>Tele Amp</b></Button></td>
+                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleSpeakerAvg")} > <b>Tele Speaker</b></Button></td>
+                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleTotalAvg")} > <b>Total Tele</b></Button></td>
+                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("totalAvg")} > <b>Total</b></Button></td>
+                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleTrapAvg")} > <b>Trap</b></Button></td>
+                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("climbSuccessRate")} > <b>Climb</b></Button></td>
                         {mode==='Edit'? <td></td> : <></> }
                     </tr>
                 </thead>
@@ -166,7 +175,16 @@ export default function Picklist2024() {
                 showModal={showModal}
                 onHide={() => { setShowModal(false) }}
             />
-
+            <ConfirmationDialog
+                title={"Confirm Save"}
+                body={"This will replace current picklist."}
+                showModal={showConfirmation}
+                onHide={() => { setShowConfirmation(false) }}
+                confirmText="Confirm"
+                confirmOnClick={saveOrder}
+                cancelText="Cancel"
+                cancelOnClick={() => { setShowConfirmation(false) } }
+            />
         </div>
     )
 }

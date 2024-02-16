@@ -63,7 +63,7 @@ export default function TeamDetails(props: detailsProps) {
                     case MATCHBYMATCH:
                         return <TeamMatchByMatchTable2024 matchData={matchByMatch} /> 
                     case PICTURE:
-                        return <div className="text-center"><img className="img-fluid" src={robotPicture}  alt="" /></div>
+                        return <div className="text-center"><img className="img-fluid" src={robotPicture} style={{ maxHeight: '400px' }} alt="" /></div>
                     default:
                         return null
                 }
