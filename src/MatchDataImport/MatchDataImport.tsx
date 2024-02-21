@@ -47,6 +47,7 @@ export default function MatchDataImport() {
             }
         }
         catch (error: any) {
+            console.log(error)
             danger(error.response.data)
         }
     }

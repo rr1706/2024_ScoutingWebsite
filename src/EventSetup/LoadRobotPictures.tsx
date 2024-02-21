@@ -20,7 +20,7 @@ export default function LoadRobotPictures() {
     async function upLoadPictures() {
         try {
             if (selectedFiles) {
-                for (var file of selectedFiles){
+                for (var file of selectedFiles) {
                     const formData = new FormData();
                     formData.append('photo', file);
 
@@ -32,8 +32,21 @@ export default function LoadRobotPictures() {
                     });
                 }
                 success("Successfully Uploaded Picture(s)")
+            } else {
+                danger("Please select file(s)")
             }
         }
+        catch (error: any) {
+            danger(error.response.data)
+        }
+    }
+    async function deletePictures() {
+        try {
+            axios.delete(`${urlRobotPictures}/${eventCode}`)
+                .then(response => {
+                    success("Successfully Deleted Picture(s)")
+                })
+            }
         catch (error: any) {
             danger(error.response.data)
         }
@@ -53,5 +66,6 @@ export default function LoadRobotPictures() {
                 </Col>
             </Row>
         <Row><Button className="btn btn-primary btn-block" onClick={upLoadPictures} >Load Pictures</Button></Row>
+        <Row><Button className="btn btn-danger btn-block mt-3" onClick={deletePictures} >Delete Pictures</Button></Row>
     </>)
 }

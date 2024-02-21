@@ -149,13 +149,13 @@ export default function Picklist2024() {
                         {mode === 'AllianceSelection' ? <td></td> : <></> }
                         <td></td>
                         <td className="text-center align-middle" ><b>Team</b></td>
-                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
-                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleAmpAvg")} > <b>Tele Amp</b></Button></td>
-                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleSpeakerAvg")} > <b>Tele Speaker</b></Button></td>
-                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleTotalAvg")} > <b>Total Tele</b></Button></td>
-                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("totalAvg")} > <b>Total</b></Button></td>
-                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("teleTrapAvg")} > <b>Trap</b></Button></td>
-                        <td className="text-center align-middle" ><Button className="btn btn-light" onClick={() => sortColumn("climbSuccessRate")} > <b>Climb</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode}  className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleAmpAvg")} > <b>Tele Amp</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleSpeakerAvg")} > <b>Tele Speaker</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleTotalAvg")} > <b>Total Tele</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalAvg")} > <b>Total</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleTrapAvg")} > <b>Trap</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("climbSuccessRate")} > <b>Climb</b></Button></td>
                         {mode==='Edit'? <td></td> : <></> }
                     </tr>
                 </thead>
