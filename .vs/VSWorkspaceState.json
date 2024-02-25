@@ -11,6 +11,6 @@
     "\\src\\TeamParser",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\.env.production",
+  "SelectedNode": "\\src\\Routing.tsx",
   "PreviewInSolutionExplorer": false
 }

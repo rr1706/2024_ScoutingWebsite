@@ -7,6 +7,7 @@ import LandingPage from './LandingPage';
 import MatchDataImport from './MatchDataImport/MatchDataImport';
 import MatchStrategy2024 from './MatchStrategy/MatchStrategy2024';
 import Picklist2024 from './Picklist/Picklist2024';
+import TBA from './TBA/TBA';
 import TeamParser2024 from './TeamParser/TeamParser2024';
 
 
@@ -21,7 +22,9 @@ export default function routing() {
             <Route path="/eventsetup" element={<Authorized authorized={< EventSetup />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/matchdataimport" element={<Authorized authorized={< MatchDataImport />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/login" element={<Login />} />
-            <Route path="/registerr" element={< Register /> } />
+            <Route path="/registerr" element={< Register />} />
+
+            <Route path="/tba" element={< TBA />} />
 
 
 
