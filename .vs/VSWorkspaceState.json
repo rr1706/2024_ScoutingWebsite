@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Auth",
     "\\src\\EventSetup",
     "\\src\\fonts",
     "\\src\\MatchDataImport",
     "\\src\\MatchStrategy",
     "\\src\\Picklist",
+    "\\src\\TBA",
     "\\src\\TeamParser",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\Routing.tsx",
+  "SelectedNode": "\\src\\MatchDataImport\\MatchDataImport.tsx",
   "PreviewInSolutionExplorer": false
 }

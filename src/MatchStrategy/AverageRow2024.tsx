@@ -22,6 +22,7 @@ export default function AverageRow2024(props: allianceTotalProps) {
                 teleTotalAvg: props.robot1!.teleTotalAvg! + props.robot2!.teleTotalAvg! + props.robot3!.teleTotalAvg!,
                 climbSuccessRate: (props.robot1.climbSuccessRate! + props.robot2.climbSuccessRate! + props.robot3.climbSuccessRate!) / 100,
                 totalPoints: props.robot1!.totalPoints! + props.robot2!.totalPoints! + props.robot3!.totalPoints!,
+                feedAvg: props.robot1.feedAvg! + props.robot2!.feedAvg! + props.robot3!.feedAvg!
             }
             setAllianceAverages(totals);
         }

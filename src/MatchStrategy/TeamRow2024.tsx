@@ -20,8 +20,17 @@ export default function TeamRow2024(props: teamRowProps) {
                 :
                 <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamNumber} </td>
             }
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.autoAmpAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.autoSpeakerAvg?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
+                {props.teamAverages?.closeAutoNum! > 0 ?
+                    <Row>
+                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.closeAutoAvg?.toFixed(1)}</Col>
+                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.closeAutoNum!).toFixed(0)})</Col>
+                    </Row>
+                    :
+                    <Row></Row>}
+
+            </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.teleAmpAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.teleSpeakerAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.teleTrapAvg?.toFixed(1)} </td>

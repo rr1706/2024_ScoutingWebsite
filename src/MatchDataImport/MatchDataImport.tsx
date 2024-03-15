@@ -32,6 +32,7 @@ export default function MatchDataImport() {
                     return match;
                 });
 
+                console.log(newMatches);
                 await axios.post(`${urlMatchData2024}/savedata`, newMatches).then(() => {
                     axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
                         params: {

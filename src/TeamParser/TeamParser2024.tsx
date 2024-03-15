@@ -51,12 +51,6 @@ export default function TeamParser2024() {
             })
     }
 
-
-
-
-
-
-
     return (
         <div className="container w-80" >
             <h3 className="text-center align-middle RRBlue">Team Parser</h3>
@@ -68,9 +62,6 @@ export default function TeamParser2024() {
             {!(team === '') ?
                 <TeamDetails teamNumber={Number(team)} ></TeamDetails>
             : <></>}
-
-
-
 
 
         </div>

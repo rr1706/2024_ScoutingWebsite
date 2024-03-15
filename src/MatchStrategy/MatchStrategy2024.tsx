@@ -114,8 +114,8 @@ export default function MatchStrategy2024() {
                 <tbody>
                     <tr className="font-weight-bold">
                         <td className="text-center align-middle" ><b>Team Number</b></td>
-                        <td className="text-center align-middle" ><b>Auto Amp</b></td>
                         <td className="text-center align-middle" ><b>Auto Speaker</b></td>
+                        <td className="text-center align-middle" ><b>Close Auto</b></td>
                         <td className="text-center align-middle" ><b>Tele Amp</b></td>
                         <td className="text-center align-middle" ><b>Tele Speaker</b></td>
                         <td className="text-center align-middle" ><b>Trap</b></td>

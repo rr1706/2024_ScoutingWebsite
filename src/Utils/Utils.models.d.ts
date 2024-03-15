@@ -32,6 +32,25 @@ export interface matchDataDTO_2024 {
     climb: string;
     playedDefense: string;
     comment?: string
+    autoPreload?: string;
+    autoClose1?: string;
+    autoClose2?: string;
+    autoClose3?: string;
+    autoCenter1?: string;
+    autoCenter2?: string;
+    autoCenter3?: string;
+    autoCenter4?: string;
+    autoCenter5?: string;
+    autoClose1Order?: number;
+    autoClose2Order?: number;
+    autoClose3Order?: number;
+    autoCenter1Order?: number;
+    autoCenter1Order?: number;
+    autoCenter2Order?: number;
+    autoCenter3Order?: number;
+    autoCenter4Order?: number;
+    autoCenter5Order?: number;
+    teleFeeds: ?number;
 }
 
 export interface TeamAveragesDTO_2024 {
@@ -51,4 +70,7 @@ export interface TeamAveragesDTO_2024 {
     numMatches?: number;
     climbAttempts?: number;
     totalPoints: number;
+    closeAutoAvg?: number;
+    closeAutoNum?: number;
+    feedAvg?: number;
 }

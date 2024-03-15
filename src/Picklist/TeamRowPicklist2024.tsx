@@ -59,10 +59,25 @@ export default function TeamRowPicklist2024(props: teamRowProps) {
                 <td className="text-center align-middle" style={picked ? { backgroundColor: 'red' } : {}}   ><Button className={picked ? "btn btn-clear" : "btn btn-light"}  onClick={() => props.teamClick(props.team?.teamNumber!)} > {props.team?.teamNumber}</Button></td>
                 : <td className="text-center align-middle"    ><Button className="btn btn-light" onClick={() => props.teamClick(props.team?.teamNumber!)} > {props.team?.teamNumber}</Button> </td>}
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.autoTotalAvg, props.allTeams?.map(x => x.autoTotalAvg), true)! }} >{props.team?.autoTotalAvg?.toFixed(1)}</td>
+
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.closeAutoAvg, props.allTeams?.map(x => x.closeAutoAvg), true)! }}>
+            <Row>
+
+                {props.team?.closeAutoNum! > 0 ?
+                    <>
+                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.closeAutoAvg?.toFixed(1)}</Col>
+                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({ props.team?.closeAutoNum!.toFixed(0)})</Col>
+                    </>
+                    : <Col></Col>
+                }
+             </Row>
+            </td>
+
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.teleAmpAvg, props.allTeams?.map(x => x.teleAmpAvg), true)! }} >{props.team?.teleAmpAvg?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.teleSpeakerAvg, props.allTeams?.map(x => x.teleSpeakerAvg), true)! }} >{props.team?.teleSpeakerAvg?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.teleTotalAvg, props.allTeams?.map(x => x.teleTotalAvg), true)! }} >{props.team?.teleTotalAvg?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.totalAvg, props.allTeams?.map(x => x.totalAvg), true)! }} >{props.team?.totalAvg?.toFixed(1)}</td>
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.feedAvg, props.allTeams?.map(x => x.feedAvg), true)! }} >{props.team?.feedAvg?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.teleTrapAvg, props.allTeams?.map(x => x.teleTrapAvg), true)! }} >{props.team?.teleTrapAvg?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.climbSuccessRate, props.allTeams?.map(x => x.climbSuccessRate), true)! }}>
                 <Row>
