@@ -73,6 +73,19 @@ export default function TeamRowPicklist2024(props: teamRowProps) {
              </Row>
             </td>
 
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.centerAutoAvg, props.allTeams?.map(x => x.centerAutoAvg), true)! }}>
+                <Row>
+
+                    {props.team?.centerAutoNum! > 0 ?
+                        <>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.centerAutoAvg?.toFixed(1)}</Col>
+                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({props.team?.centerAutoNum!.toFixed(0)})</Col>
+                        </>
+                        : <Col></Col>
+                    }
+                </Row>
+            </td>
+
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.teleAmpAvg, props.allTeams?.map(x => x.teleAmpAvg), true)! }} >{props.team?.teleAmpAvg?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.teleSpeakerAvg, props.allTeams?.map(x => x.teleSpeakerAvg), true)! }} >{props.team?.teleSpeakerAvg?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.teleTotalAvg, props.allTeams?.map(x => x.teleTotalAvg), true)! }} >{props.team?.teleTotalAvg?.toFixed(1)}</td>

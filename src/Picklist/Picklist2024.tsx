@@ -12,7 +12,7 @@ import { PicklistOrderDTO } from "./Picklist.model";
 import ExportButton from "../Utils/ExportButton";
 import { TeamAveragesDTO_2024 } from "../Utils/Utils.models";
 import TeamRowPicklist2024 from "./TeamRowPicklist2024";
-import TeamDetails from "../Utils/TeamDetails";
+import TeamDetails from "../TeamDetails/TeamDetails";
 import { useBeforeunload } from 'react-beforeunload';
 import ConfirmationDialog from "../Utils/ConfirmationDialog";
 
@@ -127,7 +127,7 @@ export default function Picklist2024() {
     }
 
     return (
-        <div className="container w-80" >
+        <div className="container w-90" >
             <h3 className="text-center align-middle RRBlue">Picklist</h3>
 
 
@@ -151,6 +151,7 @@ export default function Picklist2024() {
                         <td className="text-center align-middle" ><b>Team</b></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode}  className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("closeAutoAvg")} > <b>Close Auto</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("centerAutoAvg")} > <b>Center Auto</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleAmpAvg")} > <b>Tele Amp</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleSpeakerAvg")} > <b>Tele Speaker</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleTotalAvg")} > <b>Total Tele</b></Button></td>

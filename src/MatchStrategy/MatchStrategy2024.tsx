@@ -9,7 +9,7 @@ import { formItem, MatchDTO } from "../Utils/Utils.models";
 import AverageRow2024 from "./AverageRow2024";
 import { TeamAveragesDTO_2024 } from "../Utils/Utils.models";
 import TeamRow2024 from "./TeamRow2024";
-import TeamDetails from "../Utils/TeamDetails";
+import TeamDetails from "../TeamDetails/TeamDetails";
 import RRModal from "../Utils/RRModal";
 
 
@@ -116,6 +116,7 @@ export default function MatchStrategy2024() {
                         <td className="text-center align-middle" ><b>Team Number</b></td>
                         <td className="text-center align-middle" ><b>Auto Speaker</b></td>
                         <td className="text-center align-middle" ><b>Close Auto</b></td>
+                        <td className="text-center align-middle" ><b>Center Auto</b></td>
                         <td className="text-center align-middle" ><b>Tele Amp</b></td>
                         <td className="text-center align-middle" ><b>Tele Speaker</b></td>
                         <td className="text-center align-middle" ><b>Trap</b></td>

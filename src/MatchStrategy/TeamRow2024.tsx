@@ -31,6 +31,16 @@ export default function TeamRow2024(props: teamRowProps) {
                     <Row></Row>}
 
             </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
+                {props.teamAverages?.centerAutoNum! > 0 ?
+                    <Row>
+                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.centerAutoAvg?.toFixed(1)}</Col>
+                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.centerAutoNum!).toFixed(0)})</Col>
+                    </Row>
+                    :
+                    <Row></Row>}
+
+            </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.teleAmpAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.teleSpeakerAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.teleTrapAvg?.toFixed(1)} </td>

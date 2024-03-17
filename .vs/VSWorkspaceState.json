@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\EventSetup",
     "\\src\\fonts",
     "\\src\\MatchDataImport",
     "\\src\\MatchStrategy",
     "\\src\\Picklist",
     "\\src\\TBA",
+    "\\src\\TeamDetails",
     "\\src\\TeamParser",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\MatchDataImport\\MatchDataImport.tsx",
+  "SelectedNode": "\\src\\TeamDetails\\TeamMatchByMatchTable2024.tsx",
   "PreviewInSolutionExplorer": false
 }

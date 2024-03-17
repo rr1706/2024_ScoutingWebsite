@@ -37,8 +37,9 @@ export default function AverageRow2024(props: allianceTotalProps) {
     return (
         <>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}><b>Alliance</b></td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.autoAmpAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.autoSpeakerAvg?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}> </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}> </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.teleAmpAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.teleSpeakerAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.teleTrapAvg?.toFixed(1)} </td>

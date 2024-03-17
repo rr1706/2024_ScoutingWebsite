@@ -73,4 +73,6 @@ export interface TeamAveragesDTO_2024 {
     closeAutoAvg?: number;
     closeAutoNum?: number;
     feedAvg?: number;
+    centerAutoAvg?: number;
+    centerAutoNum?: number;
 }

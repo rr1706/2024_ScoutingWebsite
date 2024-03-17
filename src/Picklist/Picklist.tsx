@@ -10,7 +10,7 @@ import { matchDataDTO } from "../TeamParser/TeamParser.model";
 import Button from "../Utils/Button";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import RRModal from "../Utils/RRModal";
-import TeamMatchByMatchTable from "../Utils/TeamMatchByMatchTable";
+import TeamMatchByMatchTable from "../TeamDetails/TeamMatchByMatchTable";
 import { PicklistOrderDTO } from "./Picklist.model";
 import TeamRowPicklist from "./TeamRowPicklist";
 import { utils, writeFile } from 'xlsx'

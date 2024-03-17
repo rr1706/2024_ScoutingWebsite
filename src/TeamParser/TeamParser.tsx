@@ -7,7 +7,7 @@ import DropDown from "../Utils/DropDown";
 import { convertNumbersToFormItem, dynamicSort } from "../Utils/HelperFunctions";
 import { formItem } from "../Utils/Utils.models";
 import { matchDataDTO } from "./TeamParser.model";
-import TeamMatchByMatchTable from "../Utils/TeamMatchByMatchTable";
+import TeamMatchByMatchTable from "../TeamDetails/TeamMatchByMatchTable";
 import eventContext from "../Contexts/EventContexts";
 
 

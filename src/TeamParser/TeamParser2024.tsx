@@ -7,7 +7,7 @@ import { convertNumbersToFormItem, dynamicSort } from "../Utils/HelperFunctions"
 import { formItem } from "../Utils/Utils.models";
 import eventContext from "../Contexts/EventContexts";
 import { matchDataDTO_2024, TeamAveragesDTO_2024 } from "../Utils/Utils.models";
-import TeamDetails from "../Utils/TeamDetails";
+import TeamDetails from "../TeamDetails/TeamDetails";
 
 
 
