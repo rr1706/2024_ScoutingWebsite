@@ -15,7 +15,6 @@ export default function TeamMatchByMatchTable2024(props: tableProps) {
                     <td className="text-center align-middle" ><b>Feeds</b></td>
                     <td className="text-center align-middle" ><b>Trap</b></td>
                     <td className="text-center align-middle" ><b>Climb</b></td>
-                    <td className="text-center align-middle" ><b>Played Defense</b></td>
                     <td className="text-center align-middle" ><b>Comments</b></td>
                 </tr>
             </thead>
@@ -31,7 +30,6 @@ export default function TeamMatchByMatchTable2024(props: tableProps) {
                     <td className="text-center align-middle" >{item.teleFeeds}</td>
                     <td className="text-center align-middle" >{item.teleTrap}</td>
                     <td className="text-center align-middle" >{item.climb}</td>
-                    <td className="text-center align-middle" >{item.playedDefense}</td>
                     <td className="text-center align-middle" >{item.comment}</td>
 
                 </tr>)}

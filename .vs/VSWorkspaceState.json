@@ -1,14 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
+    "\\src\\fonts",
     "\\src\\MatchDataImport",
     "\\src\\MatchStrategy",
+    "\\src\\Picklist",
     "\\src\\TBA",
     "\\src\\TeamDetails",
+    "\\src\\TeamParser",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\Utils\\Utils.models.d.ts",
   "PreviewInSolutionExplorer": false
 }

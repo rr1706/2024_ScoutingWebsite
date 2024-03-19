@@ -30,7 +30,6 @@ export interface matchDataDTO_2024 {
     teleSpeaker: string;
     teleTrap: number;
     climb: string;
-    playedDefense: string;
     comment?: string
     autoPreload?: string;
     autoClose1?: string;
