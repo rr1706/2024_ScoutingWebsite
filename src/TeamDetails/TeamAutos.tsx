@@ -6,6 +6,17 @@ import { matchDataDTO_2024 } from "../Utils/Utils.models";
 export default function TeamAutos(props: autoProps) {
     const [matchIndex, setMatchIndex] = useState<number>(0);
 
+    function makeOrMiss(result: string) {
+        if (result === "Make") {
+            return "/greenO.png"
+        } else if (result === "Miss") {
+            return "/redO.png"
+        } else {
+            return "/greyO.png"
+        }
+        
+    }
+
     return (
         <>
             <Row className='mb-3'>
@@ -22,7 +33,26 @@ export default function TeamAutos(props: autoProps) {
                 </Col>
             </Row>
 
-            <div>{props.matchData[matchIndex].autoPreload}</div>
+            <div className="parent">
+                <img src="/field.jpg" className="img-fluid, fieldImg" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoClose1!)} className="img-fluid, autoClose1" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoClose2!)} className="img-fluid, autoClose2" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoClose3!)} className="img-fluid, autoClose3" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoCenter1!)} className="img-fluid, autoCenter1" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoCenter2!)} className="img-fluid, autoCenter2" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoCenter3!)} className="img-fluid, autoCenter3" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoCenter4!)} className="img-fluid, autoCenter4" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoCenter5!)} className="img-fluid, autoCenter5" alt="" />
+                <img src={makeOrMiss(props.matchData[matchIndex].autoPreload!)} className="img-fluid, autoPreloaded" alt="" />
+                <div className="autoClose1Order">{props.matchData[matchIndex].autoClose1Order}</div>
+                <div className="autoClose2Order">{props.matchData[matchIndex].autoClose2Order}</div>
+                <div className="autoClose3Order">{props.matchData[matchIndex].autoClose3Order}</div>
+                <div className="autoCenter1Order">{props.matchData[matchIndex].autoCenter1Order}</div>
+                <div className="autoCenter2Order">{props.matchData[matchIndex].autoCenter2Order}</div>
+                <div className="autoCenter3Order">{props.matchData[matchIndex].autoCenter3Order}</div>
+                <div className="autoCenter4Order">{props.matchData[matchIndex].autoCenter4Order}</div>
+                <div className="autoCenter5Order">{props.matchData[matchIndex].autoCenter5Order}</div>
+            </div>
 
 
         </>
