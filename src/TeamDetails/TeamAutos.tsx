@@ -14,7 +14,14 @@ export default function TeamAutos(props: autoProps) {
         } else {
             return "/greyO.png"
         }
-        
+    }
+
+    function ignoreZero(order: number) {
+        if (order > 0) {
+            return order
+        } else {
+            return ''
+        }
     }
 
     return (
@@ -44,14 +51,14 @@ export default function TeamAutos(props: autoProps) {
                 <img src={makeOrMiss(props.matchData[matchIndex].autoCenter4!)} className="img-fluid, autoCenter4" alt="" />
                 <img src={makeOrMiss(props.matchData[matchIndex].autoCenter5!)} className="img-fluid, autoCenter5" alt="" />
                 <img src={makeOrMiss(props.matchData[matchIndex].autoPreload!)} className="img-fluid, autoPreloaded" alt="" />
-                <div className="autoClose1Order">{props.matchData[matchIndex].autoClose1Order}</div>
-                <div className="autoClose2Order">{props.matchData[matchIndex].autoClose2Order}</div>
-                <div className="autoClose3Order">{props.matchData[matchIndex].autoClose3Order}</div>
-                <div className="autoCenter1Order">{props.matchData[matchIndex].autoCenter1Order}</div>
-                <div className="autoCenter2Order">{props.matchData[matchIndex].autoCenter2Order}</div>
-                <div className="autoCenter3Order">{props.matchData[matchIndex].autoCenter3Order}</div>
-                <div className="autoCenter4Order">{props.matchData[matchIndex].autoCenter4Order}</div>
-                <div className="autoCenter5Order">{props.matchData[matchIndex].autoCenter5Order}</div>
+                <div className="autoClose1Order">{ignoreZero(props.matchData[matchIndex].autoClose1Order!)}</div>
+                <div className="autoClose2Order">{ignoreZero(props.matchData[matchIndex].autoClose2Order!)}</div>
+                <div className="autoClose3Order">{ignoreZero(props.matchData[matchIndex].autoClose3Order!)}</div>
+                <div className="autoCenter1Order">{ignoreZero(props.matchData[matchIndex].autoCenter1Order!)}</div>
+                <div className="autoCenter2Order">{ignoreZero(props.matchData[matchIndex].autoCenter2Order!)}</div>
+                <div className="autoCenter3Order">{ignoreZero(props.matchData[matchIndex].autoCenter3Order!)}</div>
+                <div className="autoCenter4Order">{ignoreZero(props.matchData[matchIndex].autoCenter4Order!)}</div>
+                <div className="autoCenter5Order">{ignoreZero(props.matchData[matchIndex].autoCenter5Order!)}</div>
             </div>
 
 
