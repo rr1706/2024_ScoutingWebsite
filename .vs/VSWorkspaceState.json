@@ -1,14 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
-    "\\src",
-    "\\src\\MatchDataImport",
-    "\\src\\MatchStrategy",
-    "\\src\\TBA",
-    "\\src\\TeamDetails",
-    "\\src\\Utils"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\Utils\\Utils.models.d.ts",
+  "SelectedNode": "\\src\\TeamDetails",
   "PreviewInSolutionExplorer": false
 }
