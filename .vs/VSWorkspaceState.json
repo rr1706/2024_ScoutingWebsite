@@ -1,8 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\fonts",
+    "\\src\\MatchDataImport",
+    "\\src\\MatchStrategy",
+    "\\src\\Picklist",
+    "\\src\\TBA",
+    "\\src\\TeamDetails",
+    "\\src\\TeamParser",
+    "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\TeamDetails",
   "PreviewInSolutionExplorer": false
 }
