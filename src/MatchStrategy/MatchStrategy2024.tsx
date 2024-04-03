@@ -114,13 +114,14 @@ export default function MatchStrategy2024() {
                 <tbody>
                     <tr className="font-weight-bold">
                         <td className="text-center align-middle" ><b>Team Number</b></td>
-                        <td className="text-center align-middle" ><b>Auto Speaker</b></td>
+                        <td className="text-center align-middle" ><b>Auto</b></td>
                         <td className="text-center align-middle" ><b>Close Auto</b></td>
                         <td className="text-center align-middle" ><b>Center Auto</b></td>
                         <td className="text-center align-middle" ><b>Tele Amp</b></td>
                         <td className="text-center align-middle" ><b>Tele Speaker</b></td>
                         <td className="text-center align-middle" ><b>Trap</b></td>
                         <td className="text-center align-middle" ><b>Total Tele</b></td>
+                        <td className="text-center align-middle" ><b>Feeds</b></td>
                         <td className="text-center align-middle" ><b>Climb*</b></td>
                         <td className="text-center align-middle" ><b>Total Points</b></td>
                     </tr>
