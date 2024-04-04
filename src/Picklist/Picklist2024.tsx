@@ -148,8 +148,8 @@ export default function Picklist2024() {
                     <tr className="font-weight-bold">
                         {mode === 'AllianceSelection' ? <td></td> : <></> }
                         <td></td>
-                        <td className="text-center align-middle" ><b>Team</b></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode}  className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teamNumber")} > <b>Team</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("closeAutoAvg")} > <b>Close Auto</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("centerAutoAvg")} > <b>Center Auto</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleAmpAvg")} > <b>Tele Amp</b></Button></td>
