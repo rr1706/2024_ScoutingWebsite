@@ -3,13 +3,9 @@
     "",
     "\\src",
     "\\src\\MatchDataImport",
-    "\\src\\MatchStrategy",
     "\\src\\Picklist",
-    "\\src\\TBA",
     "\\src\\TeamDetails",
-    "\\src\\TeamParser",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\TeamDetails\\TeamDetails.tsx",
   "PreviewInSolutionExplorer": false
 }

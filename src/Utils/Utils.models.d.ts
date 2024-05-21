@@ -75,4 +75,9 @@ export interface TeamAveragesDTO_2024 {
     feedAvg?: number;
     centerAutoAvg?: number;
     centerAutoNum?: number;
+    maxFeeds?: number;
+    closeAutoPercent?: number;
+    closeAutoAttempts?: number;
+    closeAutoSuccessRate?: number;
+    DNPed?: number;
 }

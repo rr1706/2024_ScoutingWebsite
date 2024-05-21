@@ -60,6 +60,7 @@ export default function Picklist2024() {
                         let teamOrder = response.data
                         setOrder(teamOrder)
                         orderAverages(teamOrder, averages)
+                        setDNPs(teamOrder, averages)
                     })
 
             })
@@ -69,6 +70,19 @@ export default function Picklist2024() {
         let teamOrder = picklistOrder.map(x => x.teamNumber);
         averages.sort((a, b) => teamOrder.indexOf(a.teamNumber!) - teamOrder.indexOf(b.teamNumber!));
         setTeamAverages(averages);
+    }
+    function setDNPs(picklistOrder: PicklistOrderDTO[], averages: TeamAveragesDTO_2024[]) {
+        let copyAverages = [...averages];
+        picklistOrder.forEach(function (currentOrder) {
+            console.log(currentOrder);
+            copyAverages.forEach(function (currentAverage) {
+                if (currentAverage.teamNumber === currentOrder.teamNumber) {
+                    currentAverage.DNPed = currentOrder.DNPed;
+                    console.log("inside: " + currentOrder.dnPed)
+                }
+            })
+        });
+        setTeamAverages(copyAverages);
     }
 
     function sortColumn(columnName: string) {
@@ -97,8 +111,9 @@ export default function Picklist2024() {
     }
     function moveDown(team: TeamAveragesDTO_2024) {
         let newArray = [...teamAverages];
-        let index = newArray.findIndex(x => x.teamNumber === team.teamNumber)
-        newArray.push(newArray[index])
+        let index = newArray.findIndex(x => x.teamNumber === team.teamNumber);
+        newArray[index].DNPed = 1;
+        newArray.push(newArray[index]);
         newArray.splice(index, 1);
         setTeamAverages(newArray);
     }
@@ -111,7 +126,8 @@ export default function Picklist2024() {
                 id: 1,
                 teamNumber: team.teamNumber!,
                 eventCode: team.eventCode!,
-                order: (teamAverages.indexOf(team) + 1)
+                order: (teamAverages.indexOf(team) + 1),
+                DNPed: team.DNPed!
             }
             newOrder.push(newTeam);
         });
@@ -150,15 +166,15 @@ export default function Picklist2024() {
                         <td></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teamNumber")} > <b>Team</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("closeAutoAvg")} > <b>Close Auto</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("centerAutoAvg")} > <b>Center Auto</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("closeAutoSuccessRate")} > <b>Close Auto %</b></Button></td>                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("centerAutoAvg")} > <b>Center Auto</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleAmpAvg")} > <b>Tele Amp</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleSpeakerAvg")} > <b>Tele Speaker</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleTotalAvg")} > <b>Total Tele</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalAvg")} > <b>Total</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("feedAvg")} > <b>Feeds</b></Button></td>
+                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("maxFeeds")} > <b>Feeds</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleTrapAvg")} > <b>Trap</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("climbSuccessRate")} > <b>Climb</b></Button></td>
+                        
                         {mode==='Edit'? <td></td> : <></> }
                     </tr>
                 </thead>
