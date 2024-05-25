@@ -3,6 +3,6 @@ export interface PicklistOrderDTO {
     eventCode: string;
     teamNumber: number;
     order: number;
-    DNPed?: number;
+    isDNPed?: number;
 }
 

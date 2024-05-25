@@ -45,7 +45,7 @@ export default function TeamRowPicklist2024(props: teamRowProps) {
 
     function getTeamDNP()
     {
-        if (props.team.DNPed === 1)
+        if (props.team.isDNPed === 1)
         {
             return DNPRed;
         }

@@ -79,5 +79,5 @@ export interface TeamAveragesDTO_2024 {
     closeAutoPercent?: number;
     closeAutoAttempts?: number;
     closeAutoSuccessRate?: number;
-    DNPed?: number;
+    isDNPed?: number;
 }
