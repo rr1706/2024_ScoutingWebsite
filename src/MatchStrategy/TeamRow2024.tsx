@@ -22,14 +22,17 @@ export default function TeamRow2024(props: teamRowProps) {
             }
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.autoSpeakerAvg?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
-                {props.teamAverages?.closeAutoNum! > 0 ?
-                    <Row>
-                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.closeAutoAvg?.toFixed(1)}</Col>
-                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.closeAutoNum!).toFixed(0)})</Col>
-                    </Row>
-                    :
-                    <Row></Row>}
 
+                <Row>
+
+                    {props.teamAverages?.closeAutoSuccessRate! > 0 ?
+                        <>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.closeAutoSuccessRate?.toFixed(0)}%</Col>
+                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.closeAutoPercent!).toFixed(0)})</Col>
+                        </>
+                        : <Col></Col>
+                    }
+                </Row>
             </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
                 {props.teamAverages?.centerAutoNum! > 0 ?
