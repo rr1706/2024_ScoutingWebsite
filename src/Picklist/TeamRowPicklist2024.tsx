@@ -125,7 +125,9 @@ export default function TeamRowPicklist2024(props: teamRowProps) {
 
 
             {props.mode === 'Edit' ? 
-                <td className="text-center align-middle"  ><Button className="btn btn-danger btn-block btn-sm" onClick={() => props.dnp(props.team)} > DNP</Button></td>
+                <td className="text-center align-middle"  ><Button className="btn btn-danger btn-block btn-sm" onClick={() => props.dnp(props.team)} >
+                    {props.team.isDNPed === 1 ? "unDNP" : "DNP" }
+                </Button></td>
             :<></>}
             
         </>

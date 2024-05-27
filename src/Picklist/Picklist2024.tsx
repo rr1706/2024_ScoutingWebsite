@@ -109,10 +109,15 @@ export default function Picklist2024() {
     function moveDown(team: TeamAveragesDTO_2024) {
         let newArray = [...teamAverages];
         let index = newArray.findIndex(x => x.teamNumber === team.teamNumber);
-        newArray[index].isDNPed = 1;
-        newArray.push(newArray[index]);
-        newArray.splice(index, 1);
-        setTeamAverages(newArray);
+        if (team.isDNPed != 1) {
+            newArray[index].isDNPed = 1;
+            newArray.push(newArray[index]);
+            newArray.splice(index, 1);
+            setTeamAverages(newArray);
+        } else {
+            newArray[index].isDNPed = 0;
+            setTeamAverages(newArray);
+        }
     }
 
     async function saveOrder() {
