@@ -3,9 +3,11 @@
     "",
     "\\src",
     "\\src\\MatchDataImport",
+    "\\src\\MatchStrategy",
     "\\src\\Picklist",
     "\\src\\TeamDetails",
     "\\src\\Utils"
   ],
+  "SelectedNode": "\\src\\MatchStrategy\\AverageRow2024.tsx",
   "PreviewInSolutionExplorer": false
 }

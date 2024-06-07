@@ -27,7 +27,7 @@ export interface matchDataDTO_2024 {
     autoAmp: number;
     autoSpeaker: number;
     teleAmp: number;
-    teleSpeaker: string;
+    teleSpeaker: number;
     teleTrap: number;
     climb: string;
     comment?: string

@@ -9,6 +9,7 @@ import MatchStrategy2024 from './MatchStrategy/MatchStrategy2024';
 import Picklist2024 from './Picklist/Picklist2024';
 import TBA from './TBA/TBA';
 import TeamParser2024 from './TeamParser/TeamParser2024';
+import EventCharts from './EventCharts/EventCharts2024'
 
 
 export default function routing() {
@@ -21,6 +22,7 @@ export default function routing() {
             <Route path="/teamparser" element={<Authorized authorized={< TeamParser2024 />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/eventsetup" element={<Authorized authorized={< EventSetup />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/matchdataimport" element={<Authorized authorized={< MatchDataImport />} notAuthorized={<Login />}></Authorized>} />
+            <Route path="/eventcharts" element={<Authorized authorized={< EventCharts />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/login" element={<Login />} />
             <Route path="/registerr" element={< Register />} />
 

@@ -8,11 +8,13 @@ import axios, { AxiosResponse } from "axios";
 import { urlMatchData2024, urlRobotPictures } from "../endpoints";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import TeamAutos from "./TeamAutos";
+import RobotGraph from "./RobotGraph";
 
 export default function TeamDetails(props: detailsProps) {
     const MATCHBYMATCH = 'matchByMatch'
     const PICTURE = 'picture'
     const AUTOS = 'autos'
+    const GRAPHS = 'graphs'
     const [viewMode, setViewMode] = useState<string>(PICTURE);
 
     const [matchByMatch, setMatchByMatch] = useState<matchDataDTO_2024[]>([]);
@@ -61,6 +63,9 @@ export default function TeamDetails(props: detailsProps) {
                 <Col className="text-center align-middle">
                     <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(PICTURE)} > View Picture</Button>
                 </Col>
+                <Col className="text-center align-middle">
+                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(GRAPHS)} > View Graphs</Button>
+                </Col>
 
             </Row>
             <hr></hr>
@@ -71,7 +76,9 @@ export default function TeamDetails(props: detailsProps) {
                     case PICTURE:
                         return <div className="text-center"><img className="img-fluid" src={robotPicture} style={{ maxHeight: '400px' }} alt="" /></div>
                     case AUTOS:
-                        return <TeamAutos matchData={matchByMatch }></TeamAutos>
+                        return <TeamAutos matchData={matchByMatch}></TeamAutos>
+                    case GRAPHS:
+                        return <RobotGraph matchData={matchByMatch}></RobotGraph>
                     default:
                         return null
                 }
