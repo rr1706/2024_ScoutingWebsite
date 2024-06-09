@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\EventCharts",
     "\\src\\MatchDataImport",
     "\\src\\MatchStrategy",
     "\\src\\Picklist",
+    "\\src\\TBA",
     "\\src\\TeamDetails",
+    "\\src\\TeamParser",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\MatchStrategy\\AverageRow2024.tsx",
+  "SelectedNode": "\\src\\EventSetup\\EventSetup.tsx",
   "PreviewInSolutionExplorer": false
 }
