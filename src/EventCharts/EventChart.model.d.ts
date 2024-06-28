@@ -3,7 +3,7 @@ export interface ScatterDTO {
     datasets: ScatterChartDataset[];
 }
 export interface ScatterChartDataset {
-    label: string;
+    label?: string;
     data: Point[];
     backgroundColor: string;
 }

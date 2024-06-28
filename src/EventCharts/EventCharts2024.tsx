@@ -32,6 +32,7 @@ export default function EventCharts() {
 
     const [teamAverages, setTeamAverages] = useState<TeamAveragesDTO_2024[]>([]);
     const [chartData, setChartData] = useState<ScatterDTO>(defaultScatterDTO);
+    const [datasets, setDatasets] = useState<ScatterChartDataset[]>([]);
 
     const { eventCode } = useContext(eventContext);
 
@@ -41,8 +42,7 @@ export default function EventCharts() {
     }, [eventCode]);
 
     
-
-
+    let tempDatasets: ScatterChartDataset[] = []
     function loadData() {
         axios.get(`${urlTeamAverages2024}/getteamaverages`, {
             params: {
@@ -51,20 +51,23 @@ export default function EventCharts() {
         })
             .then((response: AxiosResponse<TeamAveragesDTO_2024[]>) => {
                 setTeamAverages(response.data);
+                response.data.map((item, index) => (
+                    
+                    tempDatasets.push({
+                        label: item.teamNumber!.toString() ,
+                        data: [{
+                            x: item.autoTotalAvg,
+                            y: item.teleTotalAvg
+                        }],
+                        backgroundColor: "#224195",
+                    })
+
+                ))
+                setDatasets(tempDatasets);
+                
 
                 setChartData({
-                    datasets: [{
-                        label: "label",
-                        data: response.data.map((item, index) => (
-
-                            {
-                                x: item.autoTotalAvg,
-                                y: item.teleTotalAvg
-                            }
-
-                        )),
-                        backgroundColor: "rgb(255,90,132)"
-                    }]
+                    datasets: tempDatasets
 
                 })
 
@@ -73,14 +76,32 @@ export default function EventCharts() {
 
 
 
-     const options = {
+    const options = {
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
         scales: {
             y: {
                 beginAtZero: true,
+                display: true,
+                title: {
+                    display: true,
+                    text: 'Tele Average'
+                }
+            },
+            x: {
+                beginAtZero: true,
+                display: true,
+                title: {
+                    display: true,
+                    text: 'Auto Average'
+                }
             },
         },
-    };
 
+    };
 
      
 
@@ -89,7 +110,7 @@ export default function EventCharts() {
             {chartData.datasets[0].data.length > 0 ? 
                 <Scatter  options={options} data={chartData}  /> : <></>}
 
-            <Button className="btn btn-primary btn-block mt-3 " onClick={() => console.log(chartData)} > log chart data</Button>
+            <Button className="btn btn-primary btn-block mt-3 " onClick={() => console.log(datasets)} > log chart data</Button>
         </div>
     </>)
 }
