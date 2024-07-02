@@ -4,9 +4,10 @@ import { Form } from "react-bootstrap"
 import eventContext from "../Contexts/EventContexts";
 import { urlEvent } from "../endpoints";
 import { storeItem } from "./LocalStorage";
-import { EventDTO } from "./Utils.models";
+import { EventDTO, formItem } from "./Utils.models";
 
 export default function EventSelector() {
+
     const [events, setEvents] = useState<EventDTO[]>([]);
 
     const {eventCode, updateEvent } = useContext(eventContext);
