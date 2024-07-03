@@ -41,11 +41,10 @@ export default function RobotGraph(props: tableProps) {
             },
             y: {
                 stacked: true,
+                max: 30,
             },
         },
     };
-
-    /*    const labels = props.matchData.map(a => a.matchNumber);*/
 
 
     const data = {

@@ -154,7 +154,7 @@ export default function EventCharts() {
             return teamData.teleTotalAvg;
         }
         else if (dropdownValue === "Close Auto") {
-            return teamData.closeAutoAvg;
+            return teamData.closeAutoSuccessRate;
         }
         else if (dropdownValue === "Center Auto") {
             return teamData.centerAutoAvg;
