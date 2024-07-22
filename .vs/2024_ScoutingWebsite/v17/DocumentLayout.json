@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventCharts\\EventCharts2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\EventCharts\\EventCharts2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventSetup\\LoadRobotPictures.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\EventSetup\\LoadRobotPictures.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\MatchStrategy\\TeamRow2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\MatchStrategy\\TeamRow2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\MatchStrategy\\MatchStrategy2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\MatchStrategy\\MatchStrategy2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventCharts\\EventCharts2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\EventCharts\\EventCharts2024.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\TeamDetails\\RobotGraph.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -70,17 +78,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "RobotGraph.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\TeamDetails\\RobotGraph.tsx",
               "RelativeDocumentMoniker": "src\\TeamDetails\\RobotGraph.tsx",
               "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\TeamDetails\\RobotGraph.tsx",
               "RelativeToolTip": "src\\TeamDetails\\RobotGraph.tsx",
-              "ViewState": "AQIAACYAAAAAAAAAAAAAwD4AAAA9AAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAAAAwD4AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2024-06-07T00:06:20.97Z",
               "IsPinned": true,
@@ -88,13 +96,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "EventCharts2024.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventCharts\\EventCharts2024.tsx",
               "RelativeDocumentMoniker": "src\\EventCharts\\EventCharts2024.tsx",
               "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventCharts\\EventCharts2024.tsx",
               "RelativeToolTip": "src\\EventCharts\\EventCharts2024.tsx",
-              "ViewState": "AQIAALMAAAAAAAAAAAAYwNQAAAARAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAALcAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2024-06-06T23:54:52.543Z",
               "IsPinned": true,
@@ -103,19 +111,49 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "TeamRow2024.tsx",
+              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\MatchStrategy\\TeamRow2024.tsx",
+              "RelativeDocumentMoniker": "src\\MatchStrategy\\TeamRow2024.tsx",
+              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\MatchStrategy\\TeamRow2024.tsx",
+              "RelativeToolTip": "src\\MatchStrategy\\TeamRow2024.tsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAACxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-07-22T23:23:30.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoadRobotPictures.tsx",
+              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventSetup\\LoadRobotPictures.tsx",
+              "RelativeDocumentMoniker": "src\\EventSetup\\LoadRobotPictures.tsx",
+              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventSetup\\LoadRobotPictures.tsx",
+              "RelativeToolTip": "src\\EventSetup\\LoadRobotPictures.tsx",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAAAFgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-07-09T00:25:20.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MatchStrategy2024.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\MatchStrategy\\MatchStrategy2024.tsx",
               "RelativeDocumentMoniker": "src\\MatchStrategy\\MatchStrategy2024.tsx",
               "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\MatchStrategy\\MatchStrategy2024.tsx",
               "RelativeToolTip": "src\\MatchStrategy\\MatchStrategy2024.tsx",
-              "ViewState": "AQIAAFQAAAAAAAAAAAA7wFwAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2024-07-01T22:11:35.098Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Menu.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Menu.tsx",
               "RelativeDocumentMoniker": "src\\Menu.tsx",
@@ -128,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Utils.models.d.ts",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Utils\\Utils.models.d.ts",
               "RelativeDocumentMoniker": "src\\Utils\\Utils.models.d.ts",
@@ -141,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "EventSelector.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Utils\\EventSelector.tsx",
               "RelativeDocumentMoniker": "src\\Utils\\EventSelector.tsx",
@@ -154,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "DropDown.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Utils\\DropDown.tsx",
               "RelativeDocumentMoniker": "src\\Utils\\DropDown.tsx",
@@ -166,25 +204,21 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "App.css",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\App.css",
               "RelativeDocumentMoniker": "src\\App.css",
               "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\App.css",
               "RelativeToolTip": "src\\App.css",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACgAAAASAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAIBJwCgAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-06-28T00:39:47.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "EventChart.model.d.ts",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventCharts\\EventChart.model.d.ts",
               "RelativeDocumentMoniker": "src\\EventCharts\\EventChart.model.d.ts",
@@ -197,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Picklist.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist.tsx",
               "RelativeDocumentMoniker": "src\\Picklist\\Picklist.tsx",
@@ -210,20 +244,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Picklist2024.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist2024.tsx",
               "RelativeDocumentMoniker": "src\\Picklist\\Picklist2024.tsx",
               "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist2024.tsx",
               "RelativeToolTip": "src\\Picklist\\Picklist2024.tsx",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAACIAAAAAAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAIBQwCIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2024-06-07T00:21:47.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "RRModal.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Utils\\RRModal.tsx",
               "RelativeDocumentMoniker": "src\\Utils\\RRModal.tsx",
@@ -236,20 +270,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Routing.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Routing.tsx",
               "RelativeDocumentMoniker": "src\\Routing.tsx",
               "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Routing.tsx",
               "RelativeToolTip": "src\\Routing.tsx",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAA2AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwAsAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2024-06-06T23:51:54.698Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "endpoints.ts",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\endpoints.ts",
               "RelativeDocumentMoniker": "src\\endpoints.ts",
@@ -262,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "EventSetup.tsx",
               "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\EventSetup\\EventSetup.tsx",
               "RelativeDocumentMoniker": "src\\EventSetup\\EventSetup.tsx",
