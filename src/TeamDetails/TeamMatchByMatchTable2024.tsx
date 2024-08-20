@@ -1,6 +1,19 @@
+import Button from "../Utils/Button";
 import { matchDataDTO_2024 } from "../Utils/Utils.models";
+import { useState } from "react";
+import { matchDataDTO } from "../TeamParser/TeamParser.model";
+
 
 export default function TeamMatchByMatchTable2024(props: tableProps) {
+
+
+    const [matchByMatch, setMatchByMatch] = useState<matchDataDTO[]>([]);
+
+
+    const IgnoreRed = '#fd5c63'
+    function getIgnore(item: matchDataDTO_2024): string {
+        return item.ignore === 1 ? IgnoreRed : '#FFFFFF';
+    }
 
     return (
         <table className="table table-striped">
@@ -16,24 +29,25 @@ export default function TeamMatchByMatchTable2024(props: tableProps) {
                     <td className="text-center align-middle" ><b>Climb</b></td>
                     <td className="text-center align-middle" ><b>Comments</b></td>
                     <td className="text-center align-middle" ><b>Scout</b></td>
-
+                    <td className="text-center align-middle" ><b>Ignore</b></td>
                 </tr>
             </thead>
 
             <tbody>
                 {props.matchData?.map((item) => <tr key={item.id}>
-                    <td className="text-center align-middle" >{item.matchNumber}</td>
-                    <td className="text-center align-middle" >{item.autoAmp + item.autoSpeaker}</td>
-                    <td className="text-center align-middle" >{item.teleAmp}</td>
-                    <td className="text-center align-middle" >{item.teleSpeaker}</td>
-                    <td className="text-center align-middle" >{item.teleAmp + item.teleSpeaker}</td>
-                    <td className="text-center align-middle" >{item.teleFeeds}</td>
-                    <td className="text-center align-middle" >{item.teleTrap}</td>
-                    <td className="text-center align-middle" >{item.climb}</td>
-                    <td className="text-center align-middle" >{item.comment}</td>
-                    <td className="text-center align-middle" >{item.scoutName}</td>
-
-
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.matchNumber}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.autoAmp + item.autoSpeaker}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.teleAmp}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.teleSpeaker}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.teleAmp + item.teleSpeaker}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.teleFeeds}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.teleTrap}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.climb}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.comment}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >{item.scoutName}</td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}  ><Button className="btn btn-danger btn-block btn-sm" onClick={() => props.ignore(item)} >
+                        {item.ignore === 1 ? "Include" : "Exclude"}
+                    </Button></td>
                 </tr>)}
             </tbody>
         </table>
@@ -41,4 +55,5 @@ export default function TeamMatchByMatchTable2024(props: tableProps) {
 }
 interface tableProps {
     matchData: matchDataDTO_2024[];
+    ignore(match: matchDataDTO_2024): void,
 }

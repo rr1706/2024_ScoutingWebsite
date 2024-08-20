@@ -5,7 +5,7 @@ import Button from "../Utils/Button";
 import TeamMatchByMatchTable2024 from "./TeamMatchByMatchTable2024";
 import eventContext from "../Contexts/EventContexts";
 import axios, { AxiosResponse } from "axios";
-import { urlMatchData2024, urlRobotPictures } from "../endpoints";
+import { urlMatchData2024, urlRobotPictures, urlMatchData, urlTeamAverages2024 } from "../endpoints";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import TeamAutos from "./TeamAutos";
 import RobotGraph from "./RobotGraph";
@@ -51,6 +51,23 @@ export default function TeamDetails(props: detailsProps) {
             })
     }
 
+    async function toggleIgnoreMatch(match: matchDataDTO_2024) {
+        if (match.ignore === 0) {
+            match.ignore = 1;
+        } else {
+            match.ignore = 0;
+        }
+        await axios.post(`${urlMatchData2024}/sendignore/${match.id}/${match.ignore}` ).then(() => {
+            getTeamMatchByMatch();
+
+            axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
+                params: {
+                    eventID: eventCode
+                }
+            })
+        })  
+    }
+
     return (
         <>
             <Row className='mb-3'>
@@ -72,7 +89,7 @@ export default function TeamDetails(props: detailsProps) {
             {(() => {
                 switch (viewMode) {
                     case MATCHBYMATCH:
-                        return <TeamMatchByMatchTable2024 matchData={matchByMatch} /> 
+                        return <TeamMatchByMatchTable2024 matchData={matchByMatch} ignore={toggleIgnoreMatch}  /> 
                     case PICTURE:
                         return <div className="text-center"><img className="img-fluid" src={robotPicture} style={{ maxHeight: '400px' }} alt="" /></div>
                     case AUTOS:

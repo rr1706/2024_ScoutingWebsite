@@ -51,6 +51,7 @@ export interface matchDataDTO_2024 {
     autoCenter5Order?: number;
     teleFeeds: ?number;
     scoutName: string;
+    ignore: number = 0;
 }
 
 export interface TeamAveragesDTO_2024 {

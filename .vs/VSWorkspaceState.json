@@ -2,7 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\EventCharts",
+    "\\src\\EventSetup",
     "\\src\\MatchDataImport",
     "\\src\\MatchStrategy",
     "\\src\\Picklist",
@@ -11,6 +11,5 @@
     "\\src\\TeamParser",
     "\\src\\Utils"
   ],
-  "SelectedNode": "\\src\\TeamDetails\\RobotGraph.tsx",
   "PreviewInSolutionExplorer": false
 }
