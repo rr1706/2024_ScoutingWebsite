@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\EventSetup",
-    "\\src\\MatchDataImport",
+    "\\src\\EditMatch",
+    "\\src\\EventCharts",
     "\\src\\MatchStrategy",
     "\\src\\Picklist",
     "\\src\\TBA",

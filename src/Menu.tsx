@@ -17,7 +17,7 @@ export default function Menu() {
                             <NavDropdown.Item as={Link} to="/matchstrategy">Match Strategy</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/picklist">Picklist</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/eventcharts">Event Charts</NavDropdown.Item>
-{/*                         <NavDropdown.Item as={Link} to="/teamparser">Team Parser</NavDropdown.Item>*/}
+{                         <NavDropdown.Item as={Link} to="/editmatch">Edit Match</NavDropdown.Item>}
                                  </NavDropdown>
                                 <NavDropdown className="navBarOptions px-3" title="Setup">
                                     <NavDropdown.Item as={Link} to="/eventsetup">Event Setup</NavDropdown.Item>

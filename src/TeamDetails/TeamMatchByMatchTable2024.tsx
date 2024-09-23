@@ -2,6 +2,7 @@ import Button from "../Utils/Button";
 import { matchDataDTO_2024 } from "../Utils/Utils.models";
 import { useState } from "react";
 import { matchDataDTO } from "../TeamParser/TeamParser.model";
+import { Link } from "react-router-dom";
 
 
 export default function TeamMatchByMatchTable2024(props: tableProps) {
@@ -48,6 +49,13 @@ export default function TeamMatchByMatchTable2024(props: tableProps) {
                     <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}  ><Button className="btn btn-danger btn-block btn-sm" onClick={() => props.ignore(item)} >
                         {item.ignore === 1 ? "Include" : "Exclude"}
                     </Button></td>
+                    <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }} >
+                        <Link to={`/editmatch?team=${item.teamNumber}&match=${item.matchNumber}`} target="_blank">
+
+                            <Button> Edit
+                            </Button>
+                        </Link>
+                    </td>
                 </tr>)}
             </tbody>
         </table>

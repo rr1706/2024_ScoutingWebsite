@@ -17,7 +17,7 @@ import { useBeforeunload } from 'react-beforeunload';
 import ConfirmationDialog from "../Utils/ConfirmationDialog";
 
 
-export default function Picklist2024() {    
+export default function Picklist2024() {
     const editMode = 'Edit';
     const allianceSelectionMode = 'AllianceSelection'
 
@@ -49,22 +49,22 @@ export default function Picklist2024() {
                 eventID: eventCode
             },
         })
-        .then((response: AxiosResponse<TeamAveragesDTO_2024[]>) => {
-            let averages = response.data.sort(dynamicSort("totalAvg", true));
-            setTeamAverages(averages);
+            .then((response: AxiosResponse<TeamAveragesDTO_2024[]>) => {
+                let averages = response.data.sort(dynamicSort("totalAvg", true));
+                setTeamAverages(averages);
 
-            axios.get(`${urlPicklist}/getorder`, {
-                params: {
-                    eventID: eventCode
-                },
+                axios.get(`${urlPicklist}/getorder`, {
+                    params: {
+                        eventID: eventCode
+                    },
+                })
+                    .then((response: AxiosResponse<PicklistOrderDTO[]>) => {
+                        let teamOrder = response.data
+                        setOrder(teamOrder)
+                        orderAverages(teamOrder, averages)
+                        setDNPs(teamOrder, averages)
+                    })
             })
-            .then((response: AxiosResponse<PicklistOrderDTO[]>) => {
-                let teamOrder = response.data
-                setOrder(teamOrder)
-                orderAverages(teamOrder, averages)
-                setDNPs(teamOrder, averages)
-            })
-        })
     }
 
     function loadAverages() {
@@ -90,9 +90,9 @@ export default function Picklist2024() {
             orderAverages(order, response.data)
 
         })
-    } 
+    }
 
-    function orderAverages(picklistOrder: PicklistOrderDTO[], averages: TeamAveragesDTO_2024[] ) {
+    function orderAverages(picklistOrder: PicklistOrderDTO[], averages: TeamAveragesDTO_2024[]) {
         let teamOrder = picklistOrder.map(x => x.teamNumber);
         averages.sort((a, b) => teamOrder.indexOf(a.teamNumber!) - teamOrder.indexOf(b.teamNumber!));
         setTeamAverages(averages);
@@ -164,7 +164,7 @@ export default function Picklist2024() {
             loadData();
             success("Successfully saved picklist")
         })
-   }
+    }
 
     function showTeamMatchByMatch(team: number) {
         setTeamNumber(team);
@@ -179,19 +179,19 @@ export default function Picklist2024() {
             <Row>
                 <Col className="text-center align-middle">
                     {mode === editMode ? <Button className="btn btn-primary btn-block mt-3 " onClick={() => setMode(allianceSelectionMode)} > Change to Alliance Selection Mode</Button>
-                                        : <Button className="btn btn-primary btn-block mt-3 " onClick={() => setMode(editMode)} > Change to Edit Mode</Button>}
+                        : <Button className="btn btn-primary btn-block mt-3 " onClick={() => setMode(editMode)} > Change to Edit Mode</Button>}
                 </Col>
                 <Col className="text-center align-middle">
                     <Button className="btn btn-primary btn-block mt-3 " onClick={() => setShowConfirmation(true)} > Save Picklist</Button>
                 </Col>
                 <Col className="text-center align-middle">
-                    <ExportButton className="btn btn-primary btn-block mt-3 " data={teamAverages} workbookName={"Picklist" }  > Export Picklist</ExportButton>
+                    <ExportButton className="btn btn-primary btn-block mt-3 " data={teamAverages} workbookName={"Picklist"}  > Export Picklist</ExportButton>
                 </Col>
             </Row>
             <Table>
                 <thead>
                     <tr className="font-weight-bold">
-                        {mode === 'AllianceSelection' ? <td></td> : <></> }
+                        {mode === 'AllianceSelection' ? <td></td> : <></>}
                         <td></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teamNumber")} > <b>Team</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("autoTotalAvg")} > <b>Total Auto</b></Button></td>
@@ -204,16 +204,16 @@ export default function Picklist2024() {
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("maxFeeds")} > <b> Max Feeds</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teleTrapAvg")} > <b>Trap</b></Button></td>
                         <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("climbSuccessRate")} > <b>Climb</b></Button></td>
-                        
-                        {mode==='Edit'? <td></td> : <></> }
+
+                        {mode === 'Edit' ? <td></td> : <></>}
                     </tr>
                 </thead>
                 <tbody>
                     {teamAverages?.map((item, index) => <tr key={index}
-                        draggable={mode===editMode}
+                        draggable={mode === editMode}
                         onDragStart={() => handleDragStart(item)}
                         onDragOver={() => handleDragOver(item)}>
-                        <TeamRowPicklist2024 index={index + 1} team={item} allTeams={teamAverages} dnp={moveDown} mode={mode} teamClick={showTeamMatchByMatch }></TeamRowPicklist2024>
+                        <TeamRowPicklist2024 index={index + 1} team={item} allTeams={teamAverages} dnp={moveDown} mode={mode} teamClick={showTeamMatchByMatch}></TeamRowPicklist2024>
                     </tr>)}
                 </tbody>
             </Table>
@@ -232,7 +232,7 @@ export default function Picklist2024() {
                 confirmText="Confirm"
                 confirmOnClick={saveOrder}
                 cancelText="Cancel"
-                cancelOnClick={() => { setShowConfirmation(false) } }
+                cancelOnClick={() => { setShowConfirmation(false) }}
             />
         </div>
     )

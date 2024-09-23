@@ -16,6 +16,7 @@ export default function NewEvent() {
 
     const { danger, success } = useAlert();
 
+    
     async function createEvent() {
         if (newEventCode !== '' && newEventName !== '') {
             let dto: EventDTO = {
