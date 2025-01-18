@@ -11,3 +11,4 @@ export const urlRobotPictures = `${baseURL}/robotpicture`
 export const urlMatchData2024 = `${baseURL}/matchdata2024`
 export const urlTeamAverages2024 = `${baseURL}/teamaverages2024`
 export const urlEvent2024 = `${baseURL}/event2024`
+export const urlDataValidation2024 = `${baseURL}/DataValidation2024`

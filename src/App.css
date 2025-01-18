@@ -351,6 +351,22 @@
     color: white;
 }
 
+.accordion-button-red {
+    background-color: #8B0000BC !important;
+}
+
+.accordion {
+    --bs-accordion-active-color: black !important;
+}
+.accordion-button-blue {
+    background-color: #4682B4AA !important;
+}
+
+.accordion-button {
+    background-color: #ffffff00 !important;
+}
+
+
 
 html,
 body {

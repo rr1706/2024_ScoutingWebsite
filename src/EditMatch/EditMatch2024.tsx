@@ -110,7 +110,7 @@ export default function EditMatch() {
     }
 
 
-    function ChangeTelespeaker(newValue: any, field: string) {
+    function ChangeValue(newValue: any, field: string) {
         let newMatchData = [...matchByMatch];
         if (field === "Speaker") {
             newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleSpeaker = parseInt(newValue);
@@ -159,24 +159,24 @@ export default function EditMatch() {
                     <>
                         <Col className='col-md-auto mt-1'><h5>Tele Speaker: </h5></Col>
                         <Col>
-                            <Form.Control type="number" placeholder="Teleop Speakers" value={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleSpeaker.toString()} onChange={(e) => ChangeTelespeaker(parseInt(e.target.value), "Speaker")} />
+                            <Form.Control type="number" placeholder="Teleop Speakers" value={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleSpeaker.toString()} onChange={(e) => ChangeValue(parseInt(e.target.value), "Speaker")} />
                         </Col> 
                         <Col className='col-md-auto mt-1'><h5>Tele Amp: </h5></Col>
                         <Col>
-                            <Form.Control type="string" placeholder="Teleop Amp" value={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleAmp.toString()} onChange={(e) => ChangeTelespeaker(parseInt(e.target.value), "Amp")} />
+                            <Form.Control type="string" placeholder="Teleop Amp" value={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleAmp.toString()} onChange={(e) => ChangeValue(parseInt(e.target.value), "Amp")} />
                         </Col> 
                         <Col className='col-md-auto mt-1'><h5>Feeds: </h5></Col>
                         <Col>
-                            <Form.Control type="string" placeholder="Feeds" value={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleFeeds!.toString()} onChange={(e) => ChangeTelespeaker(parseInt(e.target.value), "Feeds")} />
+                            <Form.Control type="string" placeholder="Feeds" value={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleFeeds!.toString()} onChange={(e) => ChangeValue(parseInt(e.target.value), "Feeds")} />
                         </Col> 
                         <Row className="m-3">
                             <Col className='col-md-auto mt-1'><h5>Climb: </h5></Col>
                             <Col>
-                                <DropDown Options={climbOptions} DefaultOption='No' selectOptions={(e) => ChangeTelespeaker(e, "Climb")} selectedOption={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.climb!.toString()} ></DropDown>
+                                <DropDown Options={climbOptions} DefaultOption='No' selectOptions={(e) => ChangeValue(e, "Climb")} selectedOption={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.climb!.toString()} ></DropDown>
                             </Col> 
                             <Col className='col-md-auto mt-1'><h5>Trap: </h5></Col>
                             <Col>
-                                <DropDown Options={trapOptions} DefaultOption='0' selectOptions={(e) => ChangeTelespeaker(parseInt(e), "Trap")} selectedOption={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleTrap!.toString()} ></DropDown>
+                                <DropDown Options={trapOptions} DefaultOption='0' selectOptions={(e) => ChangeValue(parseInt(e), "Trap")} selectedOption={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleTrap!.toString()} ></DropDown>
                             </Col> 
                         </Row>
                         
