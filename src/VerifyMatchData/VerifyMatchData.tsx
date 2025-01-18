@@ -29,10 +29,7 @@ export default function VerifyMatchData() {
     const blueColor = '#3399ff'
 
     useEffect(() => {
-
-        loadValidatedMatches()
         loadMatchByMatchData()
-
     }, [eventCode]);
 
     useEffect(() => {
@@ -74,7 +71,6 @@ export default function VerifyMatchData() {
         })
             .then((response: AxiosResponse<matchDataDTO_2024[]>) => {
                 setMatchByMatch(response.data)
-                console.log(response.data)
             })
     }
 
@@ -86,6 +82,7 @@ export default function VerifyMatchData() {
         })
             .then((response: AxiosResponse<ValidatedMatchDTO[]>) => {
                 setValidatedMatches(response.data)
+                console.log(response.data);
             })
     }
     function loadTeamList() {
@@ -116,7 +113,7 @@ export default function VerifyMatchData() {
 
     function ChangeValue(matchData: matchDataDTO_2024, newValue: any, field: string) {
         let copyMatchByMatch = [...matchByMatch]
-        let newMatchData = copyMatchByMatch.find((x) => x.matchNumber === matchData.matchNumber)!
+        let newMatchData = copyMatchByMatch.find((x) => x.matchNumber === matchData.matchNumber && x.teamNumber === matchData.teamNumber)!
         if (field === "teleSpeaker") {
             newMatchData.teleSpeaker = parseInt(newValue);
         } else if (field === "autoSpeaker") {
@@ -130,50 +127,75 @@ export default function VerifyMatchData() {
         } else if (field === "Climb") {
             newMatchData.climb = newValue.toString();
         }
+
+        let copyVerify = [...validatedMatches]
+        let newValidMatch = copyVerify.find((x) => x.matchNumber === matchData.matchNumber && (x.teamNumbers[0] === matchData.teamNumber || x.teamNumbers[1] === matchData.teamNumber || x.teamNumbers[2] === matchData.teamNumber))!
+        if (field === "teleSpeaker") {
+            newMatchData.teleSpeaker = parseInt(newValue);
+        } else if (field === "autoSpeaker") {
+            newMatchData.autoSpeaker = parseInt(newValue);
+        } else if (field === "Amp") {
+            newMatchData.teleAmp = parseInt(newValue);
+        } else if (field === "Feeds") {
+            newMatchData.teleFeeds = parseInt(newValue);
+        } else if (field === "Trap") {
+            newMatchData.teleTrap = parseInt(newValue);
+        } else if (field === "Climb") {
+            newMatchData.climb = newValue.toString();
+        }
+
+        setValidatedMatches(copyVerify);
         setMatchByMatch(copyMatchByMatch);
     }
 
     async function saveMatch(matchNumber: number) {
         let updatedMatches = matchByMatch.filter((x) => x.matchNumber === matchNumber)!
-        for (let i = 0; i < updatedMatches.length; i++)
+        console.log(updatedMatches.length);
+        for (let i = 0; i < updatedMatches.length; i++) {
             try {
-                await axios.post(`${urlMatchData2024}/updatematchbymatch`, matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!).then(() => {
-                    getTeamMatchByMatch();
-                    success("Successfully Saved New Data")
-
+                console.log(updatedMatches[i]);
+                await axios.post(`${urlMatchData2024}/updatematchbymatch`, updatedMatches[i]).then(() => {
                     axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
                         params: {
                             eventID: eventCode
                         }
                     })
                 })
-
-
             }
             catch (error: any) {
                 danger(error.response.data)
             }
+        }
+        getTeamMatchByMatch();
+        loadValidatedMatches();
+        success("Successfully Saved New Data")
     }
 
     return (<>
         <div className="container w-75" >
             <h4 className="text-center align-middle RRBlue">Verify Match Data</h4>
-            <Button className="btn btn-primary btn-block" onClick={() => ""} >Validate</Button>
+            <Button className="btn btn-primary btn-block" onClick={loadValidatedMatches} >Validate</Button>
             <Accordion defaultActiveKey="0">
             {validatedMatches?.map((match, index) =>
                 < Accordion.Item eventKey = {index.toString()} >
                     <Accordion.Header className={match.allianceColor === 'Red Alliance' ? 'accordion-button-red' : 'accordion-button-blue'}>
-                        {"Match " + match.matchNumber + " " + match.allianceColor}
+                        {"Match " + match.matchNumber + " " + match.field + " (Current: " + match.currentValue + ", Actual: " + match.correctValue + ")"}
                     </Accordion.Header>
                     <Accordion.Body>
-                        {/*<iframe*/}
-                        {/*    width="560" height="315" src={`https://www.youtube.com/embed/${match.matchVideo}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen; web-share">*/}
-                        {/*</iframe>*/}
+                        <Accordion.Collapse eventKey={index.toString()}>
+                            <iframe
+                                width="560" height="315" src={`https://www.youtube.com/embed/${match.matchVideo}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen; web-share">
+                            </iframe>
+                        </Accordion.Collapse>
+
                         <Row className="m-3">
-                            {matchByMatch.length > 0 && matchByMatch.find((x) => x.matchNumber === match.matchNumber) ?
+                            {matchByMatch.length > 0 && matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0] || x.teamNumber === match.teamNumbers[1] || x.teamNumber === match.teamNumbers[2]) ) ?
                                 <>
-                                    <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber)!} alliance={match.allianceColor} updateMatch={ChangeValue}></VerifyTeamComponent>
-                                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => saveMatch} >Save</Button>
+                                    <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field }></VerifyTeamComponent>
+                                    <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[1]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field}></VerifyTeamComponent>
+                                    <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[2]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field}></VerifyTeamComponent>
+
+                                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => saveMatch(match.matchNumber)} >Save</Button>
 
                                 </>
                                 : <>{matchByMatch.length}</>
