@@ -33,6 +33,9 @@ export default function VerifyTeamComponent(props: verifyTeamComponentProps) {
             <Col className='col-md-auto'>
                 <Form.Control style={{ width: '100px' }} type="number" placeholder="teleopSpeaker" value={getCurrentValue()} onChange={(e) => props.updateMatch(props.match, parseInt(e.target.value), props.field)} />
             </Col>
+            <Col className='col-md-auto'>
+                <Button className="btn btn-primary" onClick={() => props.saveMatch(props.match)}>Save</Button>
+            </Col>
         </Row>
 
 
@@ -45,4 +48,5 @@ interface verifyTeamComponentProps {
     alliance: String,
     field: String,
     updateMatch(match: matchDataDTO_2024, newValue: number, fieldNumber: String): void
+    saveMatch(match: matchDataDTO_2024): void
 }
