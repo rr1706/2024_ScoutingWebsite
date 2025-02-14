@@ -2,10 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\EditMatch",
+    "\\src\\MatchDataImport",
     "\\src\\MatchStrategy",
     "\\src\\Picklist",
-    "\\src\\ScoutScheduleMaker",
+    "\\src\\TBA",
+    "\\src\\TeamDetails",
+    "\\src\\TeamParser",
+    "\\src\\Utils",
     "\\src\\VerifyMatchData"
   ],
   "PreviewInSolutionExplorer": false
