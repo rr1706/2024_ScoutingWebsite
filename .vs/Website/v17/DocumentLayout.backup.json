@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\index.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\index.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\MatchStrategy2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\MatchStrategy\\MatchStrategy2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\SuperScoutData\\SuperScoutData.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\SuperScoutData\\SuperScoutData.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
@@ -17,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Menu.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Menu.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\MatchStrategy2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\MatchStrategy\\MatchStrategy2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -59,6 +67,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "App.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\App.tsx",
+              "RelativeDocumentMoniker": "src\\App.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\App.tsx",
+              "RelativeToolTip": "src\\App.tsx",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-02-14T18:15:21.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "index.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\index.tsx",
+              "RelativeDocumentMoniker": "src\\index.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\index.tsx",
+              "RelativeToolTip": "src\\index.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-02-14T18:15:09.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "SuperScoutData.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\SuperScoutData\\SuperScoutData.tsx",
               "RelativeDocumentMoniker": "src\\SuperScoutData\\SuperScoutData.tsx",
@@ -71,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "SuperScoutData.model.d.ts",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\SuperScoutData\\SuperScoutData.model.d.ts",
               "RelativeDocumentMoniker": "src\\SuperScoutData\\SuperScoutData.model.d.ts",
@@ -84,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Menu.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Menu.tsx",
               "RelativeDocumentMoniker": "src\\Menu.tsx",
@@ -97,20 +131,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "MatchStrategy2025.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\MatchStrategy2025.tsx",
               "RelativeDocumentMoniker": "src\\MatchStrategy\\MatchStrategy2025.tsx",
               "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\MatchStrategy2025.tsx",
               "RelativeToolTip": "src\\MatchStrategy\\MatchStrategy2025.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAAA5wK4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2025-02-14T17:36:48.273Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Picklist2025.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2025.tsx",
               "RelativeDocumentMoniker": "src\\Picklist\\Picklist2025.tsx",
@@ -123,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "TeamRowPicklist2025.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\TeamRowPicklist2025.tsx",
               "RelativeDocumentMoniker": "src\\Picklist\\TeamRowPicklist2025.tsx",
@@ -136,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "TeamMatchByMatchTable2025.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\TeamDetails\\TeamMatchByMatchTable2025.tsx",
               "RelativeDocumentMoniker": "src\\TeamDetails\\TeamMatchByMatchTable2025.tsx",
@@ -149,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "App.css",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\App.css",
               "RelativeDocumentMoniker": "src\\App.css",
@@ -162,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "RRModal.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Utils\\RRModal.tsx",
               "RelativeDocumentMoniker": "src\\Utils\\RRModal.tsx",
@@ -175,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "EventSetup.tsx",
               "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\EventSetup\\EventSetup.tsx",
               "RelativeDocumentMoniker": "src\\EventSetup\\EventSetup.tsx",
