@@ -1,20 +1,20 @@
 import DropDown from "../Utils/DropDown";
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { MatchDTO, formItem, matchDataDTO_2025 } from "../Utils/Utils.models";
+import { MatchDTO, formItem, matchDataDTO_2024 } from "../Utils/Utils.models";
 import axios, { AxiosResponse } from "axios";
-import { urlEvent2025, urlMatchData2025, urlRobotPictures, urlTeamAverages2025 } from "../endpoints";
+import { urlEvent2024, urlMatchData2024, urlRobotPictures, urlTeamAverages2024 } from "../endpoints";
 import eventContext from "../Contexts/EventContexts";
 import { convertNumbersToFormItem, convertStringsToFormItem, dynamicSort } from "../Utils/HelperFunctions";
 import { Button, Col , Form, Row } from "react-bootstrap";
 import { useAlert } from "react-bootstrap-hooks-alert";
-export default function EditMatch() {
+export default function EditMatch2025() {
     const [teamList, setTeamList] = useState<formItem[]>([]);
     const { eventCode, updateEvent } = useContext(eventContext);
     const [chosenTeam, setChosenTeam] = useState<string>("");
     const [matches, setMatches] = useState<formItem[]>([]);
     const [chosenMatchNumber, setChosenMatchNumber] = useState<string>("");
-    const [matchByMatch, setMatchByMatch] = useState<matchDataDTO_2025[]>([]);
+    const [matchByMatch, setMatchByMatch] = useState<matchDataDTO_2024[]>([]);
     const [robotPicture, setRobotPicture] = useState<string>('');
 
     const { danger, success } = useAlert();
@@ -70,7 +70,7 @@ export default function EditMatch() {
     }, [chosenTeam]);
 
     function loadTeamList() {
-        axios.get(`${urlEvent2025}/getteamList`, {
+        axios.get(`${urlEvent2024}/getteamList`, {
             params: {
                 eventID: eventCode
             },
@@ -81,13 +81,13 @@ export default function EditMatch() {
     }
     function getTeamMatchByMatch() {
         if (chosenTeam != "") {
-            axios.get(`${urlMatchData2025}/getbyteam`, {
+            axios.get(`${urlMatchData2024}/getbyteam`, {
                 params: {
                     eventID: eventCode,
                     teamNumber: chosenTeam
                 },
             })
-                .then((response: AxiosResponse<matchDataDTO_2025[]>) => {
+                .then((response: AxiosResponse<matchDataDTO_2024[]>) => {
                     let tempMatchByMatch = response.data.sort(dynamicSort("matchNumber", false));
                     setMatchByMatch(tempMatchByMatch);
                     setMatches(convertNumbersToFormItem(tempMatchByMatch.map(x => x.matchNumber)))
@@ -111,29 +111,29 @@ export default function EditMatch() {
 
 
     function ChangeValue(newValue: any, field: string) {
-        //let newMatchData = [...matchByMatch];
-        //if (field === "Speaker") {
-        //    newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleSpeaker = parseInt(newValue);
-        //} else if (field === "Amp") {
-        //    newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleAmp = parseInt(newValue);
-        //} else if (field === "Feeds") {
-        //    newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleFeeds = parseInt(newValue);
-        //} else if (field === "Trap") {
-        //    newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleTrap = parseInt(newValue);
-        //} else if (field === "Climb") {
-        //    newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.climb = newValue.toString();
-        //    console.log(newValue);
-        //}
-        //setMatchByMatch(newMatchData);
+        let newMatchData = [...matchByMatch];
+        if (field === "Speaker") {
+            newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleSpeaker = parseInt(newValue);
+        } else if (field === "Amp") {
+            newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleAmp = parseInt(newValue);
+        } else if (field === "Feeds") {
+            newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleFeeds = parseInt(newValue);
+        } else if (field === "Trap") {
+            newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleTrap = parseInt(newValue);
+        } else if (field === "Climb") {
+            newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.climb = newValue.toString();
+            console.log(newValue);
+        }
+        setMatchByMatch(newMatchData);
     }
 
     async function saveOrder() {
         try {
-            await axios.post(`${urlMatchData2025}/updatematchbymatch`, matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!).then(() => {
+            await axios.post(`${urlMatchData2024}/updatematchbymatch`, matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!).then(() => {
                 getTeamMatchByMatch();
                 success("Successfully Saved New Data")
 
-                axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
+                axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
                     params: {
                         eventID: eventCode
                     }
@@ -148,7 +148,7 @@ export default function EditMatch() {
     }
 
     return (<>
-        {/*<div className="container w-75" >
+        <div className="container w-75" >
             <h3 className="text-center align-middle RRBlue">Edit Match</h3>
             <Row>
                 <Col><DropDown Options={teamList} DefaultOption='none' selectOptions={setChosenTeam} selectedOption={chosenTeam} ></DropDown></Col>
@@ -157,7 +157,7 @@ export default function EditMatch() {
             <Row className="m-3">
                 {chosenMatchNumber !== "" && matchByMatch.length > 0 && matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber)) ? 
                     <>
-                       <Col className='col-md-auto mt-1'><h5>Tele Speaker: </h5></Col> 
+                        <Col className='col-md-auto mt-1'><h5>Tele Speaker: </h5></Col>
                         <Col>
                             <Form.Control type="number" placeholder="Teleop Speakers" value={matchByMatch.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleSpeaker.toString()} onChange={(e) => ChangeValue(parseInt(e.target.value), "Speaker")} />
                         </Col> 
@@ -188,9 +188,9 @@ export default function EditMatch() {
                 : <></>              
                 }
 
-            </Row> 
+            </Row>
             
             
-        </div>*/}
+        </div>
     </>)
 }

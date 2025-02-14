@@ -3,11 +3,11 @@ import { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useAlert } from "react-bootstrap-hooks-alert";
 import eventContext from "../Contexts/EventContexts";
-import { urlMatchData2024, urlTeamAverages2024 } from "../endpoints";
+import { urlMatchData2025, urlTeamAverages2025 } from "../endpoints";
 import Button from "../Utils/Button";
 import FileSelect from "../Utils/FileSelect";
 import EventSelector from "../Utils/EventSelector";
-import { matchDataDTO_2024 } from "../Utils/Utils.models";
+import { matchDataDTO_2025 } from "../Utils/Utils.models";
 
 
 export default function MatchDataImport() {
@@ -25,15 +25,17 @@ export default function MatchDataImport() {
                 const data = await selectedFile!.arrayBuffer();
                 const workbook = XLSX.read(data);
                 const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                const newMatches: matchDataDTO_2024[] = XLSX.utils.sheet_to_json(worksheet);
+                const newMatches: matchDataDTO_2025[] = XLSX.utils.sheet_to_json(worksheet);
 
                 newMatches.map(match => {
                     match.eventCode = eventCode;
                     return match;
                 });
+                console.log(newMatches)
 
-                await axios.post(`${urlMatchData2024}/savedata`, newMatches).then(() => {
-                    axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
+
+                await axios.post(`${urlMatchData2025}/savedata`, newMatches).then(() => {
+                    axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
                         params: {
                             eventID: eventCode
                         },

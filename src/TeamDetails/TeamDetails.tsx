@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import { matchDataDTO_2024 } from "../Utils/Utils.models";
+import { matchDataDTO_2025 } from "../Utils/Utils.models";
 import Button from "../Utils/Button";
-import TeamMatchByMatchTable2024 from "./TeamMatchByMatchTable2024";
+import TeamMatchByMatchTable2025 from "./TeamMatchByMatchTable2025";
 import eventContext from "../Contexts/EventContexts";
 import axios, { AxiosResponse } from "axios";
-import { urlMatchData2024, urlRobotPictures, urlMatchData, urlTeamAverages2024 } from "../endpoints";
+import { urlMatchData2025, urlRobotPictures, urlMatchData, urlTeamAverages2025 } from "../endpoints";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import TeamAutos from "./TeamAutos";
 import RobotGraph from "./RobotGraph";
@@ -17,7 +17,7 @@ export default function TeamDetails(props: detailsProps) {
     const GRAPHS = 'graphs'
     const [viewMode, setViewMode] = useState<string>(PICTURE);
 
-    const [matchByMatch, setMatchByMatch] = useState<matchDataDTO_2024[]>([]);
+    const [matchByMatch, setMatchByMatch] = useState<matchDataDTO_2025[]>([]);
     const [robotPicture, setRobotPicture] = useState<string>('');
 
     const { eventCode } = useContext(eventContext);
@@ -28,13 +28,13 @@ export default function TeamDetails(props: detailsProps) {
     }, [props.teamNumber]);
 
     function getTeamMatchByMatch() {
-        axios.get(`${urlMatchData2024}/getbyteam`, {
+        axios.get(`${urlMatchData2025}/getbyteam`, {
             params: {
                 eventID: eventCode,
                 teamNumber: props.teamNumber
             },
         })
-            .then((response: AxiosResponse<matchDataDTO_2024[]>) => {
+            .then((response: AxiosResponse<matchDataDTO_2025[]>) => {
                 let matchByMatch = response.data.sort(dynamicSort("matchNumber", false));
                 setMatchByMatch(matchByMatch);
             })
@@ -51,16 +51,16 @@ export default function TeamDetails(props: detailsProps) {
             })
     }
 
-    async function toggleIgnoreMatch(match: matchDataDTO_2024) {
+    async function toggleIgnoreMatch(match: matchDataDTO_2025) {
         if (match.ignore === 0) {
             match.ignore = 1;
         } else {
             match.ignore = 0;
         }
-        await axios.post(`${urlMatchData2024}/sendignore/${match.id}/${match.ignore}` ).then(() => {
+        await axios.post(`${urlMatchData2025}/sendignore/${match.id}/${match.ignore}` ).then(() => {
             getTeamMatchByMatch();
 
-            axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
+            axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
                 params: {
                     eventID: eventCode
                 }
@@ -89,13 +89,13 @@ export default function TeamDetails(props: detailsProps) {
             {(() => {
                 switch (viewMode) {
                     case MATCHBYMATCH:
-                        return <TeamMatchByMatchTable2024 matchData={matchByMatch} ignore={toggleIgnoreMatch}  /> 
+                        return <TeamMatchByMatchTable2025 matchData={matchByMatch} ignore={toggleIgnoreMatch}  /> 
                     case PICTURE:
                         return <div className="text-center"><img className="img-fluid" src={robotPicture} style={{ maxHeight: '400px' }} alt="" /></div>
                     case AUTOS:
                         return <TeamAutos matchData={matchByMatch}></TeamAutos>
-                    case GRAPHS:
-                        return <RobotGraph matchData={matchByMatch}></RobotGraph>
+                    //case GRAPHS:
+                    //    return <RobotGraph matchData={matchByMatch}></RobotGraph>
                     default:
                         return null
                 }

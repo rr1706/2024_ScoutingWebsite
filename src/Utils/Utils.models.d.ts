@@ -54,6 +54,56 @@ export interface matchDataDTO_2024 {
     ignore: number = 0;
 }
 
+export interface matchDataDTO_2025 {
+    id: number;
+    eventCode: string;
+    teamNumber: number;
+    matchNumber: number;
+    coralL1: number;
+    coralL2: number;
+    coralL3: number;
+    coralL4: number;
+    autoCoralL1: number;
+    autoCoralL2: number;
+    autoCoralL3: number;
+    autoCoralL4: number;
+    processor: number;
+    autoProcessor: number;
+    endClimb: string;
+    groundAlgae: number;
+    reefAlgae: number;
+    autoGroundAlgae: number;
+    autoReefAlgae: number;
+    barge: number;
+    autoBarge: number;
+    defence: number;
+    defended: number;
+    mobilitize: number;
+    gambleAmount: number;
+    notes: string;
+    gambleColor: string;
+    scoutName: string;
+    ignore: number; 
+}
+
+export interface TeamAveragesDTO_2025 {
+    id?: number;
+    eventCode?: string;
+    teamNumber?: number;
+    averageAutoCoral: number;
+    averageTeleCoral: number;
+    averageBargeAll: number;
+    averageProcessorAll: number;
+    successfulDeepClimb: number;
+    totalDeepClimb: number;
+    successfulShallowClimb: number;
+    totalShallowClimb: number;
+    percentMoblilitize: number;
+    totalPoints: number;
+    numMatches?: number;
+    isDNPed?: number;
+}
+
 export interface TeamAveragesDTO_2024 {
     id?: number;
     eventCode?: string;
