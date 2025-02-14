@@ -16,10 +16,9 @@ import TeamDetails from "../TeamDetails/TeamDetails";
 import { useBeforeunload } from 'react-beforeunload';
 import ConfirmationDialog from "../Utils/ConfirmationDialog";
 
-
 export default function Picklist2025() {
     const editMode = 'Edit';
-    const allianceSelectionMode = 'AllianceSelection'
+    const allianceSelectionMode = 'AllianceSelection';
 
     const [teamAverages, setTeamAverages] = useState<TeamAveragesDTO_2025[]>([]);
     const [order, setOrder] = useState<PicklistOrderDTO[]>([]);
@@ -30,10 +29,7 @@ export default function Picklist2025() {
     const [draggedElement, setDraggedElement] = useState<TeamAveragesDTO_2025 | undefined>(undefined);
     const [sortDescending, setSortDescending] = useState<boolean>(true);
 
-
-
     const { danger, success } = useAlert();
-
     const { eventCode } = useContext(eventContext);
 
     useBeforeunload((event) => event.preventDefault());
@@ -41,7 +37,6 @@ export default function Picklist2025() {
     useEffect(() => {
         loadData();
     }, [eventCode]);
-
 
     function loadData() {
         axios.get(`${urlTeamAverages2025}/getteamaverages`, {
@@ -59,25 +54,24 @@ export default function Picklist2025() {
                     },
                 })
                     .then((response: AxiosResponse<PicklistOrderDTO[]>) => {
-                        let teamOrder = response.data
-                        setOrder(teamOrder)
-                        orderAverages(teamOrder, averages)
-                        setDNPs(teamOrder, averages)
-                    })
-            })
+                        let teamOrder = response.data;
+                        setOrder(teamOrder);
+                        orderAverages(teamOrder, averages);
+                        setDNPs(teamOrder, averages);
+                    });
+            });
     }
 
     function loadAverages() {
         let order: PicklistOrderDTO[] = [];
 
         teamAverages.forEach(function (currentTeam) {
-            let currentOrder: PicklistOrderDTO =
-            {
+            let currentOrder: PicklistOrderDTO = {
                 id: 0,
                 eventCode: eventCode,
                 teamNumber: currentTeam.teamNumber!,
                 order: teamAverages.indexOf(currentTeam)
-            }
+            };
 
             order.push(currentOrder);
         });
@@ -87,9 +81,8 @@ export default function Picklist2025() {
                 eventID: eventCode
             },
         }).then((response: AxiosResponse<TeamAveragesDTO_2025[]>) => {
-            orderAverages(order, response.data)
-
-        })
+            orderAverages(order, response.data);
+        });
     }
 
     function orderAverages(picklistOrder: PicklistOrderDTO[], averages: TeamAveragesDTO_2025[]) {
@@ -97,6 +90,7 @@ export default function Picklist2025() {
         averages.sort((a, b) => teamOrder.indexOf(a.teamNumber!) - teamOrder.indexOf(b.teamNumber!));
         setTeamAverages(averages);
     }
+
     function setDNPs(picklistOrder: PicklistOrderDTO[], averages: TeamAveragesDTO_2025[]) {
         let copyAverages = [...averages];
         picklistOrder.forEach(function (currentOrder) {
@@ -104,13 +98,13 @@ export default function Picklist2025() {
                 if (currentAverage.teamNumber === currentOrder.teamNumber) {
                     currentAverage.isDNPed = currentOrder.isDNPed;
                 }
-            })
+            });
         });
         setTeamAverages(copyAverages);
     }
 
     function sortColumn(columnName: string) {
-        let newAverages = [...teamAverages]
+        let newAverages = [...teamAverages];
         newAverages.sort(dynamicSort(columnName, sortDescending));
         setSortDescending(!sortDescending);
         setTeamAverages(newAverages);
@@ -119,6 +113,7 @@ export default function Picklist2025() {
     function handleDragStart(item: TeamAveragesDTO_2025) {
         setDraggedElement(item);
     }
+
     function handleDragOver(item: TeamAveragesDTO_2025) {
         if (!draggedElement) {
             return;
@@ -133,10 +128,11 @@ export default function Picklist2025() {
             setTeamAverages(ranked);
         }
     }
+
     function moveDown(team: TeamAveragesDTO_2025) {
         let newArray = [...teamAverages];
         let index = newArray.findIndex(x => x.teamNumber === team.teamNumber);
-        if (team.isDNPed != 1) {
+        if (team.isDNPed !== 1) {
             newArray[index].isDNPed = 1;
             newArray.push(newArray[index]);
             newArray.splice(index, 1);
@@ -157,13 +153,13 @@ export default function Picklist2025() {
                 eventCode: team.eventCode!,
                 order: (teamAverages.indexOf(team) + 1),
                 isDNPed: team.isDNPed!
-            }
+            };
             newOrder.push(newTeam);
         });
         await axios.post(`${urlPicklist}/save`, newOrder).then(() => {
             loadData();
-            success("Successfully saved picklist")
-        })
+            success("Successfully saved picklist");
+        });
     }
 
     function showTeamMatchByMatch(team: number) {
@@ -172,65 +168,111 @@ export default function Picklist2025() {
     }
 
     return (
-        <div className="container w-90" >
+        <div className="container-fluid">
             <h3 className="text-center align-middle RRBlue">Picklist</h3>
 
-
-            <Row>
-                <Col className="text-center align-middle">
-                    {mode === editMode ? <Button className="btn btn-primary btn-block mt-3 " onClick={() => setMode(allianceSelectionMode)} > Change to Alliance Selection Mode</Button>
-                        : <Button className="btn btn-primary btn-block mt-3 " onClick={() => setMode(editMode)} > Change to Edit Mode</Button>}
+            <Row className="mb-3">
+                <Col xs={12} md={4} className="text-center align-middle mb-2 mb-md-0">
+                    {mode === editMode ? (
+                        <Button className="btn btn-primary btn-block" onClick={() => setMode(allianceSelectionMode)}>
+                            Change to Alliance Selection Mode
+                        </Button>
+                    ) : (
+                        <Button className="btn btn-primary btn-block" onClick={() => setMode(editMode)}>
+                            Change to Edit Mode
+                        </Button>
+                    )}
                 </Col>
-                <Col className="text-center align-middle">
-                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => setShowConfirmation(true)} > Save Picklist</Button>
+                <Col xs={12} md={4} className="text-center align-middle mb-2 mb-md-0">
+                    <Button className="btn btn-primary btn-block" onClick={() => setShowConfirmation(true)}>
+                        Save Picklist
+                    </Button>
                 </Col>
-                <Col className="text-center align-middle">
-                    <ExportButton className="btn btn-primary btn-block mt-3 " data={teamAverages} workbookName={"Picklist"}  > Export Picklist</ExportButton>
+                <Col xs={12} md={4} className="text-center align-middle">
+                    <ExportButton className="btn btn-primary btn-block" data={teamAverages} workbookName={"Picklist"}>
+                        Export Picklist
+                    </ExportButton>
                 </Col>
             </Row>
-            <Table>
-                <thead>
-                    <tr className="font-weight-bold">
-                        {mode === 'AllianceSelection' ? <td></td> : <></>}
-                        <td></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teamNumber")} > <b>Team</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageAutoCoral")} > <b>Auto Coral</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageTeleCoral")} > <b>Tele Coral</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageBargeAll")} > <b>Barge All</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageProcessorAll")} > <b>Processor All</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("successfulShallowClimb")} > <b>Successful Shallow Climb</b></Button></td>
-                        <td className="text-center align-middle" ><Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("succesfullDeepClimb")} > <b>Successful Deep Climb</b></Button></td>
 
-
-                        {mode === 'Edit' ? <td></td> : <></>}
-                    </tr>
-                </thead>
-                <tbody>
-                    {teamAverages?.map((item, index) => <tr key={index}
-                        draggable={mode === editMode}
-                        onDragStart={() => handleDragStart(item)}
-                        onDragOver={() => handleDragOver(item)}>
-                        <TeamRowPicklist2025 index={index + 1} team={item} allTeams={teamAverages} dnp={moveDown} mode={mode} teamClick={showTeamMatchByMatch}></TeamRowPicklist2025>
-                    </tr>)}
-                </tbody>
-            </Table>
+            <div className="table-responsive">
+                <Table bordered hover>
+                    <thead>
+                        <tr className="font-weight-bold">
+                            {mode === 'AllianceSelection' ? <td></td> : <></>}
+                            <td></td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teamNumber")}>
+                                    <b>Team</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageAutoCoral")}>
+                                    <b>Auto Coral</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageTeleCoral")}>
+                                    <b>Tele Coral</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageBargeAll")}>
+                                    <b>Barge</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageProcessorAll")}>
+                                    <b>Processor</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("successfulShallowClimb")}>
+                                    <b>Shallow Climb</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("succesfullDeepClimb")}>
+                                    <b>Deep Climb</b>
+                                </Button>
+                            </td>
+                            {mode === 'Edit' ? <td></td> : <></>}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {teamAverages?.map((item, index) => (
+                            <tr key={index} draggable={mode === editMode} onDragStart={() => handleDragStart(item)} onDragOver={() => handleDragOver(item)}>
+                                <TeamRowPicklist2025 index={index + 1} team={item} allTeams={teamAverages} dnp={moveDown} mode={mode} teamClick={showTeamMatchByMatch}></TeamRowPicklist2025>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </div>
 
             <RRModal
                 title={teamNumber?.toString()!}
-                body={<TeamDetails teamNumber={teamNumber!}  ></TeamDetails>}
+                body={<TeamDetails teamNumber={teamNumber!} />}
                 showModal={showModal}
-                onHide={() => { setShowModal(false); loadAverages(); }}
+                onHide={() => {
+                    setShowModal(false);
+                    loadAverages();
+                }}
             />
             <ConfirmationDialog
                 title={"Confirm Save"}
                 body={"This will replace current picklist."}
                 showModal={showConfirmation}
-                onHide={() => { setShowConfirmation(false) }}
+                onHide={() => {
+                    setShowConfirmation(false);
+                }}
                 confirmText="Confirm"
                 confirmOnClick={saveOrder}
                 cancelText="Cancel"
-                cancelOnClick={() => { setShowConfirmation(false) }}
+                cancelOnClick={() => {
+                    setShowConfirmation(false);
+                }}
             />
         </div>
-    )
+    );
 }
+

@@ -8,7 +8,7 @@ import LoadPicklist from "./LoadPicklist";
 import eventContext from "../Contexts/EventContexts";
 import axios from "axios";
 import { useAlert } from "react-bootstrap-hooks-alert";
-import {urlTeamAverages2024 } from "../endpoints";
+import {urlTeamAverages2025} from "../endpoints";
 
 
 export default function EventSetup() {
@@ -22,7 +22,7 @@ export default function EventSetup() {
     const { danger, success } = useAlert();
 
     async function reCalculate() {
-            axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
+            axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
                 params: {
                     eventID: eventCode
                 },
