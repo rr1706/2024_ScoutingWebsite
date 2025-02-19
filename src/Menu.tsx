@@ -25,11 +25,12 @@ export default function Menu() {
                             <NavDropdown.Item as={Link} to="/schedulemaker">Scouting Scheduler</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <div className="d-flex">
-                        <EventSelector />
-                    </div>
                 </Navbar.Collapse>
+                <div className="d-flex justify-content-center">
+                    <EventSelector />
+                </div>
             </div>
         </Navbar>
     );
 }
+

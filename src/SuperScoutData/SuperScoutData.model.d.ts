@@ -1,10 +1,11 @@
 export interface SuperScoutDataDTO
 {
-    id: number
-    event: string
-    matchNumber: number;
+    id?: number
+    eventCode: string
+    matchNumber?: number;
     teamNumber: number;
     scoutName: String;
     comments: string;
+    type: string
 
 }

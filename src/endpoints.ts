@@ -17,3 +17,5 @@ export const urlMatchData2025 = `${baseURL}/matchdata2025`
 export const urlTeamAverages2025 = `${baseURL}/teamaverages2025`
 export const urlEvent2025 = `${baseURL}/event2025`
 export const urlDataValidation2025 = `${baseURL}/DataValidation2025`
+export const urlSuperScout2025 = `${baseURL}/superscoutdata2025`
+export const urlTBA = `${baseURL}/TBAData`

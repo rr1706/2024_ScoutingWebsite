@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\EventSetup",
-    "\\src\\MatchStrategy",
+    "\\src\\MatchDataImport",
+    "\\src\\Picklist",
     "\\src\\SuperScoutData",
     "\\src\\TBA",
     "\\src\\TeamDetails",
@@ -11,6 +11,6 @@
     "\\src\\Utils",
     "\\src\\VerifyMatchData"
   ],
-  "SelectedNode": "\\src\\App.tsx",
+  "SelectedNode": "\\src\\Utils\\ExportButton.tsx",
   "PreviewInSolutionExplorer": false
 }

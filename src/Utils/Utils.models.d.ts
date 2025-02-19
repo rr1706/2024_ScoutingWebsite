@@ -6,6 +6,8 @@ export interface formItem {
 export interface EventDTO {
     eventCode: string;
     eventName: string;
+    year: number;
+    tbaCode: string;
 }
 
 export interface MatchDTO {

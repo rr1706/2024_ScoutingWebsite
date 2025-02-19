@@ -3,44 +3,106 @@ import { Col, Row } from "react-bootstrap";
 import { matchDataDTO_2024 } from "../Utils/Utils.models";
 import eventContext from "../Contexts/EventContexts";
 import axios, { AxiosResponse } from "axios";
-import { urlMatchData2024, urlRobotPictures } from "../endpoints";
+import { urlMatchData2024, urlRobotPictures, urlTBA } from "../endpoints";
 import Button from "../Utils/Button";
-import { TBAEvent } from "./TBA.model";
+import { TBAMatch_2025 } from "./TBA.model";
 import ExportButton from "../Utils/ExportButton";
-
+import { utils, writeFile } from "xlsx";
 
 export default function TBA() {
+    const [matches, setMatches] = useState<TBAMatch_2025[] | null>(null);
 
-    const [events, setEvents] = useState<TBAEvent[]>([]);
-
-    async function getEvents() {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://www.thebluealliance.com/api/v3/events/2024?X-TBA-Auth-Key=e6O1xGxIT7zsDwNUM1gAb7cNsH71EZ4JhyyvAkBwiw1qDRcEvhsW8CBUCkXxCVA8');
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                var newEvents: TBAEvent[] = []
-                var json = (JSON.parse(xhr.responseText));
-                for (var index in json) {
-                    var newEvent: TBAEvent = {
-                        eventCode: json[index].event_code,
-                        eventName : json[index].name
-                    }
-                    newEvents.push(newEvent);
-                }
-                setEvents(newEvents);
-            }
-        };
-        xhr.send();
+    async function exportData() {
+        axios.get(`${urlTBA}/getAllMatches`)
+            .then((response: AxiosResponse<TBAMatch_2025[]>) => {
+                setMatches(response.data);
+                exportToExcel(response.data);
+                console.log(response.data);
+            });
     }
 
+    async function exportToExcel(matches: TBAMatch_2025[]) {
+        if (!matches) return;
+
+        const headers = [
+            "Match",
+            "Alliance",
+            "Auto Coral 1",
+            "Auto Coral 2",
+            "Auto Coral 3",
+            "Auto Coral 4",
+            "Tele Coral 1",
+            "Tele Coral 2",
+            "Tele Coral 3",
+            "Tele Coral 4",
+            "Total Auto Coral",
+            "Total Tele Coral",
+            "Total Processor",
+            "Total Net",
+            "Total Auto",
+            "Total End Game",
+            "Total Tele",
+            "Total Points"
+        ];
+
+        const data = matches.flatMap(match => [
+            {
+                "Match": match.key,
+                "Alliance": match.alliances.red.team_keys.join("-"),
+                "Auto Coral 1": match.score_breakdown.red.autoL1,
+                "Auto Coral 2": match.score_breakdown.red.autoL2,
+                "Auto Coral 3": match.score_breakdown.red.autoL3,
+                "Auto Coral 4": match.score_breakdown.red.autoL4,
+                "Tele Coral 1": match.score_breakdown.red.teleL1,
+                "Tele Coral 2": match.score_breakdown.red.teleL2,
+                "Tele Coral 3": match.score_breakdown.red.teleL3,
+                "Tele Coral 4": match.score_breakdown.red.teleL4,
+                "Total Auto Coral": match.score_breakdown.red.autoCoralCount,
+                "Total Tele Coral": match.score_breakdown.red.teleopCoralCount,
+                "Total Processor": match.score_breakdown.red.wallAlgaeCount,
+                "Total Net": match.score_breakdown.red.netAlgaeCount,
+                "Total Auto": match.score_breakdown.red.autoPoints,
+                "Total Tele": match.score_breakdown.red.teleopPoints,
+                "Total End Game": match.score_breakdown.red.endGameBargePoints,
+                "Total Points": match.score_breakdown.red.totalPoints
+            },
+            {
+                "Match": match.key,
+                "Alliance": match.alliances.blue.team_keys.join("-"),
+                "Auto Coral 1": match.score_breakdown.blue.autoL1,
+                "Auto Coral 2": match.score_breakdown.blue.autoL2,
+                "Auto Coral 3": match.score_breakdown.blue.autoL3,
+                "Auto Coral 4": match.score_breakdown.blue.autoL4,
+                "Tele Coral 1": match.score_breakdown.blue.teleL1,
+                "Tele Coral 2": match.score_breakdown.blue.teleL2,
+                "Tele Coral 3": match.score_breakdown.blue.teleL3,
+                "Tele Coral 4": match.score_breakdown.blue.teleL4,
+                "Total Auto Coral": match.score_breakdown.blue.autoCoralCount,
+                "Total Tele Coral": match.score_breakdown.blue.teleopCoralCount,
+                "Total Processor": match.score_breakdown.blue.wallAlgaeCount,
+                "Total Net": match.score_breakdown.blue.netAlgaeCount,
+                "Total Auto": match.score_breakdown.blue.autoPoints,
+                "Total Tele": match.score_breakdown.blue.teleopPoints,
+                "Total End Game": match.score_breakdown.blue.endGameBargePoints,
+                "Total Points": match.score_breakdown.blue.totalPoints
+            }
+        ]);
+
+        let wb = utils.book_new();
+        let ws = utils.json_to_sheet(data, { header: headers });
+        utils.book_append_sheet(wb, ws, "Matches");
+        writeFile(wb, "TBAMatches_" + new Date().toLocaleString() + ".xlsx");
+    }
 
     return (
         <>
             <div className="container w-80" >
                 <h3 className="text-center align-middle RRBlue">TBA</h3>
-                <Button className="btn btn-primary btn-block mt-3 " onClick={() => getEvents()} > Get Events</Button>
-                <ExportButton className="btn btn-primary btn-block mt-3" data={events} disabled={(events.length === 0)} workbookName={"2024 Events"} > Excel Export</ExportButton>
+                <Button className="btn btn-primary btn-block" onClick={exportData}>
+                    Export Matches
+                </Button>
             </div>
         </>
     )
 }
+

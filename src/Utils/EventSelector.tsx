@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import {  useContext, useEffect, useState } from "react";
 import { Form } from "react-bootstrap"
 import eventContext from "../Contexts/EventContexts";
-import { urlEvent } from "../endpoints";
+import { urlEvent2025 } from "../endpoints";
 import { storeItem } from "./LocalStorage";
 import { EventDTO, formItem } from "./Utils.models";
 
@@ -19,7 +19,7 @@ export default function EventSelector() {
     }
 
     useEffect(() => {
-        axios.get(`${urlEvent}/getevents`)
+        axios.get(`${urlEvent2025}/getevents`)
             .then((response: AxiosResponse<EventDTO[]>) => {
                 setEvents(response.data);
             })

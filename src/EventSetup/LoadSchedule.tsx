@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useAlert } from "react-bootstrap-hooks-alert";
 import eventContext from "../Contexts/EventContexts";
-import { urlEvent } from "../endpoints";
+import { urlEvent2025 } from "../endpoints";
 import Button from "../Utils/Button";
 import {MatchDTO } from "../Utils/Utils.models";
 import { utils } from 'xlsx';
@@ -31,7 +31,7 @@ export default function LoadSchedule() {
                 x.eventCode = eventCode;
             })
 
-            await axios.post(`${urlEvent}/saveschedule`, jsonData).then(() => {
+            await axios.post(`${urlEvent2025}/saveschedule`, jsonData).then(() => {
                 success("Successfully Uploaded Schedule");
             })
         } else {
@@ -39,9 +39,24 @@ export default function LoadSchedule() {
         }
     }
 
+    async function loadFromTBA() {
+
+        await axios.get(`${urlEvent2025}/loadMatchScheduleTBA`, {
+            params: {
+                eventID: eventCode
+            },
+        }).then(() => {
+            success("Successfully Uploaded Schedule");
+        })
+    }
+
+
+
     return (<>
         <h4 className="text-center align-middle RRBlue">Load Match Schedule</h4>
 
+            <Row><Button className="btn btn-primary btn-block" onClick={loadFromTBA} >Load From The Blue Alliance</Button></Row>
+            <hr/>
             <Row className='mt-3'>
                 <Col className='col-md-auto mt-1'><h5>Select Event: </h5></Col>
                 <Col>
