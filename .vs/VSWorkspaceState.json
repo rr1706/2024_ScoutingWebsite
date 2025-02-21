@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\MatchDataImport",
+    "\\src\\MatchStrategy",
     "\\src\\Picklist",
-    "\\src\\SuperScoutData",
-    "\\src\\TBA",
+    "\\src\\ScoutScheduleMaker",
     "\\src\\TeamDetails",
     "\\src\\TeamParser",
     "\\src\\Utils",
     "\\src\\VerifyMatchData"
   ],
-  "SelectedNode": "\\src\\Utils\\ExportButton.tsx",
+  "SelectedNode": "\\src\\TeamDetails\\TeamDetails.tsx",
   "PreviewInSolutionExplorer": false
 }
