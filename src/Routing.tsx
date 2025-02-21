@@ -29,7 +29,15 @@ export default function routing() {
             <Route path="/login" element={<Login />} />
             <Route path="/registerr" element={< Register />} />
             {/*<Route path="/schedulemaker" element={<Authorized authorized={< ScheduleGenerator />} notAuthorized={<Login />}></Authorized>} />*/}
-            <Route path="/superscout" element={<Authorized authorized={< SuperScoutData />} notAuthorized={<Login />}></Authorized>} />
+
+
+
+
+            <Route path="/superscout" element={<Authorized authorized={< SuperScoutData />} notAuthorized={<SuperScoutData />}></Authorized>} />
+            {/*         TODO: Put superscout back in authorized!*/}
+
+
+
             {/*<Route path="/schedulemaker" element={<Authorized authorized={< ScheduleGenerator />} notAuthorized={<Login />}></Authorized>} />*/}
             <Route path="/tba" element={<Authorized authorized={< TBA />} notAuthorized={<Login />}></Authorized>} />
 

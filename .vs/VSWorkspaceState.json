@@ -2,7 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\MatchDataImport",
+    "\\src\\EventSetup",
     "\\src\\Picklist",
     "\\src\\SuperScoutData",
     "\\src\\TBA",
@@ -11,6 +11,6 @@
     "\\src\\Utils",
     "\\src\\VerifyMatchData"
   ],
-  "SelectedNode": "\\src\\Utils\\ExportButton.tsx",
+  "SelectedNode": "\\src\\SuperScoutData\\SuperScoutData.tsx",
   "PreviewInSolutionExplorer": false
 }

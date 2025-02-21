@@ -6,6 +6,9 @@ export interface SuperScoutDataDTO
     teamNumber: number;
     scoutName: String;
     comments: string;
-    type: string
+    type: string;
+    drivetrain?: string;
+    batteryCount?: number;
+    batteryAge?: string;
 
 }
