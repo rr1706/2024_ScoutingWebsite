@@ -23,8 +23,7 @@ export default function TeamRow2025(props: teamRowProps) {
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
                 {props.teamAverages?.percentMoblilitize! > 0 ?
                     <Row>
-                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.percentMoblilitize?.toFixed(1) + '%'}</Col>
-                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.percentMoblilitize! * props.teamAverages?.numMatches! / 100).toFixed(0)})</Col>
+                        <Col className="text-center align-middle" style={{ paddingRight: 0 }} >{props.teamAverages?.percentMoblilitize?.toFixed(1) + '%'}</Col>
                     </Row>
                     :
                     <Row></Row>}
