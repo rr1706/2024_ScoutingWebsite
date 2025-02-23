@@ -42,10 +42,7 @@ export default function TeamMatchByMatchTable2025(props: tableProps) {
                         <td className="text-center align-middle"><b>Defense</b></td>
                         <td className="text-center align-middle"><b>Defended</b></td>
                         <td className="text-center align-middle"><b>Climb</b></td>
-                        <td className="text-center align-middle"><b>Scout</b></td>
-                        <td className="text-center align-middle"><b>Notes</b></td>
                         <td className="text-center align-middle"><b>Ignore</b></td>
-                        <td className="text-center align-middle"><b>Edit</b></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,17 +69,10 @@ export default function TeamMatchByMatchTable2025(props: tableProps) {
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{bianaryToHuman(item.defence)}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{bianaryToHuman(item.defended)}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.endClimb}</td>
-                            <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.scoutName}</td>
-                            <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.notes}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>
                                 <Button className="btn btn-danger btn-block btn-sm" onClick={() => props.ignore(item)}>
                                     {item.ignore === 1 ? "Include" : "Exclude"}
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>
-                                <Link to={`/editmatch?team=${item.teamNumber}&match=${item.matchNumber}`} target="_blank">
-                                    <Button>Edit</Button>
-                                </Link>
                             </td>
                         </tr>
                     ))}

@@ -11,6 +11,7 @@ import TeamAutos from "./TeamAutos";
 import RobotGraph from "./RobotGraph";
 import TeamNotesTable2025 from "./TeamNotesTable2025";
 import { SuperScoutDataDTO } from "../SuperScoutData/SuperScoutData.model";
+import RobotGraph_2025 from "./RobotGraph_2025";
 
 export default function TeamDetails(props: detailsProps) {
     const MATCHBYMATCH = 'matchByMatch'
@@ -114,8 +115,8 @@ export default function TeamDetails(props: detailsProps) {
                         return <div className="text-center"><img className="img-fluid" src={robotPicture} style={{ maxHeight: '400px' }} alt="" /></div>
                     //case AUTOS:
                     //    return <TeamAutos matchData={matchByMatch}></TeamAutos>
-                    //case GRAPHS:
-                    //    return <RobotGraph matchData={matchByMatch}></RobotGraph>
+                    case GRAPHS:
+                        return <RobotGraph_2025 matchData={matchByMatch}></RobotGraph_2025>
                     case NOTES:
                         return <TeamNotesTable2025 matchData={matchByMatch} superScout={superScoutData}  />
                     default:

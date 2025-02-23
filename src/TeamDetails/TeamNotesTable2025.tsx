@@ -5,6 +5,7 @@ import { matchDataDTO } from "../TeamParser/TeamParser.model";
 import { Link } from "react-router-dom";
 import { SuperScoutDataDTO } from "../SuperScoutData/SuperScoutData.model";
 import SuperScoutData from "../SuperScoutData/SuperScoutData";
+import ReactMarkdown from "react-markdown";
 
 export default function TeamNotesTable2025(props: tableProps) {
     const [notes, setNotes] = useState<SuperScoutDataDTO[]>();
@@ -48,7 +49,7 @@ export default function TeamNotesTable2025(props: tableProps) {
                             <td className="text-center align-middle" >{thisItem.scoutName}</td>
                             {/*broke*/}
                             <td className="text-center align-middle" >{thisItem.type}</td>
-                            <td className="text-center align-middle" >{thisItem.comments}</td>
+                            <td className="text-center align-middle" ><ReactMarkdown>{thisItem.comments}</ReactMarkdown></td>
                         </tr>
                     ))}
                 </tbody>

@@ -11,6 +11,7 @@ import { TeamAveragesDTO_2025 } from "../Utils/Utils.models";
 import TeamRow2025 from "./TeamRow2025";
 import TeamDetails from "../TeamDetails/TeamDetails";
 import RRModal from "../Utils/RRModal";
+import Button from "../Utils/Button";
 
 export default function MatchStrategy2025() {
     const [teamList, setTeamList] = useState<formItem[]>([]);
@@ -23,6 +24,7 @@ export default function MatchStrategy2025() {
     const [teamNumber, setTeamNumber] = useState<number>();
 
     const [showModal, setShowModal] = useState<boolean>(false);
+    const [showIndividualTeams, setShowIndividualTeams] = useState<boolean>(false);
 
     const [red1, setRed1] = useState<string>();
     const [red2, setRed2] = useState<string>();
@@ -95,28 +97,35 @@ export default function MatchStrategy2025() {
                 <Col xs={12} md="auto">
                     <DropDown Options={matches} DefaultOption="Select match" selectOptions={handleSelectedEvent} selectedOption={selectedMatch ? selectedMatch.matchNumber.toString() : undefined} />
                 </Col>
+                <Col xs={12} md="auto">
+                    <Button onClick={() => setShowIndividualTeams(!showIndividualTeams)}>Select Individual Teams</Button>
+                </Col>
             </Row>
 
-            <Row>
-                <Col xs={12} md={2}>
-                    <DropDown Options={teamList} DefaultOption="Red 1" selectOptions={setRed1} selectedOption={red1} />
-                </Col>
-                <Col xs={12} md={2}>
-                    <DropDown Options={teamList} DefaultOption="Red 2" selectOptions={setRed2} selectedOption={red2} />
-                </Col>
-                <Col xs={12} md={2}>
-                    <DropDown Options={teamList} DefaultOption="Red 3" selectOptions={setRed3} selectedOption={red3} />
-                </Col>
-                <Col xs={12} md={2}>
-                    <DropDown Options={teamList} DefaultOption="Blue 1" selectOptions={setBlue1} selectedOption={blue1} />
-                </Col>
-                <Col xs={12} md={2}>
-                    <DropDown Options={teamList} DefaultOption="Blue 2" selectOptions={setBlue2} selectedOption={blue2} />
-                </Col>
-                <Col xs={12} md={2}>
-                    <DropDown Options={teamList} DefaultOption="Blue 3" selectOptions={setBlue3} selectedOption={blue3} />
-                </Col>
-            </Row>
+            {showIndividualTeams ?
+                <Row>
+                    <Col xs={12} md={2}>
+                        <DropDown Options={teamList} DefaultOption="Red 1" selectOptions={setRed1} selectedOption={red1} />
+                    </Col>
+                    <Col xs={12} md={2}>
+                        <DropDown Options={teamList} DefaultOption="Red 2" selectOptions={setRed2} selectedOption={red2} />
+                    </Col>
+                    <Col xs={12} md={2}>
+                        <DropDown Options={teamList} DefaultOption="Red 3" selectOptions={setRed3} selectedOption={red3} />
+                    </Col>
+                    <Col xs={12} md={2}>
+                        <DropDown Options={teamList} DefaultOption="Blue 1" selectOptions={setBlue1} selectedOption={blue1} />
+                    </Col>
+                    <Col xs={12} md={2}>
+                        <DropDown Options={teamList} DefaultOption="Blue 2" selectOptions={setBlue2} selectedOption={blue2} />
+                    </Col>
+                    <Col xs={12} md={2}>
+                        <DropDown Options={teamList} DefaultOption="Blue 3" selectOptions={setBlue3} selectedOption={blue3} />
+                    </Col>
+                </Row>
+                : <></>
+            }
+
             <hr />
 
             <div className="table-responsive">
