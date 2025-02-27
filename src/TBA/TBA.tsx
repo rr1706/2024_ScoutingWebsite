@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { matchDataDTO_2024 } from "../Utils/Utils.models";
 import eventContext from "../Contexts/EventContexts";
 import axios, { AxiosResponse } from "axios";
@@ -8,16 +8,19 @@ import Button from "../Utils/Button";
 import { TBAMatch_2025 } from "./TBA.model";
 import ExportButton from "../Utils/ExportButton";
 import { utils, writeFile } from "xlsx";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 export default function TBA() {
     const [matches, setMatches] = useState<TBAMatch_2025[] | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     async function exportData() {
+        setIsLoading(true);
         axios.get(`${urlTBA}/getAllMatches`)
             .then((response: AxiosResponse<TBAMatch_2025[]>) => {
                 setMatches(response.data);
                 exportToExcel(response.data);
-                console.log(response.data);
+                setIsLoading(false);
             });
     }
 
@@ -62,7 +65,7 @@ export default function TBA() {
                 "Total Processor": match.score_breakdown.red.wallAlgaeCount,
                 "Total Net": match.score_breakdown.red.netAlgaeCount,
                 "Total Auto": match.score_breakdown.red.autoPoints,
-                "Total Tele": match.score_breakdown.red.teleopPoints,
+                "Total Tele": (match.score_breakdown.red.teleopPoints - match.score_breakdown.red.endGameBargePoints),
                 "Total End Game": match.score_breakdown.red.endGameBargePoints,
                 "Total Points": match.score_breakdown.red.totalPoints
             },
@@ -82,7 +85,7 @@ export default function TBA() {
                 "Total Processor": match.score_breakdown.blue.wallAlgaeCount,
                 "Total Net": match.score_breakdown.blue.netAlgaeCount,
                 "Total Auto": match.score_breakdown.blue.autoPoints,
-                "Total Tele": match.score_breakdown.blue.teleopPoints,
+                "Total Tele": (match.score_breakdown.blue.teleopPoints - match.score_breakdown.blue.endGameBargePoints),
                 "Total End Game": match.score_breakdown.blue.endGameBargePoints,
                 "Total Points": match.score_breakdown.blue.totalPoints
             }
@@ -95,14 +98,23 @@ export default function TBA() {
     }
 
     return (
-        <>
-            <div className="container w-80" >
-                <h3 className="text-center align-middle RRBlue">TBA</h3>
-                <Button className="btn btn-primary btn-block" onClick={exportData}>
-                    Export Matches
-                </Button>
-            </div>
-        </>
+        <Container className="my-5">
+            <h3 className="text-center align-middle RRBlue mb-4">TBA</h3>
+            <Row className="justify-content-center mb-4">
+                <Col xs="auto">
+                    <Button className="btn btn-primary" onClick={exportData}>
+                        Export Matches
+                    </Button>
+                </Col>
+            </Row>
+            <Row className="justify-content-center">
+                <PacmanLoader
+                    color={"#224195"}
+                    loading={isLoading}
+                    size={25}
+                />
+            </Row>
+        </Container>
     )
 }
 

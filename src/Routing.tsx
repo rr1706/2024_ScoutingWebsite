@@ -12,6 +12,7 @@ import TBA from './TBA/TBA';
 import EditMatch from './EditMatch/EditMatch2025'
 import VerifyMatchData from './VerifyMatchData/VerifyMatchData';
 import SuperScoutData from './SuperScoutData/SuperScoutData';
+import PredictionLeaderboard from './PredictionLeaderboard/PredictionLeaderboard';
 //import ScheduleGenerator from './ScoutScheduleMaker/ScheduleGenerator';
 
 export default function routing() {
@@ -39,7 +40,8 @@ export default function routing() {
 
 
             {/*<Route path="/schedulemaker" element={<Authorized authorized={< ScheduleGenerator />} notAuthorized={<Login />}></Authorized>} />*/}
-            <Route path="/tba" element={<Authorized authorized={< TBA />} notAuthorized={<Login />}></Authorized>} />
+
+            <Route path="/predictionleaderboard" element={< PredictionLeaderboard />} />
 
             <Route path="/tba" element={< TBA />} />
 

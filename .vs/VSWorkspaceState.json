@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\EventSetup",
     "\\src\\Picklist",
+    "\\src\\PredictionLeaderboard",
     "\\src\\SuperScoutData",
     "\\src\\TBA",
     "\\src\\TeamDetails",
@@ -11,6 +11,6 @@
     "\\src\\Utils",
     "\\src\\VerifyMatchData"
   ],
-  "SelectedNode": "\\src\\TeamDetails\\TeamNotesTable2025.tsx",
+  "SelectedNode": "\\src\\Picklist\\Picklist2025.tsx",
   "PreviewInSolutionExplorer": false
 }
