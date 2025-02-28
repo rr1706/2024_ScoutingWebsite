@@ -12,11 +12,12 @@ import RobotGraph from "./RobotGraph";
 import TeamNotesTable2025 from "./TeamNotesTable2025";
 import { SuperScoutDataDTO } from "../SuperScoutData/SuperScoutData.model";
 import RobotGraph_2025 from "./RobotGraph_2025";
+import TeamPitscoutTable2025 from "./TeamPitscoutTable2025";
 
 export default function TeamDetails(props: detailsProps) {
     const MATCHBYMATCH = 'matchByMatch'
     const PICTURE = 'picture'
-/*    const AUTOS = 'autos'*/
+    const PITSCOUT = 'pitscout'
     const GRAPHS = 'graphs'
     const NOTES = 'notes'
     const [viewMode, setViewMode] = useState<string>(PICTURE);
@@ -95,6 +96,9 @@ export default function TeamDetails(props: detailsProps) {
                 <Col className="text-center align-middle">
                     <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(NOTES)} > View Scout Notes</Button>
                 </Col>
+                <Col className="text-center align-middle">
+                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(PITSCOUT)} > View Pit Scouting</Button>
+                </Col>
                 {/*<Col className="text-center align-middle">*/}
                 {/*    <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(AUTOS)} > View Autos</Button>*/}
                 {/*</Col>*/}
@@ -113,8 +117,8 @@ export default function TeamDetails(props: detailsProps) {
                         return <TeamMatchByMatchTable2025 matchData={matchByMatch} ignore={toggleIgnoreMatch}  /> 
                     case PICTURE:
                         return <div className="text-center"><img className="img-fluid" src={robotPicture} style={{ maxHeight: '400px' }} alt="" /></div>
-                    //case AUTOS:
-                    //    return <TeamAutos matchData={matchByMatch}></TeamAutos>
+                    case PITSCOUT:
+                        return <TeamPitscoutTable2025 superScout={superScoutData}  />
                     case GRAPHS:
                         return <RobotGraph_2025 matchData={matchByMatch}></RobotGraph_2025>
                     case NOTES:
