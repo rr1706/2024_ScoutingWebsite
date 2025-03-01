@@ -1,10 +1,10 @@
 import { Accordion, Button, Col, Form, Row } from "react-bootstrap";
 import DropDown from "../Utils/DropDown";
 import { useContext, useEffect, useState } from "react";
-import { MatchDTO, TeamAveragesDTO_2024, formItem, matchDataDTO_2024 } from "../Utils/Utils.models";
+import { MatchDTO, TeamAveragesDTO_2025, formItem, matchDataDTO_2025 } from "../Utils/Utils.models";
 import eventContext from "../Contexts/EventContexts";
 import axios, { AxiosResponse } from "axios";
-import { urlDataValidation2024, urlEvent2024, urlMatchData2024, urlTeamAverages2024 } from "../endpoints";
+import { urlDataValidation2025, urlEvent2025, urlMatchData2025, urlTeamAverages2025 } from "../endpoints";
 import { convertNumbersToFormItem, dynamicSort } from "../Utils/HelperFunctions";
 import EditMatchForm from "./EditMatchForm";
 import { ValidatedMatchDTO } from "./VerifyMatchData.model";
@@ -17,10 +17,10 @@ import { TeamAveragesDTO } from "../MatchStrategy/MatchStrategy.model";
 export default function VerifyTeamComponent(props: verifyTeamComponentProps) {
 
     function getCurrentValue() {
-        if (props.field === "autoSpeaker") {
-            return props.match.autoSpeaker
-        }else if (props.field === "teleSpeaker") {
-            return props.match.teleSpeaker
+        if (props.field === "autoCoralL1") {
+            return props.match.autoCoralL1
+        //}else if (props.field === "teleSpeaker") {
+        //    return props.match.autoCoralL1
         }
     }
 
@@ -41,8 +41,8 @@ export default function VerifyTeamComponent(props: verifyTeamComponentProps) {
 }
 
 interface verifyTeamComponentProps {
-    match: matchDataDTO_2024,
+    match: matchDataDTO_2025,
     alliance: String,
     field: String,
-    updateMatch(match: matchDataDTO_2024, newValue: number, fieldNumber: String): void
+    updateMatch(match: matchDataDTO_2025, newValue: number, fieldNumber: String): void
 }

@@ -24,7 +24,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <AlertProvider timeouts={{ warning: 2000, success: 1000, danger: 3000 }}>
+            <AlertProvider timeouts={{ warning: 5000, success: 5000, danger: 5000 }}>
                 <AuthenticationContext.Provider value={{ claims, update: setClaims }}>
                     <eventContext.Provider value={{ eventCode, updateEvent: setEventCode }}>
                         <Menu />

@@ -1,10 +1,10 @@
 import {Accordion, Button, Col, Form, Row} from "react-bootstrap";
 import DropDown from "../Utils/DropDown";
 import { useContext, useEffect, useState } from "react";
-import { TeamAveragesDTO_2024, formItem, matchDataDTO_2024 } from "../Utils/Utils.models";
+import { TeamAveragesDTO_2025, formItem, matchDataDTO_2025 } from "../Utils/Utils.models";
 import eventContext from "../Contexts/EventContexts";
 import axios, { AxiosResponse } from "axios";
-import { urlDataValidation2024, urlEvent2024, urlMatchData2024, urlTeamAverages2024 } from "../endpoints";
+import { urlDataValidation2025, urlEvent2025, urlMatchData2025, urlTeamAverages2025 } from "../endpoints";
 import { convertNumbersToFormItem, dynamicSort } from "../Utils/HelperFunctions";
 import EditMatchForm from "./EditMatchForm";
 import { ValidatedMatchDTO } from "./VerifyMatchData.model";
@@ -22,7 +22,7 @@ export default function VerifyMatchData() {
 
     const { eventCode, updateEvent } = useContext(eventContext);
     const [chosenMatchNumber, setChosenMatchNumber] = useState<string>("");
-    const [matchByMatch, setMatchByMatch] = useState<matchDataDTO_2024[]>([]);
+    const [matchByMatch, setMatchByMatch] = useState<matchDataDTO_2025[]>([]);
     const [validatedMatches, setValidatedMatches] = useState<ValidatedMatchDTO[]>([]);
     const { danger, success } = useAlert();
     const redColor = '#ff5050'
@@ -36,57 +36,34 @@ export default function VerifyMatchData() {
         getTeamMatchByMatch();
     }, [chosenTeam]);
 
-    let trapOptions: formItem[] = [
-        {
-            id: "1",
-            name: "1"
-        },
-        {
-            id: "2",
-            name: "2"
-        },
-        {
-            id: "3",
-            name: "3"
-        }
-    ]
-
-    let climbOptions: formItem[] = [
-        {
-            id: "Yes",
-            name: "Yes"
-        },
-        {
-            id: "Fail",
-            name: "Fail"
-        }
-    ]
-
     function loadMatchByMatchData()
     {
-        axios.get(`${urlMatchData2024}/event`, {
+        axios.get(`${urlMatchData2025}/event`, {
             params: {
                 eventID: eventCode
             },
         })
-            .then((response: AxiosResponse<matchDataDTO_2024[]>) => {
+            .then((response: AxiosResponse<matchDataDTO_2025[]>) => {
                 setMatchByMatch(response.data)
             })
     }
 
     function loadValidatedMatches() {
-        axios.get(`${urlDataValidation2024}/getTBAFlaggedMatches`, {
+        axios.get(`${urlDataValidation2025}/getTBAFlaggedMatches`, {
             params: {
                 eventID: eventCode
             },
         })
             .then((response: AxiosResponse<ValidatedMatchDTO[]>) => {
                 setValidatedMatches(response.data)
+                if (response.data.length < 1) {
+                    success("No matches to validate, good job :)")
+                }
                 console.log(response.data);
             })
     }
     function loadTeamList() {
-        axios.get(`${urlEvent2024}/getteamList`, {
+        axios.get(`${urlEvent2025}/getteamList`, {
             params: {
                 eventID: eventCode
             },
@@ -97,13 +74,13 @@ export default function VerifyMatchData() {
     }
     function getTeamMatchByMatch() {
         if (chosenTeam != "") {
-            axios.get(`${urlMatchData2024}/getbyteam`, {
+            axios.get(`${urlMatchData2025}/getbyteam`, {
                 params: {
                     eventID: eventCode,
                     teamNumber: chosenTeam
                 },
             })
-                .then((response: AxiosResponse<matchDataDTO_2024[]>) => {
+                .then((response: AxiosResponse<matchDataDTO_2025[]>) => {
                     let tempMatchByMatch = response.data.sort(dynamicSort("matchNumber", false));
                     setMatchByMatch(tempMatchByMatch);
                     setMatches(convertNumbersToFormItem(tempMatchByMatch.map(x => x.matchNumber)))
@@ -111,38 +88,41 @@ export default function VerifyMatchData() {
         }
     }
 
-    function ChangeValue(matchData: matchDataDTO_2024, newValue: any, field: string) {
+    function ChangeValue(matchData: matchDataDTO_2025, newValue: any, field: string) {
         let copyMatchByMatch = [...matchByMatch]
         let newMatchData = copyMatchByMatch.find((x) => x.matchNumber === matchData.matchNumber && x.teamNumber === matchData.teamNumber)!
-        if (field === "teleSpeaker") {
-            newMatchData.teleSpeaker = parseInt(newValue);
-        } else if (field === "autoSpeaker") {
-            newMatchData.autoSpeaker = parseInt(newValue);
-        } else if (field === "Amp") {
-            newMatchData.teleAmp = parseInt(newValue);
-        } else if (field === "Feeds") {
-            newMatchData.teleFeeds = parseInt(newValue);
-        } else if (field === "Trap") {
-            newMatchData.teleTrap = parseInt(newValue);
-        } else if (field === "Climb") {
-            newMatchData.climb = newValue.toString();
+        if (field === "autoCoralL1")
+        {
+            newMatchData.autoCoralL1 = parseInt(newValue);
         }
+        // else if (field === "autoSpeaker") {
+        //    newMatchData.autoSpeaker = parseInt(newValue);
+        //} else if (field === "Amp") {
+        //    newMatchData.teleAmp = parseInt(newValue);
+        //} else if (field === "Feeds") {
+        //    newMatchData.teleFeeds = parseInt(newValue);
+        //} else if (field === "Trap") {
+        //    newMatchData.teleTrap = parseInt(newValue);
+        //} else if (field === "Climb") {
+        //    newMatchData.climb = newValue.toString();
+        //}
 
         let copyVerify = [...validatedMatches]
         let newValidMatch = copyVerify.find((x) => x.matchNumber === matchData.matchNumber && (x.teamNumbers[0] === matchData.teamNumber || x.teamNumbers[1] === matchData.teamNumber || x.teamNumbers[2] === matchData.teamNumber))!
-        if (field === "teleSpeaker") {
-            newMatchData.teleSpeaker = parseInt(newValue);
-        } else if (field === "autoSpeaker") {
-            newMatchData.autoSpeaker = parseInt(newValue);
-        } else if (field === "Amp") {
-            newMatchData.teleAmp = parseInt(newValue);
-        } else if (field === "Feeds") {
-            newMatchData.teleFeeds = parseInt(newValue);
-        } else if (field === "Trap") {
-            newMatchData.teleTrap = parseInt(newValue);
-        } else if (field === "Climb") {
-            newMatchData.climb = newValue.toString();
+        if (field === "autoCoralL1") {
+            newMatchData.autoCoralL1 = parseInt(newValue);
         }
+        // else if (field === "autoSpeaker") {
+        //    newMatchData.autoSpeaker = parseInt(newValue);
+        //} else if (field === "Amp") {
+        //    newMatchData.teleAmp = parseInt(newValue);
+        //} else if (field === "Feeds") {
+        //    newMatchData.teleFeeds = parseInt(newValue);
+        //} else if (field === "Trap") {
+        //    newMatchData.teleTrap = parseInt(newValue);
+        //} else if (field === "Climb") {
+        //    newMatchData.climb = newValue.toString();
+        //}
 
         setValidatedMatches(copyVerify);
         setMatchByMatch(copyMatchByMatch);
@@ -154,8 +134,8 @@ export default function VerifyMatchData() {
         for (let i = 0; i < updatedMatches.length; i++) {
             try {
                 console.log(updatedMatches[i]);
-                await axios.post(`${urlMatchData2024}/updatematchbymatch`, updatedMatches[i]).then(() => {
-                    axios.get(`${urlTeamAverages2024}/calculateAverages/`, {
+                await axios.post(`${urlMatchData2025}/updatematchbymatch`, updatedMatches[i]).then(() => {
+                    axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
                         params: {
                             eventID: eventCode
                         }

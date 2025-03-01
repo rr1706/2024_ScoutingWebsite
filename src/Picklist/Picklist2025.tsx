@@ -232,7 +232,7 @@ export default function Picklist2025() {
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("succesfullDeepClimb")}>
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("successfulDeepClimb")}>
                                     <b>Deep Climb</b>
                                 </Button>
                             </td>
