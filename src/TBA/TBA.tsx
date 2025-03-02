@@ -30,6 +30,7 @@ export default function TBA() {
         const headers = [
             "Match",
             "Alliance",
+            "Mobility",
             "Auto Coral 1",
             "Auto Coral 2",
             "Auto Coral 3",
@@ -52,6 +53,7 @@ export default function TBA() {
             {
                 "Match": match.key,
                 "Alliance": match.alliances.red.team_keys.join("-"),
+                "Mobility": match.score_breakdown.red.autoMobilityPoints,
                 "Auto Coral 1": match.score_breakdown.red.autoL1,
                 "Auto Coral 2": match.score_breakdown.red.autoL2,
                 "Auto Coral 3": match.score_breakdown.red.autoL3,
@@ -72,6 +74,7 @@ export default function TBA() {
             {
                 "Match": match.key,
                 "Alliance": match.alliances.blue.team_keys.join("-"),
+                "Mobility": match.score_breakdown.blue.autoMobilityPoints,
                 "Auto Coral 1": match.score_breakdown.blue.autoL1,
                 "Auto Coral 2": match.score_breakdown.blue.autoL2,
                 "Auto Coral 3": match.score_breakdown.blue.autoL3,
