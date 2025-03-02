@@ -92,7 +92,7 @@ export default function SuperScoutData() {
         } else if (scoutName === "") {
             isValid = false;
             danger("Please enter a scout name");
-        } else if (comments === "") {
+        } else if (comments === "" && type !== 'Pit') {
             isValid = false;
             danger("Please enter comments");
         }

@@ -20,29 +20,27 @@ export default function PredictionLeaderboard() {
             .then((response: AxiosResponse<PredictionsDTO[]>) => {
                 setPredictions(response.data);
             })
-    },[] );
-
+    }, [eventCode]);
 
     return (
         <>
-            <div className="container w-80" >
-                <h3 className="text-center align-middle RRBlue">Prediction Leaderboard</h3>
-                <Table bordered hover>
+            <div style={{ width: '80%', margin: '0 auto', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+                <h3 style={{ textAlign: 'center', color: '#224195', marginBottom: '20px' }}>Prediction Leaderboard</h3>
+                <Table bordered hover style={{ backgroundColor: 'white' }}>
                     <thead>
-                        <tr className="font-weight-bold">
-                            <td className="text-center align-middle">Scout</td>
-                            <td className="text-center align-middle">Score</td>
-                            <td className="text-center align-middle">Number of Matches</td>
-                         
+                        <tr style={{ fontWeight: 'bold', backgroundColor: '#e9ecef' }}>
+                            <td style={{ textAlign: 'center', verticalAlign: 'middle' }}>Scout</td>
+                            <td style={{ textAlign: 'center', verticalAlign: 'middle' }}>Score</td>
+                            <td style={{ textAlign: 'center', verticalAlign: 'middle' }}>Number of Matches</td>
                         </tr>
                     </thead>
                     <tbody>
                         {predictions?.map((item, index) => (
-                            <tr key={index} >
-                                <td className="text-center align-middle">{item.scoutName}</td>
-                                <td className="text-center align-middle">{item.score}</td>
-                                <td className="text-center align-middle">{item.numberMatches}</td>
-                             </tr>
+                            <tr key={index}>
+                                <td style={{ textAlign: 'center', verticalAlign: 'middle' }}>{item.scoutName}</td>
+                                <td style={{ textAlign: 'center', verticalAlign: 'middle' }}>{item.score}</td>
+                                <td style={{ textAlign: 'center', verticalAlign: 'middle' }}>{item.numberMatches}</td>
+                            </tr>
                         ))}
                     </tbody>
                 </Table>
@@ -50,5 +48,3 @@ export default function PredictionLeaderboard() {
         </>
     )
 }
-
-

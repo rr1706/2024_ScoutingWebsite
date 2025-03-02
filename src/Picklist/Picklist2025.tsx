@@ -217,6 +217,11 @@ export default function Picklist2025() {
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageTeleCoral")}>
+                                    <b>Algae Removal</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageBargeAll")}>
                                     <b>Barge</b>
                                 </Button>

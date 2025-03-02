@@ -379,3 +379,65 @@ body {
 
 
 
+/* Existing styles... */
+
+.container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #224195;
+    border-color: #224195;
+}
+
+    .btn-primary:hover {
+        background-color: #1a346d;
+        border-color: #1a346d;
+    }
+
+.accordion-button-red {
+    background-color: #8B0000BC !important;
+    color: white;
+}
+
+.accordion-button-blue {
+    background-color: #4682B4AA !important;
+    color: white;
+}
+
+.accordion-button {
+    background-color: #ffffff00 !important;
+    color: #224195;
+    font-weight: bold;
+}
+
+    .accordion-button:not(.collapsed) {
+        color: #224195;
+        background-color: #e9ecef;
+    }
+
+.accordion-body {
+    background-color: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+.RRBlue {
+    color: #224195 !important;
+    font-family: 'Astronomus';
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+
