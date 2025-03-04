@@ -94,6 +94,7 @@ export interface TeamAveragesDTO_2025 {
     teamNumber?: number;
     averageAutoCoral: number;
     averageTeleCoral: number;
+    averageReefRemoval: number;
     averageBargeAll: number;
     averageProcessorAll: number;
     successfulDeepClimb: number;

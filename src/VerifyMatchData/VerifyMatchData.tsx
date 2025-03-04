@@ -85,17 +85,34 @@ export default function VerifyMatchData() {
                 })
         }
     }
-
     function ChangeValue(matchData: matchDataDTO_2025, newValue: any, field: string) {
         let copyMatchByMatch = [...matchByMatch]
         let newMatchData = copyMatchByMatch.find((x) => x.matchNumber === matchData.matchNumber && x.teamNumber === matchData.teamNumber)!
         if (field === "autoCoralL1") {
             newMatchData.autoCoralL1 = parseInt(newValue);
         }
+        else if (field === "autoCoralL2") {
+            newMatchData.autoCoralL1 = parseInt(newValue);
+        }
+        else if (field === "autoCoralL3") {
+            newMatchData.autoCoralL1 = parseInt(newValue);
+        }
+        else if (field === "autoCoralL4") {
+            newMatchData.autoCoralL1 = parseInt(newValue);
+        }
 
         let copyVerify = [...validatedMatches]
         let newValidMatch = copyVerify.find((x) => x.matchNumber === matchData.matchNumber && (x.teamNumbers[0] === matchData.teamNumber || x.teamNumbers[1] === matchData.teamNumber || x.teamNumbers[2] === matchData.teamNumber))!
         if (field === "autoCoralL1") {
+            newMatchData.autoCoralL1 = parseInt(newValue);
+        }
+        else if (field === "autoCoralL2") {
+            newMatchData.autoCoralL1 = parseInt(newValue);
+        }
+        else if (field === "autoCoralL3") {
+            newMatchData.autoCoralL1 = parseInt(newValue);
+        }
+        else if (field === "autoCoralL4") {
             newMatchData.autoCoralL1 = parseInt(newValue);
         }
 

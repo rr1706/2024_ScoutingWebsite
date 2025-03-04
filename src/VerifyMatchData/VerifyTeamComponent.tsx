@@ -17,10 +17,31 @@ import { TeamAveragesDTO } from "../MatchStrategy/MatchStrategy.model";
 export default function VerifyTeamComponent(props: verifyTeamComponentProps) {
 
     function getCurrentValue() {
-        if (props.field === "autoCoralL1") {
+        
+        if (props.field === "coralL1")
+        {
+            return props.match.coralL1
+        }
+        else if (props.field === "coralL2") {
+            return props.match.coralL2
+        }
+        else if (props.field === "coralL3") {
+            return props.match.coralL3
+        }
+        else if (props.field === "coralL4") {
+            return props.match.coralL4
+        }
+        else if (props.field === "autoCoralL1") {
             return props.match.autoCoralL1
-        //}else if (props.field === "teleSpeaker") {
-        //    return props.match.autoCoralL1
+        }
+        else if (props.field === "autoCoralL2") {
+            return props.match.autoCoralL2
+        }
+        else if (props.field === "autoCoralL3") {
+            return props.match.autoCoralL3
+        }
+        else if (props.field === "autoCoralL4") {
+            return props.match.autoCoralL4
         }
     }
 

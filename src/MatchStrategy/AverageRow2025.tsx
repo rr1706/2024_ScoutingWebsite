@@ -16,6 +16,7 @@ export default function AverageRow2025(props: allianceTotalProps) {
             let totals: TeamAveragesDTO_2025 = {
                 averageAutoCoral: props.robot1!.averageAutoCoral! + props.robot2!.averageAutoCoral! + props.robot3!.averageAutoCoral!,
                 averageTeleCoral: props.robot1!.averageTeleCoral! + props.robot2!.averageTeleCoral! + props.robot3!.averageTeleCoral!,
+                averageReefRemoval: props.robot1!.averageReefRemoval! + props.robot2!.averageReefRemoval! + props.robot3!.averageReefRemoval!,
                 averageBargeAll: props.robot1!.averageBargeAll! + props.robot2!.averageBargeAll! + props.robot3!.averageBargeAll!,
                 averageProcessorAll: props.robot1!.averageProcessorAll! + props.robot2!.averageProcessorAll! + props.robot3!.averageProcessorAll!,
                 successfulDeepClimb: props.robot1!.successfulDeepClimb! + props.robot2!.successfulDeepClimb! + props.robot3!.successfulDeepClimb!,
