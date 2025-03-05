@@ -57,7 +57,12 @@ export default function VerifyMatchData() {
                 if (response.data.length < 1) {
                     success("No matches to validate, good job :)")
                 }
-                console.log(response.data);
+                axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
+                    params: {
+                        eventID: eventCode
+                    },
+                }).then(() => {
+                })
             })
     }
     function loadTeamList() {
@@ -92,55 +97,51 @@ export default function VerifyMatchData() {
             newMatchData.autoCoralL1 = parseInt(newValue);
         }
         else if (field === "autoCoralL2") {
-            newMatchData.autoCoralL1 = parseInt(newValue);
+            newMatchData.autoCoralL2 = parseInt(newValue);
         }
         else if (field === "autoCoralL3") {
-            newMatchData.autoCoralL1 = parseInt(newValue);
+            newMatchData.autoCoralL3 = parseInt(newValue);
         }
         else if (field === "autoCoralL4") {
-            newMatchData.autoCoralL1 = parseInt(newValue);
+            newMatchData.autoCoralL4 = parseInt(newValue);
+        }
+        else if (field === "coralL1") {
+            newMatchData.coralL1 = parseInt(newValue);
+        }
+        else if (field === "coralL2") {
+            newMatchData.coralL2 = parseInt(newValue);
+        }
+        else if (field === "coralL3") {
+            newMatchData.coralL3 = parseInt(newValue);
+        }
+        else if (field === "coralL4") {
+            newMatchData.coralL4 = parseInt(newValue);
+        }
+        else if (field === "processor") {
+            newMatchData.processor = parseInt(newValue);
+        }
+        else if (field === "net") {
+            newMatchData.barge = parseInt(newValue);
         }
 
-        let copyVerify = [...validatedMatches]
-        let newValidMatch = copyVerify.find((x) => x.matchNumber === matchData.matchNumber && (x.teamNumbers[0] === matchData.teamNumber || x.teamNumbers[1] === matchData.teamNumber || x.teamNumbers[2] === matchData.teamNumber))!
-        if (field === "autoCoralL1") {
-            newMatchData.autoCoralL1 = parseInt(newValue);
-        }
-        else if (field === "autoCoralL2") {
-            newMatchData.autoCoralL1 = parseInt(newValue);
-        }
-        else if (field === "autoCoralL3") {
-            newMatchData.autoCoralL1 = parseInt(newValue);
-        }
-        else if (field === "autoCoralL4") {
-            newMatchData.autoCoralL1 = parseInt(newValue);
-        }
-
-        setValidatedMatches(copyVerify);
         setMatchByMatch(copyMatchByMatch);
     }
 
-    async function saveMatch(matchNumber: number) {
-        let updatedMatches = matchByMatch.filter((x) => x.matchNumber === matchNumber)!
-        console.log(updatedMatches.length);
-        for (let i = 0; i < updatedMatches.length; i++) {
-            try {
-                console.log(updatedMatches[i]);
-                await axios.post(`${urlMatchData2025}/updatematchbymatch`, updatedMatches[i]).then(() => {
-                    axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
-                        params: {
-                            eventID: eventCode
-                        }
-                    })
+    async function saveMatch(match: matchDataDTO_2025) {
+        try {
+            await axios.post(`${urlMatchData2025}/updatematchbymatch`, match).then(() => {
+                axios.get(`${urlTeamAverages2025}/calculateAverages/`, {
+                    params: {
+                        eventID: eventCode
+                    }
                 })
-            }
-            catch (error: any) {
-                danger(error.response.data)
-            }
+                getTeamMatchByMatch();
+                success("Successfully Saved New Data")
+            })
         }
-        getTeamMatchByMatch();
-        loadValidatedMatches();
-        success("Successfully Saved New Data")
+        catch (error: any) {
+            danger(error.response.data)
+        }
     }
 
     return (<>
@@ -164,16 +165,16 @@ export default function VerifyMatchData() {
                             <Row className="m-3">
                                 {matchByMatch.length > 0 && matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0] || x.teamNumber === match.teamNumbers[1] || x.teamNumber === match.teamNumbers[2])) ?
                                     <>
-                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field}></VerifyTeamComponent>
-                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[1]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field}></VerifyTeamComponent>
-                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[2]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field}></VerifyTeamComponent>
-
-                                        <Button className="btn btn-primary btn-block mt-3 " onClick={() => saveMatch(match.matchNumber)} >Save</Button>
-
+                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field} saveMatch={saveMatch }></VerifyTeamComponent>
+                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[1]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field} saveMatch={saveMatch}></VerifyTeamComponent>
+                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[2]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field} saveMatch={saveMatch}></VerifyTeamComponent>
                                     </>
                                     : <>{matchByMatch.length}</>
                                 }
 
+                            </Row>
+                            <Row className="m-3">
+                                <Button className="btn btn-primary btn-block" onClick={loadValidatedMatches}>Re-validate</Button>
                             </Row>
                         </Accordion.Body>
                     </Accordion.Item>
