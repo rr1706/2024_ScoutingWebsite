@@ -24,28 +24,13 @@ export default function routing() {
             <Route path="/picklist" element={<Authorized authorized={< Picklist2025 />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/eventsetup" element={<Authorized authorized={< EventSetup />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/matchdataimport" element={<Authorized authorized={< MatchDataImport />} notAuthorized={<Login />}></Authorized>} />
-{/*            <Route path="/eventcharts" element={<Authorized authorized={< EventCharts />} notAuthorized={<Login />}></Authorized>} />*/}
             <Route path="/editmatch" element={<Authorized authorized={< EditMatch />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/verifymatchdata" element={<Authorized authorized={< VerifyMatchData />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/login" element={<Login />} />
             <Route path="/registerr" element={< Register />} />
-            {/*<Route path="/schedulemaker" element={<Authorized authorized={< ScheduleGenerator />} notAuthorized={<Login />}></Authorized>} />*/}
-
-
-
-
-            <Route path="/superscout" element={<Authorized authorized={< SuperScoutData />} notAuthorized={<SuperScoutData />}></Authorized>} />
-            {/*         TODO: Put superscout back in authorized!*/}
-
-
-
-            {/*<Route path="/schedulemaker" element={<Authorized authorized={< ScheduleGenerator />} notAuthorized={<Login />}></Authorized>} />*/}
-
+            <Route path="/superscout" element={<Authorized authorized={< SuperScoutData />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/predictionleaderboard" element={< PredictionLeaderboard />} />
-
             <Route path="/tba" element={< TBA />} />
-
-
 
             <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>  
