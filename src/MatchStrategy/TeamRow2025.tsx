@@ -47,7 +47,7 @@ export default function TeamRow2025(props: teamRowProps) {
                 {props.teamAverages?.successfulDeepClimb! > 0 ?
                     <Row>
                         <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.successfulDeepClimb?.toFixed(1) + '%'}</Col>
-                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.totalDeepClimb).toFixed(0)})</Col>
+                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.totalDeepClimb).toFixed(0)})</Col>
                     </Row>
                     :
                     <Row></Row>}
