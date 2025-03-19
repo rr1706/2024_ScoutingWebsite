@@ -10,7 +10,7 @@ import { matchDataDTO } from "../TeamParser/TeamParser.model";
 import Button from "../Utils/Button";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import RRModal from "../Utils/RRModal";
-import TeamMatchByMatchTable from "../TeamDetails/TeamMatchByMatchTable";
+import TeamMatchByMatchTable2023 from "../TeamDetails/TeamMatchByMatchTable2023";
 import { PicklistOrderDTO } from "./Picklist.model";
 import TeamRowPicklist from "./TeamRowPicklist";
 import { utils, writeFile } from 'xlsx'
@@ -173,7 +173,7 @@ export default function Picklist() {
 
             <RRModal
                 title="Match By Match Data"
-                body={<TeamMatchByMatchTable matchData={matchByMatch} />}
+                body={<TeamMatchByMatchTable2023 matchData={matchByMatch} />}
                 showModal={showModal}
                 onHide={() => { setShowModal(false) }}
 

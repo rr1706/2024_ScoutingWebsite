@@ -9,7 +9,7 @@ import axios from "axios";
 import { SuperScoutDataDTO } from "./SuperScoutData.model";
 
 export default function SuperScoutData() {
-    const [type, setType] = useState<string>("Match");
+    const [type, setType] = useState<string>("SuperScout");
     const [matchNumber, setMatchNumber] = useState<number>();
     const [teamNumber, setTeamNumber] = useState<number | undefined>();
     const [scoutName, setScoutName] = useState<string>("");
@@ -19,11 +19,12 @@ export default function SuperScoutData() {
     const { eventCode } = useContext(eventContext);
     const [batteryCount, setBatteryCount] = useState<number | undefined>();
     const [batteryAge, setBatteryAge] = useState<string>("");
+    const [driverExperience, setDriverExperience] = useState<string>("");
 
     const { danger, success } = useAlert();
 
     const matchTypeOptions: formItem[] = [
-        { id: "Match", name: "Match" },
+        { id: "SuperScout", name: "SuperScout" },
         { id: "Pit", name: "Pit" },
         { id: "Practice", name: "Practice" },
         { id: "Prescouting", name: "Prescouting" }
@@ -38,6 +39,10 @@ export default function SuperScoutData() {
         { id: "Rev Swerve Rev Tread", name: "Rev Swerve Rev Tread" },
         { id: "Tank - KOP", name: "Tank - KOP" },
         { id: "Tank - Custom", name: "Tank - Custom" },
+        { id: "mk4i - L2", name: "mk4i - L2" },
+        { id: "mk4i - L3", name: "mk4i - L3" },
+        { id: "mk4 - L2", name: "mk4 - L2" },
+        { id: "mk4 - L3", name: "mk4 - L3" },
         { id: "Other", name: "Other" }
     ];
 
@@ -51,6 +56,7 @@ export default function SuperScoutData() {
             } else {
                 tempDrive = drivetrain;
             }
+            console.log(driverExperience)
             const data: SuperScoutDataDTO = {
                 type: type,
                 matchNumber: matchNumber,
@@ -60,11 +66,12 @@ export default function SuperScoutData() {
                 eventCode: eventCode,
                 drivetrain: tempDrive,
                 batteryAge: batteryAge,
-                batteryCount: batteryCount
+                batteryCount: batteryCount,
+                driverExperience: driverExperience
             };
             await axios.post(`${urlSuperScout2025}/savedata`, data).then(() => {
                 success("Successfully Saved Data");
-                if (type === "Match" || type === "Practice") {
+                if (type === "SuperScout" || type === "Practice") {
                     setMatchNumber(matchNumber! + 1);
                 }
                 setTeamNumber(undefined);
@@ -73,6 +80,7 @@ export default function SuperScoutData() {
                 setDrivetrainOverride("");
                 setBatteryCount(undefined);
                 setBatteryAge("");
+                setDriverExperience("");
             })
         }
     }
@@ -83,7 +91,7 @@ export default function SuperScoutData() {
         if (type === "") {
             isValid = false;
             danger("Please select a type");
-        } else if ((type === "Match" || type === "Practice") && (matchNumber === undefined || matchNumber < 1 || matchNumber === null)) {
+        } else if ((type === "SuperScout" || type === "Practice") && (matchNumber === undefined || matchNumber < 1 || matchNumber === null)) {
             isValid = false;
             danger("Please enter a valid match number");
         } else if (teamNumber === undefined || teamNumber < 1 || teamNumber === null) {
@@ -163,14 +171,14 @@ export default function SuperScoutData() {
                             </Col>
                         </>
                     ) : null}
-                    {type === "Match" || type === "Practice" ? (
+                    {type === "SuperScout" || type === "Practice" ? (
                         <>
                             <Col xs={12} md={3} className="d-flex align-items-center mb-2 mb-md-0">
                                 <h5 className="mb-0">Match Number:</h5>
                             </Col>
                             <Col xs={12} md={3}>
                                 <Form.Control
-                                    type="text"
+                                    type="number"
                                     value={matchNumber}
                                     placeholder="Enter Match Number"
                                     onChange={(e) => setMatchNumber(e.target.value ? parseInt(e.target.value) : undefined)}
@@ -198,10 +206,21 @@ export default function SuperScoutData() {
                             </Col>
                             <Col xs={12} md={3}>
                                 <Form.Control
-                                    type="text"
+                                    type="number"
                                     placeholder="Enter Battery Age"
                                     value={batteryAge}
                                     onChange={(e) => setBatteryAge(e.target.value)}
+                                />
+                            </Col>
+                            <Col xs={12} md={3} className="d-flex align-items-center mb-2 mb-md-0">
+                                <h5 className="mb-0">Driver Experience:</h5>
+                            </Col>
+                            <Col xs={12} md={3} className="d-flex align-items-center mb-2 mb-md-0">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter Driver Experience"
+                                    value={driverExperience}
+                                    onChange={(e) => setDriverExperience(e.target.value)}
                                 />
                             </Col>
                         </Row>

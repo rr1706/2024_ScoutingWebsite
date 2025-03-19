@@ -10,5 +10,5 @@ export interface SuperScoutDataDTO
     drivetrain?: string;
     batteryCount?: number;
     batteryAge?: string;
-
+    driverExperience?: string;
 }

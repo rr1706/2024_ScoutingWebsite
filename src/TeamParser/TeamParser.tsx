@@ -7,7 +7,7 @@ import DropDown from "../Utils/DropDown";
 import { convertNumbersToFormItem, dynamicSort } from "../Utils/HelperFunctions";
 import { formItem } from "../Utils/Utils.models";
 import { matchDataDTO } from "./TeamParser.model";
-import TeamMatchByMatchTable from "../TeamDetails/TeamMatchByMatchTable";
+import TeamMatchByMatchTable2023 from "../TeamDetails/TeamMatchByMatchTable2023";
 import eventContext from "../Contexts/EventContexts";
 
 
@@ -91,7 +91,7 @@ export default function TeamParser() {
             {/*    </thead>*/}
             {/*</Table>*/}
 
-            {team !== 'Select Team' ? <TeamMatchByMatchTable matchData={matchByMatch} /> : <></> }
+            {team !== 'Select Team' ? <TeamMatchByMatchTable2023 matchData={matchByMatch} /> : <></> }
 
 
 
