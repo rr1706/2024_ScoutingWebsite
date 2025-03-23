@@ -29,20 +29,30 @@ export default function TeamRow2025(props: teamRowProps) {
                     <Row></Row>}
 
             </td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.averageAutoCoral?.toFixed(1)} </td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.averageTeleCoral?.toFixed(1)} </td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.averageProcessorAll?.toFixed(1)} </td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.averageBargeAll?.toFixed(1)} </td>
+
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
-                {props.teamAverages?.successfulShallowClimb! > 0 ?
+                {props.teamAverages?.middleAutoCount! > 0 ?
                     <Row>
-                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.successfulShallowClimb?.toFixed(1) + '%'}</Col>
-                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.successfulShallowClimb! * props.teamAverages?.numMatches! / 100).toFixed(0)})</Col>
+                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.middleAuto?.toFixed(1)}</Col>
+                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.middleAutoCount!).toFixed(0)})</Col>
                     </Row>
                     :
                     <Row></Row>}
-
             </td>
+
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
+                {props.teamAverages?.sideAutoCount! > 0 ?
+                    <Row>
+                        <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.sideAuto?.toFixed(1)}</Col>
+                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.sideAutoCount!).toFixed(0)})</Col>
+                    </Row>
+                    :
+                    <Row></Row>}
+            </td>
+
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.averageTeleCoral?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.averageProcessorAll?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{props.teamAverages?.averageBargeAll?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
                 {props.teamAverages?.successfulDeepClimb! > 0 ?
                     <Row>

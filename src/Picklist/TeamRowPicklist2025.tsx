@@ -8,11 +8,11 @@ import { TeamAveragesDTO_2025 } from "../Utils/Utils.models";
 
 
 export default function TeamRowPicklist2025(props: teamRowProps) {    
-    const blueColor = '#b3d1ff'
-    const greenColor = '#c1f1db'
-    const yellowColor = '#faf6b7'
-    const orangeColor = '#ffd2b3'
-    const redColor = '#fdb4be'
+    const top10 = '#24d685'
+    const top25 = '#bef7dd'
+    const top50 = '#faf6b7'
+    const top75 = '#ffd2b3'
+    const botom25 = '#fdb4be'
     const DNPRed = '#cc0000'
 
     const [picked, setPicked] = useState<boolean>(false);
@@ -27,15 +27,15 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
         if (rank) {
             let percentile = (rank / allValues.length)
             if (percentile <= .10) {
-                return blueColor
+                return top10
             } else if (percentile <= .25) {
-                return greenColor
+                return top25
             } else if (percentile <= .5) {
-                return yellowColor
+                return top50
             } else if (percentile <= .75) {
-                return orangeColor
+                return top75
             } else {
-                return redColor
+                return botom25
             }
         } else {
             return '#FFFFFF'
@@ -61,7 +61,7 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
         <>
             {props.mode === 'AllianceSelection' ?
                 <td className="text-center align-middle"  >
-                    {picked ? <Button className="btn btn-primary btn-block btn-sm" onClick={() => setPicked(false)} > undo</Button>
+                    {picked ? <Button className="btn btn-primary btn-block btn-sm" onClick={() => setPicked(false)} > Undo</Button>
                         :
                         <Button className="btn btn-primary btn-block btn-sm" onClick={() => setPicked(true)} > Picked</Button>
                     }
@@ -72,23 +72,66 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
             {props.mode === 'AllianceSelection' ?
                 <td className="text-center align-middle" style={picked ? { backgroundColor: 'red' } : {}}   ><Button className={picked ? "btn btn-clear" : "btn btn-light"}  onClick={() => props.teamClick(props.team?.teamNumber!)} > {props.team?.teamNumber}</Button></td>
                 : <td className="text-center align-middle" style={{ backgroundColor: getTeamDNP() }}    ><Button className="btn btn-light" onClick={() => props.teamClick(props.team?.teamNumber!)} > {props.team?.teamNumber}</Button> </td>}
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageAutoCoral, props.allTeams?.map(x => x.averageAutoCoral), true)! }} >{props.team?.averageAutoCoral?.toFixed(1)}</td>
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageTeleCoral, props.allTeams?.map(x => x.averageTeleCoral), true)! }}>{props.team?.averageTeleCoral?.toFixed(1)}</td>
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageReefRemoval, props.allTeams?.map(x => x.averageReefRemoval), true)! }}>{props.team?.averageReefRemoval?.toFixed(1)}</td>
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageBargeAll, props.allTeams?.map(x => x.averageBargeAll), true)! }}>{props.team?.averageBargeAll?.toFixed(1)}</td>
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageProcessorAll, props.allTeams?.map(x => x.averageProcessorAll), true)! }} >{props.team?.averageProcessorAll?.toFixed(1)}</td>
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.successfulShallowClimb, props.allTeams?.map(x => x.successfulShallowClimb), true)! }}>
+
+
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.sideAuto, props.allTeams?.map(x => x.sideAuto), true)! }}>
                 <Row>
 
-                    {props.team?.successfulShallowClimb! > 0 ?
+                    {props.team?.sideAutoCount! > 0 ?
                         <>
-                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.successfulShallowClimb?.toFixed(1)}%</Col>
-                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.totalShallowClimb).toFixed(0)})</Col>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.sideAuto?.toFixed(1)}</Col>
+                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.sideAutoCount!).toFixed(0)})</Col>
                         </>
                         : <Col></Col>
                     }
                 </Row>
             </td>
+
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.middleAuto, props.allTeams?.map(x => x.middleAuto), true)! }}>
+                <Row>
+
+                    {props.team?.middleAutoCount! > 0 ?
+                        <>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.middleAuto?.toFixed(1)}</Col>
+                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.middleAutoCount!).toFixed(0)})</Col>
+                        </>
+                        : <Col></Col>
+                    }
+                </Row>
+            </td>
+
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageTeleCoral, props.allTeams?.map(x => x.averageTeleCoral), true)! }}>{props.team?.averageTeleCoral?.toFixed(1)}</td>
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageBargeAll, props.allTeams?.map(x => x.averageBargeAll), true)! }}>{props.team?.averageBargeAll?.toFixed(1)}</td>
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageProcessorAll, props.allTeams?.map(x => x.averageProcessorAll), true)! }} >{props.team?.averageProcessorAll?.toFixed(1)}</td>
+
+
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.unDefendedScored, props.allTeams?.map(x => x.unDefendedScored), true)! }}>
+                <Row>
+
+                    {props.team?.unDefendedCount! > 0 ?
+                        <>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.unDefendedScored?.toFixed(1)}</Col>
+                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.unDefendedCount!).toFixed(0)})</Col>
+                        </>
+                        : <Col></Col>
+                    }
+                </Row>
+            </td>
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.defendedScored, props.allTeams?.map(x => x.defendedScored), true)! }}>
+                <Row>
+
+                    {props.team?.defendedCount! > 0 ?
+                        <>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.defendedScored?.toFixed(1)}</Col>
+                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.defendedCount!).toFixed(0)})</Col>
+                        </>
+                        : <Col></Col>
+                    }
+                </Row>
+            </td>
+
+
+
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.successfulDeepClimb, props.allTeams?.map(x => x.successfulDeepClimb), true)! }}>
                 <Row>
 

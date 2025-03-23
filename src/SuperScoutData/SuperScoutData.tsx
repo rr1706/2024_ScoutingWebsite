@@ -212,10 +212,12 @@ export default function SuperScoutData() {
                                     onChange={(e) => setBatteryAge(e.target.value)}
                                 />
                             </Col>
+                        </Row>
+                        <Row className="mb-3 mt-3">
                             <Col xs={12} md={3} className="d-flex align-items-center mb-2 mb-md-0">
                                 <h5 className="mb-0">Driver Experience:</h5>
                             </Col>
-                            <Col xs={12} md={3} className="d-flex align-items-center mb-2 mb-md-0">
+                            <Col xs={12} md={3} className="mb-2 mb-md-0">
                                 <Form.Control
                                     type="text"
                                     placeholder="Enter Driver Experience"
@@ -249,7 +251,6 @@ export default function SuperScoutData() {
         </>
     );
 }
-
 
 
 

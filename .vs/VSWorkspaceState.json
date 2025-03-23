@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\MatchStrategy",
-    "\\src\\PredictionLeaderboard",
+    "\\src\\Picklist",
     "\\src\\SuperScoutData",
     "\\src\\TBA",
     "\\src\\TeamDetails",
@@ -11,5 +11,6 @@
     "\\src\\Utils",
     "\\src\\VerifyMatchData"
   ],
+  "SelectedNode": "\\src\\MatchStrategy\\AverageRow2025.tsx",
   "PreviewInSolutionExplorer": false
 }

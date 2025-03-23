@@ -207,18 +207,18 @@ export default function Picklist2025() {
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageAutoCoral")}>
-                                    <b>Auto Coral</b>
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("sideAuto")}>
+                                    <b>Side Auto</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleAuto")}>
+                                    <b>Middle Auto</b>
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageTeleCoral")}>
                                     <b>Tele Coral</b>
-                                </Button>
-                            </td>
-                            <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageReefRemoval")}>
-                                    <b>Algae Removal</b>
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
@@ -232,8 +232,13 @@ export default function Picklist2025() {
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("successfulShallowClimb")}>
-                                    <b>Shallow Climb</b>
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("unDefendedScored")}>
+                                    <b>Undefended</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("defendedScored")}>
+                                    <b>Defended</b>
                                 </Button>
                             </td>
                             <td className="text-center align-middle">

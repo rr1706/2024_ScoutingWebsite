@@ -3,24 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\AverageRow2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\MatchStrategy\\AverageRow2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\MatchStrategy2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\MatchStrategy\\MatchStrategy2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\TeamRow2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\MatchStrategy\\TeamRow2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Picklist\\Picklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Utils\\Utils.models.d.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Utils\\Utils.models.d.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\TeamRowPicklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Picklist\\TeamRowPicklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\TBA\\TBA.model.d.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\TBA\\TBA.model.d.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\TeamParser\\TeamParser.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\TeamParser\\TeamParser.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\VerifyMatchData\\VerifyTeamComponent.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\VerifyMatchData\\VerifyTeamComponent.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\VerifyMatchData\\VerifyMatchData.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\VerifyMatchData\\VerifyMatchData.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2023.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Picklist\\Picklist2023.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,64 +51,106 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TeamRow2025.tsx",
-              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\TeamRow2025.tsx",
-              "RelativeDocumentMoniker": "src\\MatchStrategy\\TeamRow2025.tsx",
-              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\TeamRow2025.tsx",
-              "RelativeToolTip": "src\\MatchStrategy\\TeamRow2025.tsx",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAwDoAAAAAAAAAAAAAAA==",
+              "Title": "AverageRow2025.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\AverageRow2025.tsx",
+              "RelativeDocumentMoniker": "src\\MatchStrategy\\AverageRow2025.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\AverageRow2025.tsx",
+              "RelativeToolTip": "src\\MatchStrategy\\AverageRow2025.tsx",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-03-11T19:50:21.132Z",
+              "WhenOpened": "2025-03-22T19:09:08.998Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TeamRowPicklist2025.tsx",
-              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\TeamRowPicklist2025.tsx",
-              "RelativeDocumentMoniker": "src\\Picklist\\TeamRowPicklist2025.tsx",
-              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\TeamRowPicklist2025.tsx",
-              "RelativeToolTip": "src\\Picklist\\TeamRowPicklist2025.tsx",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGEAAAAcAAAAAAAAAA==",
+              "Title": "MatchStrategy2025.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\MatchStrategy2025.tsx",
+              "RelativeDocumentMoniker": "src\\MatchStrategy\\MatchStrategy2025.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\MatchStrategy2025.tsx",
+              "RelativeToolTip": "src\\MatchStrategy\\MatchStrategy2025.tsx",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAowKcAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-03-09T15:39:48.389Z",
+              "WhenOpened": "2025-03-22T18:56:12.615Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TBA.model.d.ts",
-              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\TBA\\TBA.model.d.ts",
-              "RelativeDocumentMoniker": "src\\TBA\\TBA.model.d.ts",
-              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\TBA\\TBA.model.d.ts",
-              "RelativeToolTip": "src\\TBA\\TBA.model.d.ts",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwDEAAAARAAAAAAAAAA==",
+              "Title": "TeamRow2025.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\TeamRow2025.tsx",
+              "RelativeDocumentMoniker": "src\\MatchStrategy\\TeamRow2025.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\MatchStrategy\\TeamRow2025.tsx",
+              "RelativeToolTip": "src\\MatchStrategy\\TeamRow2025.tsx",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC0AAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-03-07T21:36:18.827Z"
+              "WhenOpened": "2025-03-22T18:56:10.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TeamParser.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\TeamParser\\TeamParser.tsx",
+              "RelativeDocumentMoniker": "src\\TeamParser\\TeamParser.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\TeamParser\\TeamParser.tsx",
+              "RelativeToolTip": "src\\TeamParser\\TeamParser.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-22T16:56:11.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Picklist2023.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2023.tsx",
+              "RelativeDocumentMoniker": "src\\Picklist\\Picklist2023.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2023.tsx",
+              "RelativeToolTip": "src\\Picklist\\Picklist2023.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-22T16:52:40.556Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "VerifyTeamComponent.tsx",
-              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\VerifyMatchData\\VerifyTeamComponent.tsx",
-              "RelativeDocumentMoniker": "src\\VerifyMatchData\\VerifyTeamComponent.tsx",
-              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\VerifyMatchData\\VerifyTeamComponent.tsx",
-              "RelativeToolTip": "src\\VerifyMatchData\\VerifyTeamComponent.tsx",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAIwBoAAAArAAAAAAAAAA==",
+              "Title": "Picklist2025.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2025.tsx",
+              "RelativeDocumentMoniker": "src\\Picklist\\Picklist2025.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\Picklist2025.tsx",
+              "RelativeToolTip": "src\\Picklist\\Picklist2025.tsx",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAIwOoAAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-03-04T23:37:04.109Z"
+              "WhenOpened": "2025-03-22T16:46:51.763Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "VerifyMatchData.tsx",
-              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "RelativeDocumentMoniker": "src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "RelativeToolTip": "src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAkwHoAAAAjAAAAAAAAAA==",
+              "Title": "Utils.models.d.ts",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Utils\\Utils.models.d.ts",
+              "RelativeDocumentMoniker": "src\\Utils\\Utils.models.d.ts",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Utils\\Utils.models.d.ts",
+              "RelativeToolTip": "src\\Utils\\Utils.models.d.ts",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwHEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-02-23T17:42:03.869Z"
+              "WhenOpened": "2025-03-22T16:44:22.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TeamRowPicklist2025.tsx",
+              "DocumentMoniker": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\TeamRowPicklist2025.tsx",
+              "RelativeDocumentMoniker": "src\\Picklist\\TeamRowPicklist2025.tsx",
+              "ToolTip": "C:\\Users\\jchri\\Documents\\Robotics\\2024\\Code\\Website\\src\\Picklist\\TeamRowPicklist2025.tsx",
+              "RelativeToolTip": "src\\Picklist\\TeamRowPicklist2025.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-03-09T15:39:48.389Z",
+              "EditorCaption": ""
             }
           ]
         }

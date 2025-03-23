@@ -134,11 +134,11 @@ export default function MatchStrategy2025() {
                         <tr className="font-weight-bold">
                             <td className="text-center align-middle"><b>Team</b></td>
                             <td className="text-center align-middle"><b>Mobility</b></td>
-                            <td className="text-center align-middle"><b>Auto Coral</b></td>
+                            <td className="text-center align-middle"><b>Middle Auto</b></td>
+                            <td className="text-center align-middle"><b>Side Auto</b></td>
                             <td className="text-center align-middle"><b>Tele Coral</b></td>
                             <td className="text-center align-middle"><b>Processor</b></td>
                             <td className="text-center align-middle"><b>Barge</b></td>
-                            <td className="text-center align-middle"><b>Shallow Climb</b></td>
                             <td className="text-center align-middle"><b>Deep Climb</b></td>
                             <td className="text-center align-middle"><b>Total Points</b></td>
                         </tr>
