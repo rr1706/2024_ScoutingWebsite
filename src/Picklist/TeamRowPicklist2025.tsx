@@ -100,36 +100,11 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
                 </Row>
             </td>
 
+
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageTeleCoral, props.allTeams?.map(x => x.averageTeleCoral), true)! }}>{props.team?.averageTeleCoral?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageBargeAll, props.allTeams?.map(x => x.averageBargeAll), true)! }}>{props.team?.averageBargeAll?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageProcessorAll, props.allTeams?.map(x => x.averageProcessorAll), true)! }} >{props.team?.averageProcessorAll?.toFixed(1)}</td>
-
-
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.unDefendedScored, props.allTeams?.map(x => x.unDefendedScored), true)! }}>
-                <Row>
-
-                    {props.team?.unDefendedCount! > 0 ?
-                        <>
-                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.unDefendedScored?.toFixed(1)}</Col>
-                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.unDefendedCount!).toFixed(0)})</Col>
-                        </>
-                        : <Col></Col>
-                    }
-                </Row>
-            </td>
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.defendedScored, props.allTeams?.map(x => x.defendedScored), true)! }}>
-                <Row>
-
-                    {props.team?.defendedCount! > 0 ?
-                        <>
-                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.defendedScored?.toFixed(1)}</Col>
-                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.defendedCount!).toFixed(0)})</Col>
-                        </>
-                        : <Col></Col>
-                    }
-                </Row>
-            </td>
-
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.totalTeleScore, props.allTeams?.map(x => x.totalTeleScore), true)! }} >{props.team?.totalTeleScore?.toFixed(1)}</td>
 
 
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.successfulDeepClimb, props.allTeams?.map(x => x.successfulDeepClimb), true)! }}>
@@ -144,6 +119,9 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
                     }
                 </Row>
             </td>
+
+            
+
             {props.mode === 'Edit' ? 
                 <td className="text-center align-middle"  ><Button className="btn btn-danger btn-block btn-sm" onClick={() => props.dnp(props.team)} >
                     {props.team.isDNPed === 1 ? "unDNP" : "DNP" }

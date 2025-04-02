@@ -115,6 +115,7 @@ export interface TeamAveragesDTO_2025 {
     unDefendedScored?: number;
     defendedCount?: number;
     unDefendedCount?: number;
+    totalTeleScore?: number;
 }
 
 export interface TeamAveragesDTO_2024 {

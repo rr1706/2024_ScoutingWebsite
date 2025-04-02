@@ -232,13 +232,8 @@ export default function Picklist2025() {
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("unDefendedScored")}>
-                                    <b>Undefended</b>
-                                </Button>
-                            </td>
-                            <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("defendedScored")}>
-                                    <b>Defended</b>
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalTeleScore")}>
+                                    <b>Total Tele Pieces</b>
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
@@ -246,6 +241,7 @@ export default function Picklist2025() {
                                     <b>Deep Climb</b>
                                 </Button>
                             </td>
+                            
                             {mode === 'Edit' ? <td></td> : <></>}
                         </tr>
                     </thead>
