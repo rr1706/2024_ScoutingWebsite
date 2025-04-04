@@ -19,6 +19,7 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
 
     useEffect(() => {
         setPicked(false);
+        console.log(props.allTeams)
     }, [props.mode]);
 
     function getColor(value: any, allValues: any[], descending: boolean) {
@@ -74,12 +75,12 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
                 : <td className="text-center align-middle" style={{ backgroundColor: getTeamDNP() }}    ><Button className="btn btn-light" onClick={() => props.teamClick(props.team?.teamNumber!)} > {props.team?.teamNumber}</Button> </td>}
 
 
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.sideAuto, props.allTeams?.map(x => x.sideAuto), true)! }}>
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.sideCoralAuto, props.allTeams?.map(x => x.sideCoralAuto), true)! }}>
                 <Row>
 
                     {props.team?.sideAutoCount! > 0 ?
                         <>
-                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.sideAuto?.toFixed(1)}</Col>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.sideCoralAuto?.toFixed(1)}</Col>
                             <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.sideAutoCount!).toFixed(0)})</Col>
                         </>
                         : <Col></Col>
@@ -87,12 +88,25 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
                 </Row>
             </td>
 
-            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.middleAuto, props.allTeams?.map(x => x.middleAuto), true)! }}>
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.middleCoralAuto, props.allTeams?.map(x => x.middleCoralAuto), true)! }}>
                 <Row>
 
                     {props.team?.middleAutoCount! > 0 ?
                         <>
                             <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.middleAuto?.toFixed(1)}</Col>
+                            <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.middleAutoCount!).toFixed(0)})</Col>
+                        </>
+                        : <Col></Col>
+                    }
+                </Row>
+            </td>
+
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.middleNetAuto, props.allTeams?.map(x => x.middleNetAuto), true)! }}>
+                <Row>
+
+                    {props.team?.middleAutoCount! > 0 ?
+                        <>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.middleNetAuto?.toFixed(1)}</Col>
                             <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.middleAutoCount!).toFixed(0)})</Col>
                         </>
                         : <Col></Col>

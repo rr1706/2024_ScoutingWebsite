@@ -25,8 +25,9 @@ export default function AverageRow2025(props: allianceTotalProps) {
                 totalPoints: props.robot1!.totalPoints! + props.robot2!.totalPoints! + props.robot3!.totalPoints!,
                 totalDeepClimb: props.robot1.totalDeepClimb! + props.robot2!.totalDeepClimb! + props.robot3!.totalDeepClimb!,
                 totalShallowClimb: props.robot1.totalShallowClimb! + props.robot2!.totalShallowClimb! + props.robot3!.totalShallowClimb!,
-                middleAuto: props.robot1.middleAuto! + props.robot2.middleAuto! + props.robot3.middleAuto!,
-                sideAuto: props.robot1.sideAuto! + props.robot2.sideAuto! + props.robot3.sideAuto!
+                middleCoralAuto: props.robot1.middleCoralAuto! + props.robot2.middleCoralAuto! + props.robot3.middleCoralAuto!,
+                sideCoralAuto: props.robot1.sideCoralAuto! + props.robot2.sideCoralAuto! + props.robot3.sideCoralAuto!,
+                middleNetAuto: props.robot1.middleNetAuto! + props.robot2.middleNetAuto! + props.robot3.middleNetAuto!
             }
             setAllianceAverages(totals);
         }
@@ -42,8 +43,9 @@ export default function AverageRow2025(props: allianceTotalProps) {
         <>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}><b>Alliance</b></td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}><b>        </b></td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.middleAuto?.toFixed(1)} </td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.sideAuto?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.middleCoralAuto?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.sideCoralAuto?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.middleNetAuto?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.averageTeleCoral?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.averageProcessorAll?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.averageBargeAll?.toFixed(1)}</td>

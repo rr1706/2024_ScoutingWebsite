@@ -207,13 +207,18 @@ export default function Picklist2025() {
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("sideAuto")}>
-                                    <b>Side Auto</b>
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("sideCoralAuto")}>
+                                    <b>Side Coral Auto</b>
                                 </Button>
                             </td>
                             <td className="text-center align-middle">
-                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleAuto")}>
-                                    <b>Middle Auto</b>
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleCoralAuto")}>
+                                    <b>Middle Coral Auto</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleNetAuto")}>
+                                    <b>Middle Net Auto</b>
                                 </Button>
                             </td>
                             <td className="text-center align-middle">

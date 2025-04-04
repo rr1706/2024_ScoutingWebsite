@@ -127,6 +127,7 @@ export default function VerifyMatchData() {
         setMatchByMatch(copyMatchByMatch);
     }
 
+
     async function saveMatch(match: matchDataDTO_2025) {
         try {
             await axios.post(`${urlMatchData2025}/updatematchbymatch`, match).then(() => {
@@ -165,7 +166,7 @@ export default function VerifyMatchData() {
                             <Row className="m-3">
                                 {matchByMatch.length > 0 && matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0] || x.teamNumber === match.teamNumbers[1] || x.teamNumber === match.teamNumbers[2])) ?
                                     <>
-                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field} saveMatch={saveMatch }></VerifyTeamComponent>
+                                        <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[0]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field} saveMatch={saveMatch}></VerifyTeamComponent>
                                         <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[1]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field} saveMatch={saveMatch}></VerifyTeamComponent>
                                         <VerifyTeamComponent match={matchByMatch.find((x) => x.matchNumber === match.matchNumber && (x.teamNumber === match.teamNumbers[2]))!} alliance={match.allianceColor} updateMatch={ChangeValue} field={match.field} saveMatch={saveMatch}></VerifyTeamComponent>
                                     </>

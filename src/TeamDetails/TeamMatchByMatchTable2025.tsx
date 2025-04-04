@@ -23,6 +23,7 @@ export default function TeamMatchByMatchTable2025(props: tableProps) {
                     <tr className="font-weight-bold">
                         <td className="text-center align-middle"><b>Match</b></td>
                         <td className="text-center align-middle"><b>Molility</b></td>
+                        <td className="text-center align-middle"><b>Auto Position</b></td>
                         <td className="text-center align-middle"><b>Auto L1</b></td>
                         <td className="text-center align-middle"><b>Auto L2</b></td>
                         <td className="text-center align-middle"><b>Auto L3</b></td>
@@ -40,7 +41,6 @@ export default function TeamMatchByMatchTable2025(props: tableProps) {
                         <td className="text-center align-middle"><b>Algae Reef</b></td>
                         <td className="text-center align-middle"><b>Algae Floor</b></td>
                         <td className="text-center align-middle"><b>Defense</b></td>
-                        <td className="text-center align-middle"><b>Defended</b></td>
                         <td className="text-center align-middle"><b>Climb</b></td>
                         <td className="text-center align-middle"><b>Ignore</b></td>
                     </tr>
@@ -50,6 +50,7 @@ export default function TeamMatchByMatchTable2025(props: tableProps) {
                         <tr key={item.id}>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.matchNumber}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{bianaryToHuman(item.mobilitize)}</td>
+                            <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.autoPosition}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.autoCoralL1}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.autoCoralL2}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.autoCoralL3}</td>
@@ -67,7 +68,6 @@ export default function TeamMatchByMatchTable2025(props: tableProps) {
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.reefAlgae + item.autoReefAlgae}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.groundAlgae + item.autoGroundAlgae}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{bianaryToHuman(item.defence)}</td>
-                            <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{bianaryToHuman(item.defended)}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>{item.endClimb}</td>
                             <td className="text-center align-middle" style={{ backgroundColor: getIgnore(item) }}>
                                 <Button className="btn btn-danger btn-block btn-sm" onClick={() => props.ignore(item)}>

@@ -9,7 +9,7 @@ import axios from "axios";
 import { SuperScoutDataDTO } from "./SuperScoutData.model";
 
 export default function SuperScoutData() {
-    const [type, setType] = useState<string>("SuperScout");
+    const [type, setType] = useState<string>("Match");
     const [matchNumber, setMatchNumber] = useState<number>();
     const [teamNumber, setTeamNumber] = useState<number | undefined>();
     const [scoutName, setScoutName] = useState<string>("");
@@ -24,7 +24,7 @@ export default function SuperScoutData() {
     const { danger, success } = useAlert();
 
     const matchTypeOptions: formItem[] = [
-        { id: "SuperScout", name: "SuperScout" },
+        { id: "Match", name: "SuperScout" },
         { id: "Pit", name: "Pit" },
         { id: "Practice", name: "Practice" },
         { id: "Prescouting", name: "Prescouting" }
@@ -71,7 +71,7 @@ export default function SuperScoutData() {
             };
             await axios.post(`${urlSuperScout2025}/savedata`, data).then(() => {
                 success("Successfully Saved Data");
-                if (type === "SuperScout" || type === "Practice") {
+                if (type === "Match" || type === "Practice") {
                     setMatchNumber(matchNumber! + 1);
                 }
                 setTeamNumber(undefined);
@@ -91,7 +91,7 @@ export default function SuperScoutData() {
         if (type === "") {
             isValid = false;
             danger("Please select a type");
-        } else if ((type === "SuperScout" || type === "Practice") && (matchNumber === undefined || matchNumber < 1 || matchNumber === null)) {
+        } else if ((type === "Match" || type === "Practice") && (matchNumber === undefined || matchNumber < 1 || matchNumber === null)) {
             isValid = false;
             danger("Please enter a valid match number");
         } else if (teamNumber === undefined || teamNumber < 1 || teamNumber === null) {
@@ -171,7 +171,7 @@ export default function SuperScoutData() {
                             </Col>
                         </>
                     ) : null}
-                    {type === "SuperScout" || type === "Practice" ? (
+                    {type === "Match" || type === "Practice" ? (
                         <>
                             <Col xs={12} md={3} className="d-flex align-items-center mb-2 mb-md-0">
                                 <h5 className="mb-0">Match Number:</h5>

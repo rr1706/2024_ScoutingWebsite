@@ -106,8 +106,9 @@ export interface TeamAveragesDTO_2025 {
     totalPoints: number;
     numMatches?: number;
     isDNPed?: number;
-    sideAuto?: number;
-    middleAuto?: number;
+    sideCoralAuto?: number;
+    middleCoralAuto?: number;
+    middleNetAuto?: number;
     sideAutoCount?: number;
     middleAutoCount?: number;
     offensiveCount?: number;
