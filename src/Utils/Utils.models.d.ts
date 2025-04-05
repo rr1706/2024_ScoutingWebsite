@@ -86,7 +86,8 @@ export interface matchDataDTO_2025 {
     gambleColor: string;
     scoutName: string;
     ignore: number; 
-    autoPosition?: string
+    autoPosition?: string;
+    validatedClimb?: number = 0;
 }
 
 export interface TeamAveragesDTO_2025 {
@@ -146,4 +147,9 @@ export interface TeamAveragesDTO_2024 {
     closeAutoAttempts?: number;
     closeAutoSuccessRate?: number;
     isDNPed?: number;
+}
+
+export interface MatchVideoDTO {
+    matchNumber: number;
+    video: string;
 }

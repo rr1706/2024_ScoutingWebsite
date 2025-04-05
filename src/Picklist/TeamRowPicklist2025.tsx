@@ -93,7 +93,7 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
 
                     {props.team?.middleAutoCount! > 0 ?
                         <>
-                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.middleAuto?.toFixed(1)}</Col>
+                            <Col className='text-end' style={{ paddingRight: 0 }} >{props.team?.middleCoralAuto?.toFixed(1)}</Col>
                             <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.team?.middleAutoCount!).toFixed(0)})</Col>
                         </>
                         : <Col></Col>

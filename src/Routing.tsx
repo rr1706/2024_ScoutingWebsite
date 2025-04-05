@@ -11,6 +11,7 @@ import TBA from './TBA/TBA';
 /*import EventCharts from './EventCharts/EventCharts2025'*/
 import EditMatch from './EditMatch/EditMatch2025'
 import VerifyMatchData from './VerifyMatchData/VerifyMatchData';
+import VerifyClimbs2025 from './VerifyMatchData/VerifyClimbs2025';
 import SuperScoutData from './SuperScoutData/SuperScoutData';
 import PredictionLeaderboard from './PredictionLeaderboard/PredictionLeaderboard';
 //import ScheduleGenerator from './ScoutScheduleMaker/ScheduleGenerator';
@@ -26,6 +27,7 @@ export default function routing() {
             <Route path="/matchdataimport" element={<Authorized authorized={< MatchDataImport />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/editmatch" element={<Authorized authorized={< EditMatch />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/verifymatchdata" element={<Authorized authorized={< VerifyMatchData />} notAuthorized={<Login />}></Authorized>} />
+            <Route path="/verifyclimbs" element={<Authorized authorized={< VerifyClimbs2025 />} notAuthorized={<Login />}></Authorized>} />
             <Route path="/login" element={<Login />} />
             <Route path="/registerr" element={< Register />} />
             <Route path="/superscout" element={<Authorized authorized={< SuperScoutData />} notAuthorized={<Login />}></Authorized>} />

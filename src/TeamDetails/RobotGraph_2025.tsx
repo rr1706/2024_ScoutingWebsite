@@ -39,7 +39,7 @@ export default function RobotGraph_2025(props: tableProps) {
             },
             y: {
                 stacked: true,
-                max: 25,
+                max: 35,
             },
         },
     };
