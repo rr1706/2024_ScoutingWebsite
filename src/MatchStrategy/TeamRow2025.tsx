@@ -41,10 +41,10 @@ export default function TeamRow2025(props: teamRowProps) {
             </td>
 
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>
-                {props.teamAverages?.middleNetAuto! > 0 ?
+                {props.teamAverages?.middleAutoCount! > 0 ?
                     <Row>
                         <Col className='text-end' style={{ paddingRight: 0 }} >{props.teamAverages?.middleNetAuto?.toFixed(1)}</Col>
-                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.middleNetAuto!).toFixed(0)})</Col>
+                        <Col className='text-start' style={{ fontSize: "10px", paddingLeft: 0, margin: 'auto' }}>({(props.teamAverages?.middleAutoCount!).toFixed(0)})</Col>
                     </Row>
                     :
                     <Row></Row>}

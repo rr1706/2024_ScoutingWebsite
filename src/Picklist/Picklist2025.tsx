@@ -45,7 +45,7 @@ export default function Picklist2025() {
             },
         })
             .then((response: AxiosResponse<TeamAveragesDTO_2025[]>) => {
-                let averages = response.data.sort(dynamicSort("totalPoints", true));
+                let averages = response.data.sort(dynamicSort("totalTeleScore", true));
                 setTeamAverages(averages);
 
                 axios.get(`${urlPicklist}/getorder`, {

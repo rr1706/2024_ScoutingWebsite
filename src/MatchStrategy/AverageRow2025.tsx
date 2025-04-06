@@ -44,8 +44,8 @@ export default function AverageRow2025(props: allianceTotalProps) {
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}><b>Alliance</b></td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}><b>        </b></td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.middleCoralAuto?.toFixed(1)} </td>
-            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.sideCoralAuto?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.middleNetAuto?.toFixed(1)} </td>
+            <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.sideCoralAuto?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.averageTeleCoral?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.averageProcessorAll?.toFixed(1)} </td>
             <td className="text-center align-middle" style={{ backgroundColor: props.alliance === 'red' ? redColor : blueColor }}>{allianceAverages?.averageBargeAll?.toFixed(1)}</td>
