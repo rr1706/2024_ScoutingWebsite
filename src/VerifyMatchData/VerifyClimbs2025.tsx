@@ -119,18 +119,25 @@ export default function VerifyClimbs2025() {
                             {expanded === index.toString() && (
                                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                                     <iframe
-                                        width="560" height="315" src={`https://www.youtube.com/embed/${matchVideos.find(video => video.matchNumber === match.matchNumber)?.video}?start=120`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen; web-share">
+                                        width="560" height="315" src={`https://www.youtube.com/embed/${matchVideos.find(video => video.matchNumber === match.matchNumber)?.video}?start=130`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen; web-share">
                                     </iframe>
                                 </div>
                             )}
                             <Row className="m-3">
-                                <DropDown
-                                    DefaultOption={""}
-                                    Options={climbOptions}
-                                    selectedOption={match.endClimb}
-                                    selectOptions={(e: any) => ChangeValue(match, e)}
-                                />
-
+                                <Col>
+                                    <DropDown
+                                        DefaultOption={""}
+                                        Options={climbOptions}
+                                        selectedOption={match.endClimb}
+                                        selectOptions={(e: any) => ChangeValue(match, e)}
+                                    />
+                                </Col>
+                                <Col>
+                                    <Button
+                                        onClick={() => { ChangeValue(match, match.endClimb) }}>
+                                        Confirm
+                                    </Button>
+                                </Col>
                             </Row>
                         </Accordion.Body>
                     </Accordion.Item>
