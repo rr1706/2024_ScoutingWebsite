@@ -122,7 +122,7 @@ export default function EditMatch2025() {
             newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.teleTrap = parseInt(newValue);
         } else if (field === "Climb") {
             newMatchData.find((x) => x.matchNumber === Number(chosenMatchNumber))!.climb = newValue.toString();
-            console.log(newValue);
+            //console.log(newValue);
         }
         setMatchByMatch(newMatchData);
     }

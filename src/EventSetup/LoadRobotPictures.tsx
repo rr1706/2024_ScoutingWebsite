@@ -28,7 +28,7 @@ export default function LoadRobotPictures() {
     async function upLoadPictures() {
         try {
             if (selectedFiles) {
-                console.log(selectedFiles.length)
+                //console.log(selectedFiles.length)
                 setShowProgressBar(true);
                 for (var file of selectedFiles) {
                     progressInt += 1;

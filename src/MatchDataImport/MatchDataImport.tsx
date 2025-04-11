@@ -31,7 +31,7 @@ export default function MatchDataImport() {
                     match.eventCode = eventCode;
                     return match;
                 });
-                console.log(newMatches)
+                //console.log(newMatches)
 
 
                 await axios.post(`${urlMatchData2025}/savedata`, newMatches).then(() => {
@@ -49,7 +49,7 @@ export default function MatchDataImport() {
             }
         }
         catch (error: any) {
-            console.log(error)
+            // console.log(error)
             danger(error.response.data)
         }
     }

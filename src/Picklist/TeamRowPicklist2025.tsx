@@ -19,7 +19,7 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
 
     useEffect(() => {
         setPicked(false);
-        console.log(props.allTeams)
+        // console.log(props.allTeams)
     }, [props.mode]);
 
     function getColor(value: any, allValues: any[], descending: boolean) {

@@ -5,7 +5,7 @@ import Button from "../Utils/Button";
 import TeamMatchByMatchTable2025 from "./TeamMatchByMatchTable2025";
 import eventContext from "../Contexts/EventContexts";
 import axios, { AxiosResponse } from "axios";
-import { urlMatchData2025, urlRobotPictures, urlMatchData, urlTeamAverages2025, urlSuperScout2025 } from "../endpoints";
+import { urlMatchData2025, urlRobotPictures, urlMatchData, urlTeamAverages2025, urlSuperScout2025, urlEvent2025 } from "../endpoints";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import TeamAutos from "./TeamAutos";
 import RobotGraph from "./RobotGraph";
@@ -27,11 +27,35 @@ export default function TeamDetails(props: detailsProps) {
 
     const { eventCode } = useContext(eventContext);
 
+    const [teamName, setTeamName] = useState<string>('');
+
     useEffect(() => {
         getTeamMatchByMatch();
         getSuperScoutData();
-        getRobotPicture()
+        getRobotPicture();
+        getTeamName();
     }, [props.teamNumber]);
+
+    function getTeamName()
+    {
+
+        if (props.teamNumber === undefined) {
+            return "literallyanytihngelse"
+        }
+        else {
+            axios.get(`${urlEvent2025}/getTeamName`,
+                {
+                    params:
+                    {
+                        eventID: eventCode,
+                        teamNum: props.teamNumber
+                    },
+                })
+                .then((response: AxiosResponse<number>) => {
+                    setTeamName(response.data.toString());
+                })
+        }
+    }
 
     function getTeamMatchByMatch() {
         axios.get(`${urlMatchData2025}/getbyteam`, {
@@ -89,6 +113,9 @@ export default function TeamDetails(props: detailsProps) {
 
     return (
         <>
+            <Row className="text-center align-middle">
+                <h2 className="text-center align-middle RRBlue">{props.teamNumber + ": " + teamName}</h2>
+            </Row>
             <Row className='mb-3'>
                 <Col className="text-center align-middle">
                     <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(MATCHBYMATCH)} > View Match By Match Data</Button>

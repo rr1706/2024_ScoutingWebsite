@@ -1,5 +1,7 @@
 import { formItem } from "./Utils.models";
 import { TeamAveragesDTO_2024 } from "../Utils/Utils.models";
+import axios, { AxiosResponse } from "axios";
+import { urlEvent2025 } from "../endpoints";
 
 export function formatDate(date: Date) {
     if (!date) {
@@ -86,6 +88,7 @@ export function convertBoolToString(bool: boolean | undefined) {
         return "No"
     }
 }
+
 export function convertStringToBool(string: string | undefined) {
     if (string === undefined) {
         return false;

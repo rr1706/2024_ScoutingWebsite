@@ -30,7 +30,7 @@ export default function TeamNotesTable2025(props: tableProps) {
                 type: 'Normal'
             }
             allNotes.push(currentNote)
-            console.log(allNotes)
+            //console.log(allNotes)
         }
         allNotes.sort((a, b) => a.matchNumber! - b.matchNumber!)
         setMainNotes(allNotes);
