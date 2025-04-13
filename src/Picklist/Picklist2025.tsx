@@ -45,7 +45,7 @@ export default function Picklist2025() {
             },
         })
             .then((response: AxiosResponse<TeamAveragesDTO_2025[]>) => {
-                let averages = response.data.sort(dynamicSort("totalTeleScore", true));
+                let averages = response.data.sort(dynamicSort("totalTeleAdjusted", true));
                 setTeamAverages(averages);
 
                 axios.get(`${urlPicklist}/getorder`, {
@@ -239,6 +239,11 @@ export default function Picklist2025() {
                             <td className="text-center align-middle">
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalTeleScore")}>
                                     <b>Total Tele Pieces</b>
+                                </Button>
+                            </td>
+                            <td className="text-center align-middle">
+                                <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalTeleAdjusted")}>
+                                    <b>Total Tele Adjusted</b>
                                 </Button>
                             </td>
                             <td className="text-center align-middle">

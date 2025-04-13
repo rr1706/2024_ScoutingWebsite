@@ -119,7 +119,7 @@ export default function TeamRowPicklist2025(props: teamRowProps) {
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageBargeAll, props.allTeams?.map(x => x.averageBargeAll), true)! }}>{props.team?.averageBargeAll?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.averageProcessorAll, props.allTeams?.map(x => x.averageProcessorAll), true)! }} >{props.team?.averageProcessorAll?.toFixed(1)}</td>
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.totalTeleScore, props.allTeams?.map(x => x.totalTeleScore), true)! }} >{props.team?.totalTeleScore?.toFixed(1)}</td>
-
+            <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.totalTeleAdjusted, props.allTeams?.map(x => x.totalTeleAdjusted), true)! }} >{props.team?.totalTeleAdjusted?.toFixed(1)}</td>
 
             <td className="text-center align-middle" style={{ backgroundColor: getColor(props.team?.successfulDeepClimb, props.allTeams?.map(x => x.successfulDeepClimb), true)! }}>
                 <Row>
