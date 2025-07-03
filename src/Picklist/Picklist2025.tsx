@@ -195,64 +195,64 @@ export default function Picklist2025() {
                 </Col>
             </Row>
 
-            <div className="table-responsive">
+            <div className="table-responsive" style={{ maxHeight: "70vh", overflowY: "auto" }}>
                 <Table bordered hover>
                     <thead>
                         <tr className="font-weight-bold">
-                            {mode === 'AllianceSelection' ? <td></td> : <></>}
-                            <td></td>
-                            <td className="text-center align-middle">
+                            {mode === 'AllianceSelection' ? <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th> : <></>}
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teamNumber")}>
                                     <b>Team</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("sideCoralAuto")}>
                                     <b>Side Coral Auto</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleCoralAuto")}>
                                     <b>Middle Coral Auto</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleNetAuto")}>
                                     <b>Middle Net Auto</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageTeleCoral")}>
                                     <b>Tele Coral</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageBargeAll")}>
                                     <b>Barge</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageProcessorAll")}>
                                     <b>Processor</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalTeleScore")}>
                                     <b>Total Tele Pieces</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalTeleAdjusted")}>
                                     <b>Total Tele Adjusted</b>
                                 </Button>
-                            </td>
-                            <td className="text-center align-middle">
+                            </th>
+                            <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("successfulDeepClimb")}>
                                     <b>Deep Climb</b>
                                 </Button>
-                            </td>
+                            </th>
                             
-                            {mode === 'Edit' ? <td></td> : <></>}
+                            {mode === 'Edit' ? <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th> : <></>}
                         </tr>
                     </thead>
                     <tbody>
