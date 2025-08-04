@@ -5,6 +5,7 @@ import LoadSchedule from "./LoadSchedule";
 import NewEvent from "./NewEvent";
 import LoadRobotPictures from "./LoadRobotPictures";
 import LoadPicklist from "./LoadPicklist";
+import LoadNames from "./LoadTeamNames";
 import eventContext from "../Contexts/EventContexts";
 import axios from "axios";
 import { useAlert } from "react-bootstrap-hooks-alert";
@@ -16,6 +17,7 @@ export default function EventSetup() {
     const LOADSCHEDULE = 'schedule'
     const LOADPICTURES = 'pictures'
     const LOADPICKLIST = 'picklist'
+    const LOADNAMES = 'teamNames'
     const [viewMode, setViewMode] = useState<string>("");
 
     const { eventCode, updateEvent } = useContext(eventContext);
@@ -48,6 +50,9 @@ export default function EventSetup() {
                     <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(LOADPICKLIST)} > Load Picklist</Button>
                 </Col>
                 <Col className="text-center align-middle">
+                    <Button className="btn btn-primary btn-block mt-3 " onClick={() => setViewMode(LOADNAMES)} > Load Team Names</Button>
+                </Col>
+                <Col className="text-center align-middle">
                     <Button className="btn btn-primary btn-block mt-3 " onClick={reCalculate} > Re-calculate</Button>
                 </Col>
 
@@ -63,6 +68,8 @@ export default function EventSetup() {
                         return <LoadRobotPictures />
                     case LOADPICKLIST:
                         return <LoadPicklist />
+                    case LOADNAMES:
+                        return <LoadNames />
                     default:
                         return null
                 }

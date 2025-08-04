@@ -57,7 +57,8 @@ export default function SuperScoutData() {
                 tempDrive = drivetrain;
             }
             //console.log(driverExperience)
-            const data: SuperScoutDataDTO = {
+            const data: SuperScoutDataDTO =
+            {
                 type: type,
                 matchNumber: matchNumber,
                 teamNumber: teamNumber!,
