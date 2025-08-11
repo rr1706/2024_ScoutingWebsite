@@ -1,8 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { NavDropdown, Navbar, Nav } from "react-bootstrap";
 import EventSelector from "./Utils/EventSelector";
+import { useContext } from "react";
+import eventContext from "./Contexts/EventContexts";
+
 
 export default function Menu() {
+    const { eventCode, updateEvent } = useContext(eventContext);
     return (
         <Navbar bg="light" expand="lg">
             <div className="container-fluid">
@@ -34,7 +38,18 @@ export default function Menu() {
 
                     </Nav>
                 </Navbar.Collapse>
-                <div className="d-flex justify-content-center">
+                {(!process.env.NODE_ENV || process.env.NODE_ENV === 'development') ?
+                    <>
+                        <div className="me-4">
+                            <small className="text-center align-middle Black">Event Code: {eventCode}</small>
+                        </div>
+                        <div className="me-4">
+                            <small className="text-center align-middle Black">TBA Code: PlaceHolder</small>
+                        </div>
+                    </>
+                    : <></>
+                }        
+                    <div className="d-flex justify-content-center">
                     <EventSelector />
                 </div>
             </div>

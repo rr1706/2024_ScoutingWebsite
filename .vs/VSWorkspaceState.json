@@ -2,7 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\MatchStrategy",
+    "\\src\\EventSetup",
     "\\src\\Picklist",
     "\\src\\SuperScoutData",
     "\\src\\TBA",
@@ -11,5 +11,6 @@
     "\\src\\Utils",
     "\\src\\VerifyMatchData"
   ],
+  "SelectedNode": "\\src\\endpoints.ts",
   "PreviewInSolutionExplorer": false
 }
