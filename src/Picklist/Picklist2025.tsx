@@ -8,18 +8,33 @@ import { urlPicklist, urlTeamAverages2025 } from "../endpoints";
 import Button from "../Utils/Button";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import RRModal from "../Utils/RRModal";
-import { PicklistOrderDTO } from "./Picklist.model";
+import { ColumnsSelectedDTO, PicklistOrderDTO } from "./Picklist.model";
 import ExportButton from "../Utils/ExportButton";
 import { TeamAveragesDTO_2025 } from "../Utils/Utils.models";
 import TeamRowPicklist2025 from "./TeamRowPicklist2025";
 import TeamDetails from "../TeamDetails/TeamDetails";
 import { useBeforeunload } from 'react-beforeunload';
 import ConfirmationDialog from "../Utils/ConfirmationDialog";
+import ColumnSelectorPopup2025 from "./ColumnSelectorPopUp2025";
+import { retrieveItem } from "../Utils/LocalStorage";
+import HideShow from "../Utils/HideShow";
+
+
 
 export default function Picklist2025() {
     const editMode = 'Edit';
     const allianceSelectionMode = 'AllianceSelection';
-
+    const defaultColumns: ColumnsSelectedDTO = {
+        sideCoralAuto: true,
+        middleCoralAuto: true,
+        middleNetAuto: true,
+        teleCoral: true,
+        barge: true,
+        processor: true,
+        totalTele: true,
+        totalTeleAdjusted: true,
+        deepClimb: true
+    };
     const [teamAverages, setTeamAverages] = useState<TeamAveragesDTO_2025[]>([]);
     const [order, setOrder] = useState<PicklistOrderDTO[]>([]);
     const [mode, setMode] = useState<string>(editMode);
@@ -28,6 +43,8 @@ export default function Picklist2025() {
     const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
     const [draggedElement, setDraggedElement] = useState<TeamAveragesDTO_2025 | undefined>(undefined);
     const [sortDescending, setSortDescending] = useState<boolean>(true);
+    const [showSelectorColumnPopUp, setShowSelectorColumnPopUp] = useState<boolean>(false);
+    const [columnsToShow, setColumnsToShow] = useState<ColumnsSelectedDTO>(defaultColumns);
 
     const { danger, success } = useAlert();
     const { eventCode } = useContext(eventContext);
@@ -36,6 +53,7 @@ export default function Picklist2025() {
 
     useEffect(() => {
         loadData();
+        loadColumns();
     }, [eventCode]);
 
     function loadData() {
@@ -83,6 +101,18 @@ export default function Picklist2025() {
         }).then((response: AxiosResponse<TeamAveragesDTO_2025[]>) => {
             orderAverages(order, response.data);
         });
+    }
+
+    function loadColumns()
+    {
+        if (retrieveItem(`picklistColumns2025`) === null || retrieveItem(`picklistColumns2025`) === undefined || retrieveItem(`picklistColumns2025`) === "")
+        {
+            setColumnsToShow(defaultColumns);
+        }
+        else
+        {
+            setColumnsToShow(retrieveItem(`picklistColumns2025`))
+        }
     }
 
     function orderAverages(picklistOrder: PicklistOrderDTO[], averages: TeamAveragesDTO_2025[]) {
@@ -167,12 +197,23 @@ export default function Picklist2025() {
         setShowModal(true);
     }
 
+    function ChangeValue(newValue: boolean, field: string) {
+        setColumnsToShow(prev => ({
+            ...prev,
+            [field]: newValue
+        }));
+    }
+
+    function saveColumns() {
+        localStorage.setItem(`picklistColumns2025`, JSON.stringify(columnsToShow));
+    }
+
     return (
         <div className="container-fluid">
             <h3 className="text-center align-middle RRBlue">Picklist</h3>
 
             <Row className="mb-3">
-                <Col xs={12} md={4} className="text-center align-middle mb-2 mb-md-0">
+                <Col xs={12} md={3} className="text-center align-middle mb-2 mb-md-0">
                     {mode === editMode ? (
                         <Button className="btn btn-primary btn-block" onClick={() => setMode(allianceSelectionMode)}>
                             Change to Alliance Selection Mode
@@ -183,15 +224,20 @@ export default function Picklist2025() {
                         </Button>
                     )}
                 </Col>
-                <Col xs={12} md={4} className="text-center align-middle mb-2 mb-md-0">
+                <Col xs={12} md={3} className="text-center align-middle mb-2 mb-md-0">
                     <Button className="btn btn-primary btn-block" onClick={() => setShowConfirmation(true)}>
                         Save Picklist
                     </Button>
                 </Col>
-                <Col xs={12} md={4} className="text-center align-middle">
+                <Col xs={12} md={3} className="text-center align-middle">
                     <ExportButton className="btn btn-primary btn-block" data={teamAverages} workbookName={"Picklist"}>
                         Export Picklist
                     </ExportButton>
+                </Col>
+                <Col xs={12} md={3} className="text-center align-middle mb-2 mb-md-0">
+                    <Button className="btn btn-primary btn-block" onClick={() => setShowSelectorColumnPopUp(!showSelectorColumnPopUp)}>
+                        Edit Columns
+                    </Button>
                 </Col>
             </Row>
 
@@ -199,66 +245,99 @@ export default function Picklist2025() {
                 <Table bordered hover>
                     <thead>
                         <tr className="font-weight-bold">
-                            {mode === 'AllianceSelection' ? <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th> : <></>}
+                            {mode === 'AllianceSelection' ? (
+                                <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th>
+                            ) : null}
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th>
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("teamNumber")}>
                                     <b>Team</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            true // Always show Team column, or use columnsToShow.teamNumber if you want it toggleable
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("sideCoralAuto")}>
                                     <b>Side Coral Auto</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.sideCoralAuto
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleCoralAuto")}>
                                     <b>Middle Coral Auto</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.middleCoralAuto
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("middleNetAuto")}>
                                     <b>Middle Net Auto</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.middleNetAuto
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageTeleCoral")}>
                                     <b>Tele Coral</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.teleCoral
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageBargeAll")}>
                                     <b>Barge</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.barge
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("averageProcessorAll")}>
                                     <b>Processor</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.processor
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalTeleScore")}>
                                     <b>Total Tele Pieces</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.totalTele
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("totalTeleAdjusted")}>
                                     <b>Total Tele Adjusted</b>
                                 </Button>
-                            </th>
+                            </th>,
+                            columnsToShow.totalTeleAdjusted
+                            )}
+                            {HideShow(
                             <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}>
                                 <Button disabled={mode === allianceSelectionMode} className="btn btn-light" onClick={() => sortColumn("successfulDeepClimb")}>
                                     <b>Deep Climb</b>
                                 </Button>
-                            </th>
-                            
-                            {mode === 'Edit' ? <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th> : <></>}
+                            </th>,
+                            columnsToShow.deepClimb
+                            )}
+                            {mode === 'Edit' ? (
+                                <th className="text-center align-middle" style={{ position: "sticky", top: 0, zIndex: 2, background: "#f8f9fa" }}></th>
+                            ) : null}
                         </tr>
                     </thead>
                     <tbody>
                         {teamAverages?.map((item, index) => (
                             <tr key={index} draggable={mode === editMode} onDragStart={() => handleDragStart(item)} onDragOver={() => handleDragOver(item)}>
-                                <TeamRowPicklist2025 index={index + 1} team={item} allTeams={teamAverages} dnp={moveDown} mode={mode} teamClick={showTeamMatchByMatch}></TeamRowPicklist2025>
+                                <TeamRowPicklist2025 index={index + 1} team={item} allTeams={teamAverages} dnp={moveDown} mode={mode} teamClick={showTeamMatchByMatch} isHidden={columnsToShow}></TeamRowPicklist2025>
                             </tr>
                         ))}
                     </tbody>
@@ -286,6 +365,15 @@ export default function Picklist2025() {
                 cancelText="Cancel"
                 cancelOnClick={() => {
                     setShowConfirmation(false);
+                }}
+            />
+            <RRModal
+                title={"Show/Hide Columns"}
+                body={<ColumnSelectorPopup2025 columnsSelection={columnsToShow} setColumnsSelection = {ChangeValue} />}
+                showModal={showSelectorColumnPopUp}
+                onHide={() => {
+                    setShowSelectorColumnPopUp(false);
+                    saveColumns()
                 }}
             />
         </div>
