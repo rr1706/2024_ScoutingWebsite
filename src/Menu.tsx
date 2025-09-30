@@ -3,10 +3,12 @@ import { NavDropdown, Navbar, Nav } from "react-bootstrap";
 import EventSelector from "./Utils/EventSelector";
 import { useContext } from "react";
 import eventContext from "./Contexts/EventContexts";
+import TBAContext from "./Contexts/TBAContext";
 
 
 export default function Menu() {
     const { eventCode, updateEvent } = useContext(eventContext);
+    const { tbaCode, updatetbaCode } = useContext(TBAContext);
     return (
         <Navbar bg="light" expand="lg">
             <div className="container-fluid">
@@ -27,7 +29,6 @@ export default function Menu() {
                             <NavDropdown.Item as={Link} to="/matchdataimport">Match Data Import</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown className="navBarOptions px-3" title="Edit">
-{/*                            <NavDropdown.Item as={Link} to="/editmatch">Edit Match</NavDropdown.Item>*/}
                             <NavDropdown.Item as={Link} to="/verifymatchdata">Verify Match Data</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/verifyclimbs">Verify Climbs</NavDropdown.Item>
                         </NavDropdown>
@@ -44,7 +45,7 @@ export default function Menu() {
                             <small className="text-center align-middle Black">Event Code: {eventCode}</small>
                         </div>
                         <div className="me-4">
-                            <small className="text-center align-middle Black">TBA Code: PlaceHolder</small>
+                            <small className="text-center align-middle Black">TBA Code: {tbaCode}</small>
                         </div>
                     </>
                     : <></>

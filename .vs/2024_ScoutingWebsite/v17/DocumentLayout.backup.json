@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\VerifyMatchData\\VerifyMatchData.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\VerifyMatchData\\VerifyMatchData.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\ColumnSelectorPopUp2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Picklist\\ColumnSelectorPopUp2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\TeamDetails\\TeamDetails.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\TeamDetails\\TeamDetails.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\TeamRowPicklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Picklist\\TeamRowPicklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Picklist\\Picklist2025.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist.model.d.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Picklist\\Picklist.model.d.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Menu.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Menu.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,53 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VerifyMatchData.tsx",
-              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "RelativeDocumentMoniker": "src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "RelativeToolTip": "src\\VerifyMatchData\\VerifyMatchData.tsx",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Title": "TeamRowPicklist2025.tsx",
+              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\TeamRowPicklist2025.tsx",
+              "RelativeDocumentMoniker": "src\\Picklist\\TeamRowPicklist2025.tsx",
+              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\TeamRowPicklist2025.tsx",
+              "RelativeToolTip": "src\\Picklist\\TeamRowPicklist2025.tsx",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAYwGwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-08-12T01:01:33.846Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TeamDetails.tsx",
-              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\TeamDetails\\TeamDetails.tsx",
-              "RelativeDocumentMoniker": "src\\TeamDetails\\TeamDetails.tsx",
-              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\TeamDetails\\TeamDetails.tsx",
-              "RelativeToolTip": "src\\TeamDetails\\TeamDetails.tsx",
-              "ViewState": "AgIAADQAAAAAAAAAAAAQwKAAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-08-12T00:41:32.434Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Picklist2025.tsx",
-              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist2025.tsx",
-              "RelativeDocumentMoniker": "src\\Picklist\\Picklist2025.tsx",
-              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist2025.tsx",
-              "RelativeToolTip": "src\\Picklist\\Picklist2025.tsx",
-              "ViewState": "AgIAAKwAAAAAAAAAAADwvxwAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-08-12T00:39:24.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Picklist.model.d.ts",
-              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist.model.d.ts",
-              "RelativeDocumentMoniker": "src\\Picklist\\Picklist.model.d.ts",
-              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist.model.d.ts",
-              "RelativeToolTip": "src\\Picklist\\Picklist.model.d.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-08-12T00:18:39.473Z",
+              "WhenOpened": "2025-08-19T00:46:09.135Z",
               "EditorCaption": ""
             },
             {
@@ -95,27 +40,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ColumnSelectorPopUp2025.tsx",
-              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\ColumnSelectorPopUp2025.tsx",
-              "RelativeDocumentMoniker": "src\\Picklist\\ColumnSelectorPopUp2025.tsx",
-              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\ColumnSelectorPopUp2025.tsx",
-              "RelativeToolTip": "src\\Picklist\\ColumnSelectorPopUp2025.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAApAAAAAAAAAA==",
+              "Title": "Picklist2025.tsx",
+              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist2025.tsx",
+              "RelativeDocumentMoniker": "src\\Picklist\\Picklist2025.tsx",
+              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Picklist\\Picklist2025.tsx",
+              "RelativeToolTip": "src\\Picklist\\Picklist2025.tsx",
+              "ViewState": "AgIAACYBAAAAAAAAAAAiwDsBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-08-11T23:45:25.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Menu.tsx",
-              "DocumentMoniker": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Menu.tsx",
-              "RelativeDocumentMoniker": "src\\Menu.tsx",
-              "ToolTip": "C:\\Users\\Scouting\\Source\\repos\\rr1706\\2024_ScoutingWebsite\\src\\Menu.tsx",
-              "RelativeToolTip": "src\\Menu.tsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-08-05T00:19:21.392Z",
+              "WhenOpened": "2025-08-12T00:39:24.584Z",
               "EditorCaption": ""
             }
           ]

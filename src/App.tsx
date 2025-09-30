@@ -11,12 +11,14 @@ import AuthenticationContext from './Auth/AuthenticationContext';
 import eventContext from './Contexts/EventContexts';
 import { retrieveItem } from './Utils/LocalStorage';
 import configureInterceptor from './Utils/HttpInterceptors';
+import TBAContext from './Contexts/TBAContext';
 
 configureInterceptor();
 
 function App() {
     const [claims, setClaims] = useState<claim[]>([]);
     const [eventCode, setEventCode] = useState(retrieveItem('eventCode'));
+    const [tbaCode, setTbaCode] = useState(retrieveItem('tbacode'));
 
     useEffect(() => {
         setClaims(getClaims());
@@ -27,16 +29,18 @@ function App() {
             <AlertProvider timeouts={{ warning: 5000, success: 5000, danger: 5000 }}>
                 <AuthenticationContext.Provider value={{ claims, update: setClaims }}>
                     <eventContext.Provider value={{ eventCode, updateEvent: setEventCode }}>
-                        <Menu />
-                        <div className="container-fluid px-3">
-                            <AlertOutlet />
-                            <Routing />
-                        </div>
-                        <footer className="bd-footer py-5 mt-5 bg-light text-center">
-                            <div className="container RRBlue">
-                                RRScout {new Date().getFullYear().toString()}
+                        <TBAContext.Provider value={{ tbaCode, updatetbaCode: setTbaCode }}>
+                            <Menu />
+                            <div className="container-fluid px-3">
+                                <AlertOutlet />
+                                <Routing />
                             </div>
-                        </footer>
+                            <footer className="bd-footer py-5 mt-5 bg-light text-center">
+                                <div className="container RRBlue">
+                                    RRScout {new Date().getFullYear().toString()}
+                                </div>
+                            </footer>
+                        </TBAContext.Provider>
                     </eventContext.Provider>
                 </AuthenticationContext.Provider>
             </AlertProvider>

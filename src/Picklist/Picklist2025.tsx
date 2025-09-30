@@ -4,13 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import { Col, Row, Table } from "react-bootstrap";
 import { useAlert } from "react-bootstrap-hooks-alert";
 import eventContext from "../Contexts/EventContexts";
-import { urlPicklist, urlTeamAverages2025 } from "../endpoints";
+import { urlMatchData2025, urlPicklist, urlTeamAverages2025 } from "../endpoints";
 import Button from "../Utils/Button";
 import { dynamicSort } from "../Utils/HelperFunctions";
 import RRModal from "../Utils/RRModal";
 import { ColumnsSelectedDTO, PicklistOrderDTO } from "./Picklist.model";
 import ExportButton from "../Utils/ExportButton";
-import { TeamAveragesDTO_2025 } from "../Utils/Utils.models";
+import { TeamAveragesDTO_2025, matchDataDTO_2025 } from "../Utils/Utils.models";
 import TeamRowPicklist2025 from "./TeamRowPicklist2025";
 import TeamDetails from "../TeamDetails/TeamDetails";
 import { useBeforeunload } from 'react-beforeunload';
@@ -18,6 +18,7 @@ import ConfirmationDialog from "../Utils/ConfirmationDialog";
 import ColumnSelectorPopup2025 from "./ColumnSelectorPopUp2025";
 import { retrieveItem } from "../Utils/LocalStorage";
 import HideShow from "../Utils/HideShow";
+
 
 
 
@@ -36,6 +37,7 @@ export default function Picklist2025() {
         deepClimb: true
     };
     const [teamAverages, setTeamAverages] = useState<TeamAveragesDTO_2025[]>([]);
+    const [matchbyMatch, setMatchByMatch] = useState<matchDataDTO_2025[]>([]);
     const [order, setOrder] = useState<PicklistOrderDTO[]>([]);
     const [mode, setMode] = useState<string>(editMode);
     const [teamNumber, setTeamNumber] = useState<number>();
@@ -78,6 +80,15 @@ export default function Picklist2025() {
                         setDNPs(teamOrder, averages);
                     });
             });
+        axios.get(`${urlMatchData2025}/event`, {
+            params: {
+                eventID: eventCode,
+             },
+        })
+            .then((response: AxiosResponse<matchDataDTO_2025[]>) => {
+                let matchByMatch = response.data.sort(dynamicSort("matchNumber", false));
+                setMatchByMatch(matchByMatch);
+            })
     }
 
     function loadAverages() {
@@ -212,30 +223,35 @@ export default function Picklist2025() {
         <div className="container-fluid">
             <h3 className="text-center align-middle RRBlue">Picklist</h3>
 
-            <Row className="mb-3">
-                <Col xs={12} md={3} className="text-center align-middle mb-2 mb-md-0">
+            <Row className="mb-3" style={{ display: "flex", justifyContent: "space-between" }}>
+                <Col xs={12} md={3} className="d-flex justify-content-center align-items-center mb-2 mb-md-0" style={{ flex: 1 }}>
                     {mode === editMode ? (
-                        <Button className="btn btn-primary btn-block" onClick={() => setMode(allianceSelectionMode)}>
+                        <Button className="btn btn-primary w-100" onClick={() => setMode(allianceSelectionMode)}>
                             Change to Alliance Selection Mode
                         </Button>
                     ) : (
-                        <Button className="btn btn-primary btn-block" onClick={() => setMode(editMode)}>
+                        <Button className="btn btn-primary w-100" onClick={() => setMode(editMode)}>
                             Change to Edit Mode
                         </Button>
                     )}
                 </Col>
-                <Col xs={12} md={3} className="text-center align-middle mb-2 mb-md-0">
-                    <Button className="btn btn-primary btn-block" onClick={() => setShowConfirmation(true)}>
+                <Col xs={12} md={2} className="d-flex justify-content-center align-items-center mb-2 mb-md-0" style={{ flex: 1 }}>
+                    <Button className="btn btn-primary w-100" onClick={() => setShowConfirmation(true)}>
                         Save Picklist
                     </Button>
                 </Col>
-                <Col xs={12} md={3} className="text-center align-middle">
-                    <ExportButton className="btn btn-primary btn-block" data={teamAverages} workbookName={"Picklist"}>
+                <Col xs={12} md={2} className="d-flex justify-content-center align-items-center" style={{ flex: 1 }}>
+                    <ExportButton className="btn btn-primary w-100" data={teamAverages} workbookName={"Picklist"}>
                         Export Picklist
                     </ExportButton>
                 </Col>
-                <Col xs={12} md={3} className="text-center align-middle mb-2 mb-md-0">
-                    <Button className="btn btn-primary btn-block" onClick={() => setShowSelectorColumnPopUp(!showSelectorColumnPopUp)}>
+                <Col xs={12} md={2} className="d-flex justify-content-center align-items-center" style={{ flex: 1 }}>
+                    <ExportButton className="btn btn-primary w-100" data={matchbyMatch} workbookName={"MatchByMatch"}>
+                        Export Match By Match
+                    </ExportButton>
+                </Col>
+                <Col xs={12} md={3} className="d-flex justify-content-center align-items-center mb-2 mb-md-0" style={{ flex: 1 }}>
+                    <Button className="btn btn-primary w-100" onClick={() => setShowSelectorColumnPopUp(!showSelectorColumnPopUp)}>
                         Edit Columns
                     </Button>
                 </Col>

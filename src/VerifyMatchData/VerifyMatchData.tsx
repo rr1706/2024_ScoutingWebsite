@@ -90,6 +90,11 @@ export default function VerifyMatchData() {
                 })
         }
     }
+
+    function ignoreValidatedItem()
+    {
+        //Have the backend ignore the ignored validated item
+    }
     function ChangeValue(matchData: matchDataDTO_2025, newValue: any, field: string) {
         let copyMatchByMatch = [...matchByMatch]
         let newMatchData = copyMatchByMatch.find((x) => x.matchNumber === matchData.matchNumber && x.teamNumber === matchData.teamNumber)!
@@ -172,7 +177,18 @@ export default function VerifyMatchData() {
                                     </>
                                     : <>{matchByMatch.length}</>
                                 }
-
+                                <Accordion.Header className={match.allianceColor === 'Red' ? 'accordion-button-red' : 'accordion-button-blue'}>
+                                    <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
+                                        <span>
+                                            {"Match " + match.matchNumber + " " + match.field + " (Current: " + match.currentValue + ", Actual: " + match.correctValue + ")"}
+                                        </span>
+                                        <Button
+                                            className="btn btn-primary btn-sm ms-3"
+                                            style={{ padding: '2px 10px', fontSize: '0.9rem' }}
+                                            onClick={(e) => { e.stopPropagation(); ignoreValidatedItem(); }}
+                                        >Ignore</Button>
+                                    </div>
+                                </Accordion.Header>
                             </Row>
                             <Row className="m-3">
                                 <Button className="btn btn-primary btn-block" onClick={loadValidatedMatches}>Re-validate</Button>
